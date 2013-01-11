@@ -1,0 +1,20 @@
+<div class="block">
+<table width="60%">
+  Current Friends:
+  <% for friend in @all_friends %>
+    <tr>
+      <td>
+        <%#if friend.avatar_file_name.blank? %>
+          <%#= image_tag current_user.avatar.url(:default), :size => "80x80",  :style => "padding: 15px 0 0 10px;"%>
+         <%#= link_to(image_tag( 'default_thumbnail.png', :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+        <%#  else %>
+        <%= link_to(image_tag( friend.profile.user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+        <%#end%>
+        <br/>
+        <%= friend[:first_name]+" "+friend[:last_name]%>
+        <br/>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>

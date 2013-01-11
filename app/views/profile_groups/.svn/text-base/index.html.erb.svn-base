@@ -1,0 +1,38 @@
+<% @profile_groups.each do |profile_group| %>
+  <% @all_friends = ApplicationHelper.find_friends_in_group(profile_group.id) %>
+  <% if @all_friends.length >0 %>
+  <fieldset>
+    <legend><strong><%= profile_group.name %></strong></legend><br/>
+    <div class="add_dataset"><br/><br/>
+      <table>
+        <% for friend in @all_friends %>
+          <tr>
+            <td>
+                <%#if friend.avatar_file_name.blank? %>
+                  <%#= link_to(image_tag( 'default_thumbnail.png', :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+                <%# else %>
+                  <%= link_to(image_tag( friend.profile.user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+                <%#end%>
+               <br/>
+              <span style="margin-left: 3%;"/><%= friend[:first_name]+" "+friend[:last_name]%>
+              <br/>
+              <%= form_tag(remove_friend_profile_groups_path) do %>
+                <%= hidden_field_tag(:group_id, profile_group.id) %>
+                <%= hidden_field_tag(:friend_id, friend[:id]) %>
+                <%= submit_tag 'Remove Friend', :confirm => 'Are you sure?'%>
+              <%end%>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td colspan="3"><span style="float: right"/>
+              <%= link_to 'Edit group name', edit_profile_group_path(profile_group) %>
+            | <%= link_to 'Destroy group', profile_group, :confirm => 'Are you sure ?', :method => :delete %></td>
+        </tr>
+      </table>
+    </div>
+  </fieldset><br/>
+  <%end%>
+<%end%>
+<span style="margin-left: 70%"/><%= link_to 'Back', add_group_profile_groups_path %>
+ 

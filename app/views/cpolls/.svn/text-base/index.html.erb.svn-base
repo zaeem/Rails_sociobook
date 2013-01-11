@@ -1,0 +1,31 @@
+<h1>Listing cpolls</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Question</th>
+    <th>Allow options</th>
+    <th>Desc</th>
+    <th>Misc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cpolls.each do |cpoll| %>
+  <tr>
+    <td><%= cpoll.content_id %></td>
+    <td><%= cpoll.question %></td>
+    <td><%= cpoll.allow_options %></td>
+    <td><%= cpoll.desc %></td>
+    <td><%= cpoll.misc %></td>
+    <td><%= link_to 'Show', cpoll %></td>
+    <td><%= link_to 'Edit', edit_cpoll_path(cpoll) %></td>
+    <td><%= link_to 'Destroy', cpoll, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cpoll', new_cpoll_path %>

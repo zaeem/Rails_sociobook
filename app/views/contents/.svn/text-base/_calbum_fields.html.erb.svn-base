@@ -1,0 +1,2 @@
+<td><%= f.file_field :photo %></td>
+<td>Quality:<%= f.select :desc, [['Standard','Standard'],['High Resolution','High Resolution']]%></td>

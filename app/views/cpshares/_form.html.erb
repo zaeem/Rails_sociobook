@@ -1,0 +1,37 @@
+<%= form_for(@cpshare) do |f| %>
+  <% if @cpshare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cpshare.errors.count, "error") %> prohibited this cpshare from being saved:</h2>
+
+      <ul>
+      <% @cpshare.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cpoll_id %><br />
+    <%= f.text_field :cpoll_id %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_id %><br />
+    <%= f.text_field :profile_id %>
+  </div>
+  <div class="field">
+    <%= f.label :option %><br />
+    <%= f.text_field :option %>
+  </div>
+  <div class="field">
+    <%= f.label :isanswered %><br />
+    <%= f.check_box :isanswered %>
+  </div>
+  <div class="field">
+    <%= f.label :misc %><br />
+    <%= f.text_field :misc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

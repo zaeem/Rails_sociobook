@@ -1,0 +1,4 @@
+<div>
+Home Page
+<%# redirect_to ewall_contents_path(:id => current_user.profile.id ,:sk => 'status', :pv => 'w',  :vd => 0)  %>
+</div>    

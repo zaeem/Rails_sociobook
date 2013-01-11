@@ -1,0 +1,2 @@
+module FriendProfileGroupsHelper
+end

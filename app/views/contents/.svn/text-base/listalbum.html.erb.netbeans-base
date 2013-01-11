@@ -1,0 +1,59 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>All Albums</title>
+    <style>
+      html,body{margin:0;}
+      body{border-top:4px solid #000;}
+      .content{color:#777;font:12px/1.4 "helvetica neue",arial,sans-serif;width:620px;margin:20px auto;}
+      h1{font-size:12px;font-weight:normal;color:#ddd;margin:0;}
+      p{margin:0 0 20px}
+      a {color:#22BCB9;text-decoration:none;}
+      .cred{margin-top:20px;font-size:11px;}
+      /* This rule is read by Galleria to define the gallery height: */
+      #galleria{height:320px;}
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div id="galleria">
+        <ul id="sortable" style="list-style:none">
+          <%for album in getallalbums(params[:profile_id]) %>
+              <li style="display:inline;">
+                 <span style="margin-left: 10%;">
+                   <%= link_to(image_tag(album.cphotos.first.photo.url(:thumb), :size => "100x100"), valbum_contents_path(:vpid => 4,:vcid => album.id ) )%>
+                   <span style="font-size: 15px;"/><%= link_to album.name, "#", :id => "eablum"%>
+                   <span style="font-size: 10px;"/>Photos: <%= album.cphotos.length %>
+                 </span>
+
+                 <div id="ealbumview" style="display: none">
+                    <% @content = album %>
+                      <%= form_for(@content, :html => {:multipart => true }) do |f| %>
+                      <%= hidden_field_tag "return_address", request.query_string %>    
+                      <%= hidden_field_tag "from", "edit_album"%>
+                      <%= f.hidden_field :profile_id, { :value => @content.profile_id } %>
+                      <%= f.hidden_field :type_, { :value => @content.type_ } %>
+                      <% if content_defaultalbum_id(@content.profile.id) != @content %>
+                        Album Name:<%= f.text_field :name%><br/>
+                      <%end%>  
+                      Location/City:<%= f.text_field :desc%><br/>
+                      <span style="margin-left:30%">
+                        <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Private',1]]%>
+                        <%= f.submit "Update Album"%>
+                      </span>
+                  <% end %>
+                 </div>
+              </li>   
+           <% end %>
+        </ul>      
+      </div>
+    </div>
+
+    <script>
+      // Load the classic theme
+      Galleria.loadTheme('galleria.classic.js');
+      // Initialize Galleria
+      $('#galleria').galleria();
+    </script>
+  </body>
+</html>

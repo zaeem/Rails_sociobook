@@ -1,0 +1,16 @@
+<div class="block">
+<%= render :partial => 'shared/steps' %>
+
+
+  <h4>Upload Photo</h4>
+  <%= image_tag current_user.avatar.url(:thumb), :size => "100x100", :style => "float: left;    padding: 5px 5px 5px 15px;"%>
+  <% form_for :user, @user, :url => upload_picture_home_path, :html => { :multipart => true  } do |form| %>
+ <%= form.file_field :avatar %>
+  <%= form.submit "Save", :class=> "awesome" %>
+<br/><br/><br/><br/>
+ <%= link_to "back", new_profile_url, :class => "cornerButtonLeft" %>
+ <%= link_to "done", home_url, :class => "cornerButtonLeft" %>
+<%end%>
+ <br/><br/>
+ 
+ </div>

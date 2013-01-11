@@ -1,0 +1,20 @@
+<div class="add_dataset">
+  <table width="100%">  
+    <tr>
+      <td>
+        <span style="text-align:center"/><%= f.label :Website %></td>
+      <td><%= f.text_field :website %></td>
+    </tr>
+    <tr>
+      <td>
+        <span style="text-align:center"/><%= f.label :url %></td>
+      <td><%= f.text_field :url %></td>
+    </tr>
+    <tr>
+      <td colspan="3"><span style="float: right"/>
+        <%= link_to_remove_fields "Remove", f %>
+      </td>
+    </tr>
+  </table>
+</div>
+

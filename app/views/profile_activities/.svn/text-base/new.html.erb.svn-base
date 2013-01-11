@@ -1,0 +1,5 @@
+<h1>New profile_activity</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', profile_activities_path %>

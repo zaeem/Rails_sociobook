@@ -1,0 +1,224 @@
+<div style="margin-left: 10%"><br/><br/> 
+
+<%# user =  get_user(params[:id])%>
+<%# @profile = Profile.find(params[:id]) %>
+  
+    <%= form_for(@vprofile,:class => 'edit_profiles') do |f| %>
+      <table width="60%">  
+        <tr>
+          <td width="25%"><span style="text-align:center"/><%= f.label :current_city %></td>
+          <td width="70%"><%= f.autocomplete_field :contact_currentcity,  autocomplete_profile_contact_currentcity_home_path, :readonly => true %></td>
+        </tr>
+
+       <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :home_town %></td>
+          <td><%= f.text_field :contact_town, :readonly => true %></td>
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :Gender %></td>
+          <td><%= f.text_field :gender, :readonly => true%></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :interested_in %></td>
+          <td><%= f.text_field :interested_in, :readonly => true%></td>
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :birthdate %></td>
+          <td><%= f.text_field :birthdate, :readonly => true%></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="float: right"/><%= f.label :languages %></td>
+          <td><%= f.text_field :languages, :readonly => true%></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="float: right"/><%= f.label :about_me %></td>
+          <td><%= f.text_area :aboutme, :size => "28x8", :readonly => true%></td>
+        </tr>
+      </table>
+   
+      <table width="60%">  
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:left;"/><%= f.label :relation_status %></td>
+          <td><span style="float:left;"/><%= f.text_field :relation_status, :readonly => true%></td>
+        </tr>
+      </table>
+
+      <fieldset>
+        <legend><strong>Relationship</strong></legend><br/>   
+        <%= f.fields_for :profile_relations, do |builder| %>
+          <%= render "profile_relation_fields", :f => builder%>
+        <% end %>
+      </fieldset><br/><br/>
+      
+      <table width="60%">  
+        <tr>
+          <td width="25%"><span style="text-align:center"/><%= f.label :religion %></td>
+          <td width="70%"><%= f.text_field :religion_name, :readonly => true%></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :description %></td>
+          <td><%= f.text_field :religion_desc, :readonly => true %></td>
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :political_views %></td>
+          <td><%= f.text_field :political_views, :readonly => true %></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :description%></td>
+          <td><%= f.text_field :political_views_desc, :readonly => true %></td>
+        </tr>
+      </table>
+      <fieldset>
+        <legend><strong>Inspiration</strong></legend><br/>   
+        <%= f.fields_for :profile_ppl_inspirations do |builder| %>
+          <%= render "profile_ppl_inspiration_fields", :f => builder %>
+        <% end %>
+      </fieldset><br/><br/>
+      <table width="60%">  
+        <tr>
+          <td width="25%"><span style="text-align:center"/><%= f.label :favour_quotes %></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2"><span style="margin-left: 15%"/><%= f.text_area :favour_quotes,:size => "42x4", :readonly => true%></td>
+        </tr>
+        <tr>
+        </tr>
+      </table>
+    
+      
+    <fieldset>
+        <legend><strong>Employment</strong></legend><br/>   
+        <%= f.fields_for :profile_employers do |builder| %>
+          <%= render "profile_employer_fields", :f => builder %>
+        <% end %>
+     
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Education</strong></legend><br/>   
+        <%= f.fields_for :profile_universities do |builder| %>
+          <%= render "profile_university_fields", :f => builder %>
+        <% end %>
+       
+      
+    <fieldset>
+        <legend><strong>Music</strong></legend><br/>   
+        <%= f.fields_for :profile_musics do |builder| %>
+          <%= render "profile_music_fields", :f => builder %>
+        <% end %>
+        
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Book</strong></legend><br/>   
+        <%= f.fields_for :profile_books do |builder| %>
+          <%= render "profile_book_fields", :f => builder %>
+        <% end %>
+        
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Movie</strong></legend><br/>   
+        <%= f.fields_for :profile_movies do |builder| %>
+          <%= render "profile_movie_fields", :f => builder %>
+        <% end %>
+        
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Game</strong></legend><br/>   
+        <%= f.fields_for :profile_games do |builder| %>
+          <%= render "profile_game_fields", :f => builder %>
+           <% end %>
+        
+        <table width="60%">  
+        <tr>
+          <td>&nbsp;</td>
+          <td width="10%"><%= f.label :tv %></td>
+          <td><%= f.text_field :tv, :readonly => true%></td>
+        </tr>
+      </table>
+
+      <fieldset>
+        <legend><strong>Sport</strong></legend><br/>   
+        <%= f.fields_for :profile_play_sports do |builder| %>
+          <%= render "profile_play_sport_fields", :f => builder %>
+        <% end %>
+        
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Player</strong></legend><br/>   
+        <%= f.fields_for :profile_player_sports do |builder| %>
+          <%= render "profile_player_sport_fields", :f => builder %>
+        <% end %>
+        
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Team</strong></legend><br/>   
+        <%= f.fields_for :profile_team_sports do |builder| %>
+          <%= render "profile_team_sport_fields", :f => builder %>
+        <% end %>
+        
+      
+      <fieldset>
+        <legend><strong>Activities</strong></legend><br/>   
+        <%= f.fields_for :profile_activities do |builder| %>
+          <%= render "profile_activity_fields", :f => builder %>
+        <% end %>
+        
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Interests</strong></legend><br/>   
+        <%= f.fields_for :profile_interests do |builder| %>
+          <%= render "profile_interest_fields", :f => builder %>
+        <% end %>
+        
+      
+     <table width="60%">  
+        <tr>
+          <td width="25%"  style="border-bottom:1px solid #DDD;"><span style="text-align:center"/><%= f.label :email %></td>
+          <td width="30%"><%= f.text_field :contact_email, :readonly => true%></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :IM_Screen_Name %></td>
+          <td><%= f.text_field :contact_screenname, :readonly => true %></td>
+          <td><%= f.text_field :contact_messenger, :readonly => true %></td>
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :phone %></td>
+          <td><%= f.text_field :contact_phone %></td>
+          <td><%= f.select :contact_countrycode, [['Pakistan (+92)',92],['Canada (+2)',2],['India (+91)',91],
+              ['Russica (+6)',6],['US (+1)',1]]%></td> 
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :mobile %></td>
+          <td><%= f.text_field :contact_mobile %></td>
+          <td><%= f.select :contact_countrycode , [['Pakistan (+92)',92],['Canada (+2)',2],['India (+91)',91],
+              ['Russica (+6)',6],['US (+1)',1]]%></td>        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :address %></td>
+          <td><%= f.text_field :contact_address, :readonly => true  %></td> 
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :city_Town %></td>
+          <td><%= f.text_field :contact_town, :readonly => true  %></td> 
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :zip_Code %></td>
+          <td><%= f.text_field :contact_zipcode, :readonly => true  %></td> 
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :neighbour %></td>
+          <td><%= f.text_field :contact_neighbour, :readonly => true%></td> 
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :website %></td>
+          <td><%= f.text_field :contact_website, :readonly => true %></td> 
+        </tr>
+      </table>
+    <% end %>
+</div>

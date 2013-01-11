@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @album.profile_id %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @album.flag %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @album.name %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @album.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @album.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @album.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @album.is_default %>
+</p>
+
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

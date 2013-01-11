@@ -1,0 +1,36 @@
+Group Description
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_group.profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @profile_group.name %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @profile_group.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @profile_group.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_group.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @profile_group.is_default %>
+</p>
+
+<%= link_to 'Edit', edit_profile_group_path(@profile_group) %> |
+<%= link_to 'Back', profile_groups_path %>

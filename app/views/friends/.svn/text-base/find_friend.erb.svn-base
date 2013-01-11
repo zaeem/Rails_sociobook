@@ -1,0 +1,27 @@
+<div class="block">
+<table width="60%">
+  Find Friends:
+  <% i = 1 %>
+<% for friend in @find_friend do %>
+  <% if i%4 == 0 %>
+    <tr>
+  <%end%>
+
+  <%= form_tag("find_request_friend") do %>
+       <%= hidden_field_tag(:id, friend[:id]) %>
+      <td>
+        <%= link_to(image_tag( friend.profile.user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => friend.profile.id), :style =>"text-decoration: none;") %>
+           <br/>
+          <%= friend[:first_name]+" "+friend[:last_name]%>
+           <br/>
+          <%= submit_tag 'Send Request' %>
+        
+        </td>
+      <%end%>
+    <% if i%4 == 0 %>
+      </tr>
+    <% end %>
+    <%i +=1 %>
+<%end%>
+</table>
+  </div>

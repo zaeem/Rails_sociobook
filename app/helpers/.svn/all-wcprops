@@ -1,0 +1,323 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/dssdteam8/!svn/ver/287/sociobook/app/helpers
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/281/sociobook/app/helpers/application_helper.rb
+END
+cpoptions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/30/sociobook/app/helpers/cpoptions_helper.rb
+END
+cpolls_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/dssdteam8/!svn/ver/100/sociobook/app/helpers/cpolls_helper.rb
+END
+user_sessions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/user_sessions_helper.rb
+END
+profile_ppl_inspirations_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_ppl_inspirations_helper.rb
+END
+contacts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/contacts_helper.rb
+END
+groups_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/dssdteam8/!svn/ver/270/sociobook/app/helpers/groups_helper.rb
+END
+profile_books_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_books_helper.rb
+END
+profile_play_sports_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_play_sports_helper.rb
+END
+friends_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/friends_helper.rb
+END
+cadds_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/dssdteam8/!svn/ver/264/sociobook/app/helpers/cadds_helper.rb
+END
+pscreens_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/dssdteam8/!svn/ver/70/sociobook/app/helpers/pscreens_helper.rb
+END
+ccomments_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/dssdteam8/!svn/ver/235/sociobook/app/helpers/ccomments_helper.rb
+END
+profile_movies_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_movies_helper.rb
+END
+members_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/dssdteam8/!svn/ver/215/sociobook/app/helpers/members_helper.rb
+END
+contents_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/276/sociobook/app/helpers/contents_helper.rb
+END
+chats_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/dssdteam8/!svn/ver/287/sociobook/app/helpers/chats_helper.rb
+END
+recover_passwords_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/recover_passwords_helper.rb
+END
+user_profiles_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/user_profiles_helper.rb
+END
+home_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/home_helper.rb
+END
+profile_relations_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_relations_helper.rb
+END
+cpshares_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/dssdteam8/!svn/ver/30/sociobook/app/helpers/cpshares_helper.rb
+END
+error_messages_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/dssdteam8/!svn/ver/15/sociobook/app/helpers/error_messages_helper.rb
+END
+cphotos_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/dssdteam8/!svn/ver/184/sociobook/app/helpers/cphotos_helper.rb
+END
+albums_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/dssdteam8/!svn/ver/119/sociobook/app/helpers/albums_helper.rb
+END
+pcomments_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/dssdteam8/!svn/ver/264/sociobook/app/helpers/pcomments_helper.rb
+END
+csharedwiths_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/139/sociobook/app/helpers/csharedwiths_helper.rb
+END
+pneighbours_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/dssdteam8/!svn/ver/70/sociobook/app/helpers/pneighbours_helper.rb
+END
+profile_employer_projects_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_employer_projects_helper.rb
+END
+password_resets_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/password_resets_helper.rb
+END
+pwebsites_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/70/sociobook/app/helpers/pwebsites_helper.rb
+END
+profiles_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profiles_helper.rb
+END
+profile_groups_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_groups_helper.rb
+END
+layout_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/dssdteam8/!svn/ver/15/sociobook/app/helpers/layout_helper.rb
+END
+profile_games_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_games_helper.rb
+END
+friend_profile_groups_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/15/sociobook/app/helpers/friend_profile_groups_helper.rb
+END
+profile_interests_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_interests_helper.rb
+END
+user_profile_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/user_profile_helper.rb
+END
+pphones_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/dssdteam8/!svn/ver/70/sociobook/app/helpers/pphones_helper.rb
+END
+clinks_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/dssdteam8/!svn/ver/30/sociobook/app/helpers/clinks_helper.rb
+END
+cvideos_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/dssdteam8/!svn/ver/30/sociobook/app/helpers/cvideos_helper.rb
+END
+ctags_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/dssdteam8/!svn/ver/160/sociobook/app/helpers/ctags_helper.rb
+END
+cevents_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/dssdteam8/!svn/ver/264/sociobook/app/helpers/cevents_helper.rb
+END
+profile_universities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_universities_helper.rb
+END
+profile_employers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_employers_helper.rb
+END
+cstatuses_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/30/sociobook/app/helpers/cstatuses_helper.rb
+END
+profile_activities_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_activities_helper.rb
+END
+profile_musics_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_musics_helper.rb
+END
+profile_player_sports_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_player_sports_helper.rb
+END
+pemails_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/dssdteam8/!svn/ver/70/sociobook/app/helpers/pemails_helper.rb
+END
+users_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/users_helper.rb
+END
+profile_team_sports_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_team_sports_helper.rb
+END
+profile_university_classes_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/dssdteam8/!svn/ver/3/sociobook/app/helpers/profile_university_classes_helper.rb
+END

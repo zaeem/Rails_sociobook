@@ -1,0 +1,20 @@
+<br/><br/>
+<%= form_for(@profile_group) do |f| %>
+  <fieldset>
+    <legend><strong>Edit Group</strong></legend><br/>
+    <div class="add_dataset"><br/><br/>
+      <table>
+        <tr>
+          <td width="25%"><span style="text-align:center"/><%= f.label :name %> </td>
+          <td> <%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><span style="float: right"/>
+            <%= f.submit "Edit Group"%> </td>
+        </tr>
+      </table>
+    </div>
+  </fieldset>
+<%end%>
+<span style="margin-left: 80%; border-bottom:1px solid #DDD;">
+  <%= link_to 'Back', profile_groups_path %></span>

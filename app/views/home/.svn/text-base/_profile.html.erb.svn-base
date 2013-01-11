@@ -1,0 +1,7 @@
+<ul>
+<% for profile in @profiles do %>
+<li>
+<div><%=h profile.contact_currentcity %></div>
+</li>
+<% end %>
+</ul>

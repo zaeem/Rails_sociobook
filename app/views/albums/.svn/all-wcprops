@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/dssdteam8/!svn/ver/119/sociobook/app/views/albums
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/dssdteam8/!svn/ver/119/sociobook/app/views/albums/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/119/sociobook/app/views/albums/show.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/119/sociobook/app/views/albums/edit.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/dssdteam8/!svn/ver/119/sociobook/app/views/albums/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/dssdteam8/!svn/ver/119/sociobook/app/views/albums/index.html.erb
+END

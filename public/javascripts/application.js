@@ -1,0 +1,168 @@
+// Place your application-specific JavaScript functions and classes here
+// This file is automatically included by javascript_include_tag :defaults
+
+function remove_fields(link) {
+    $(link).prev("input[type=hidden]").val("1");
+    $(link).closest(".add_dataset").hide();
+}
+
+function add_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $(link).parent().before(content.replace(regexp, new_id));
+}
+
+function add_like_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $(link).next().next().after(content.replace(regexp, new_id));
+}
+
+function add_comment_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $(link).next().after(content.replace(regexp, new_id));
+}
+
+function add_like_without_share_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $(link).next().after(content.replace(regexp, new_id));
+}
+
+function add_comment_without_share_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $(link).after(content.replace(regexp, new_id));
+}
+
+
+function share(val) {
+    var ctrl = document.getElementsByName("sharing")[val];
+    $(ctrl).dialog({title: 'Sharing...',width: 600});  
+}
+
+function view_photo(val) {
+     $("div.pcontainer").hide();
+     var targetContainer = document.getElementsByName("toggle_pcontainer")[val];
+     $(targetContainer).slideToggle("slow");
+}
+
+function view_album(val) {
+     $("div.acontainer").hide();
+     var targetContainer = document.getElementsByName("toggle_acontainer")[val];
+     $(targetContainer).slideToggle("slow");
+}
+
+function view_video(val) {
+     $("div.vcontainer").hide();
+     var targetContainer = document.getElementsByName("toggle_vcontainer")[val];
+     $(targetContainer).slideToggle("slow");
+}
+
+function like(val) {
+    var ctrl = document.getElementsByName("liking")[val];
+    $(ctrl).dialog({title: 'People Like...',width: 300, height:90});  
+}
+
+function dislike(val) {
+    var ctrl = document.getElementsByName("disliking")[val];
+    $(ctrl).dialog({title: 'People Dislike...',width: 300, height:90});  
+}
+
+$(document).ready(function() {
+    global_counter = 0;
+    $("div.pcontainer").hide();
+    $("div.acontainer").hide();
+    $("div.vcontainer").hide(); 
+    $("div.onload").show();
+    
+    $('input,textarea').focus( function() {
+        $(this).css('border-color', '#006699');
+    });
+    $('input,textarea').blur( function() {
+        $(this).css('border-color','#ccc');
+    });
+
+    $('#eablum').click(function(){
+         $('#ealbumview').dialog({title: 'Edit Album...',width: 600});   
+    });
+  
+    $('#tag_friends').click(function(){
+         $('#tagging_friends').dialog({title: 'Tag Friends...',width: 600});   
+    });
+  
+    $('#edesc_ablum').click(function(){
+         $('#edesc_albumview').dialog({title: 'Add description...',width: 450});   
+    });
+
+    $('#upload').click(function(){
+       $('#loading').dialog({title: 'Upload Video...'});   
+    });
+
+    $('#cgroup').click(function(){
+       $('#creategroup').dialog({title: 'Create Group...',width: 450});   
+    });
+
+  	$('#fgroup').click(function(){
+       $('#addfgroup').dialog({title: 'Add Friends to Group...',width: 450});   
+    });
+
+	$('#editgroup').click(function(){
+       $('#edit_group').dialog({title: 'Edit Group Settings',width: 450});   
+    });
+
+     $('#leavegroup').click(function(){
+       $('#leave_group').dialog({title: 'Leave Group ?',width: 450});   
+     });
+
+
+    $('#webvideo').click(function(){
+       window.location.reload();   
+    });
+
+
+    $('#clickquestion').click(function(){
+        $('#question').dialog({
+            title: 'Ask Question to friends',
+            buttons: {"OK":function() { 
+                    $(this).dialog("close");
+                }
+            }
+        })
+    });
+});
+
+$(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+});
+
+function share_view(value) {
+    if (value=="On your own Wall") {
+	show_visibility("own_view", "visible");
+        show_visibility("friend_view", "hidden");
+    } else if (value=="On a Friend's Wall"){
+        show_visibility("own_view", "hidden");
+        show_visibility("friend_view", "visible");
+    }
+}
+
+//function show_visibility(id, display) {
+//    alert(id);
+//    var obj = document.getElementByName(id)[0];
+//    if (obj.style.visibility== display) {
+//	obj.style.visibility = "visible";
+//    } else {
+//	obj.style.visibility = "hidden";
+//    }
+//}
+
+function showMe(id) { // This gets executed when the user clicks on the checkbox
+    var obj = document.getElementById(id);
+    if (obj.style.visibility=="hidden") { // if it is checked, make it visible, if not, hide it
+        obj.style.visibility = "visible";
+    } else {
+        obj.style.visibility = "hidden";
+    }
+            }

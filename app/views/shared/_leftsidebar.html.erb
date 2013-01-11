@@ -1,0 +1,110 @@
+<% if @main_menus %>  
+  <div id="sidebar">
+    <%= link_to(image_tag( current_user.avatar.url(:thumb), :size => "100x100"),  ewall_contents_path(:id => current_user.profile.id ,:sk => 'status' , :pv => 'w', :vd => 0)) %>
+    <br/>
+    <%= link_to "Edit Profile", eprofile_home_url( :sk => 'basic'), :style =>"text-decoration: none;" %>
+    <ul>
+      <br/><br/>
+      <%= link_to "Welcome", ewall_contents_path(:id => current_user.profile.id ,:sk => 'status', :pv => 'f',  :vd => 0)%> <br/> <br/>
+      <%= link_to "News Feed", ewall_contents_path(:id => current_user.profile.id ,:sk => 'status', :pv => 'f',  :vd => 0)%><br/><br/>
+      <%= link_to "Messages"%><br/><br/>
+      <%= link_to "Events"%><br/><br/>
+
+      <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+
+      <%= link_to "Find Friends", find_friend_friends_path%><br/><br/>
+      <%= link_to "Friends", import_contact_friends_path%><br/><br/>
+
+      <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+      <%= link_to "Create Group", egroup_groups_path%><br/><br/>
+      <%= link_to "Groups", listgroup_groups_path(:id => current_user.profile.id)%><br/><br/>
+      <%= link_to "Lists", add_group_profile_groups_path%><br/><br/>
+      <%= link_to "Games Request"%>
+
+       <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+       
+     <%  unless params[:id].blank? %>
+      <% for groupnew in findgroups(params[:id]) %>
+        
+          <%= hidden_field_tag(:id, groupnew[:id]) %>
+          <% group_id = groupnew[:id] %>
+          <%= link_to(image_tag( 'default_group.png', :size => "25x25"), ewall_contents_path(:id => current_user.profile.id ,:sk => 'status' , :pv => 'g', :vd => group_id)) %>
+        <br/>
+        <%=groupnew[:name] %>
+        <br/>
+
+    <% end %>
+        <%end%>
+    </ul>
+  </div> 
+<% elsif @edit_menus %>
+  <div id="sidebar">
+    <ul>
+      <%= link_to "Basic Information", eprofile_home_url( :sk => 'basic') %><br/><br/>
+      <%= link_to "Profile Picture", eprofile_home_url( :sk => 'picture')%><br/><br/>
+      <%= link_to "Friends and Family", eprofile_home_url( :sk => 'relationships')%><br/><br/>
+      <%= link_to "Eduction and Work", eprofile_home_url( :sk => 'eduwork')%><br/><br/>
+      <%= link_to "Philosophy", eprofile_home_url( :sk => 'philosophy')%><br/><br/>
+      <%= link_to "Art and Enterainment", eprofile_home_url( :sk => 'entertainment')%><br/><br/>
+      <%= link_to "Sports", eprofile_home_url( :sk => 'sports')%><br/><br/>
+      <%= link_to "Activities and Interests", eprofile_home_url( :sk => 'activities')%><br/><br/>
+      <%= link_to "Contact Information", eprofile_home_url( :sk => 'contact')%><br/><br/>
+    </ul>
+  </div> 
+<% elsif @wall_menus %>
+  <div id="sidebar">
+    <%= image_tag(@vuser.avatar.url(:thumb), :size => "100x100", :style =>"text-decoration: none;") %>    <br/>
+    <%= @vuser.first_name + " " +  @vuser.last_name %>
+    <ul>
+      <br/><br/>
+      <%= link_to "Wall", ewall_contents_path(:id => @vuser.profile.id ,:sk => 'status' , :pv => 'w', :vd => 1) %><br/><br/>
+      <%= link_to "Info", vprofile_home_url( :id => @vuser.profile.id )%><br/><br/>
+      <%= link_to "Photos", listalbum_contents_path( :profile_id => @vuser.profile.id)%><br/><br/>
+      <%= link_to "Notes", vprofile_home_url( :id => @vuser.profile.id )%><br/><br/>
+      <%= link_to "Questions", ewall_contents_path(:id => @vuser.profile.id ,:sk => 'question' , :pv => 'w', :vd => 1)%><br/><br/>
+      <%= link_to "Friends", show_friend_friends_path, :style =>"text-decoration: none;" %><br/><br/>
+      <%= link_to "Friend Suggestion", fetch_friends_suggestion_friends_path, :style =>"text-decoration: none;"%><br/><br/>
+    </ul>
+     <%#*<li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>%>
+     <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+   
+    <% for friend in find_all_friends %>
+       <%= link_to(image_tag(friend.avatar.url(:thumb), :size => "50x50"),  vprofile_home_url( :id => friend.profile.id), :style =>"text-decoration: none;") %>
+
+        <%#= hidden_field_tag(:id, friend[:id]) %>
+        <%# group_id = group[:id] %>
+         <%#= link_to(image_tag( 'default_thumbnail.png', :size => "25x25"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+        <%=friend[:first_name]+" "+friend[:last_name]%>
+       <%#=group[:name] %>
+      <br/>
+  <% end %>
+  </div>
+<% elsif @manage_menus %>
+  <div id="sidebar">
+    <%= image_tag(@vuser.avatar.url(:thumb), :size => "100x100", :style =>"text-decoration: none;") %>    <br/>
+    <%= @vuser.first_name + " " +  @vuser.last_name %>
+    <ul>
+      <br/><br/>
+      <%= link_to "Friends", list_friend_friends_path %><br/><br/>
+      <%= link_to "Requests", pending_request_friend_friends_path %><br/><br/>
+      <%= link_to "Contacts", listalbum_contents_path( :profile_id => @vuser.profile.id)%><br/><br/>
+    </ul>
+     <%#*<li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>%>
+     <br/> <br/> <br/><li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+  </div>
+<% elsif @vgroup_menus %>
+  <div id="sidebar">
+    <%= image_tag(@vuser.avatar.url(:thumb), :size => "100x100", :style =>"text-decoration: none;") %>    <br/>
+    <%= @vuser.first_name + " " +  @vuser.last_name %>
+    <ul>
+      <br/><br/>
+      <%= link_to "Basic Information", vgroup_groups_path(:gid => params[:gid] ,:pv => 'w') %><br/><br/>
+      <%= link_to "Profile  Information", vgroup_groups_path(:gid => params[:gid] ,:pv => 'f') %><br/><br/>
+      <%= link_to "Members", vgroup_groups_path(:gid => params[:gid] ,:pv => 'g')%><br/><br/>
+    </ul>
+     <%#*<li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>%>
+     <br/> <br/> <br/><li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+  </div>
+
+<% end %>
+

@@ -1,0 +1,177 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :yahoo_id %><br />
+    <%= f.text_field :yahoo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :yahoo_pass %><br />
+    <%= f.text_field :yahoo_pass %>
+  </div>
+  <div class="field">
+    <%= f.label :hotmail_id %><br />
+    <%= f.text_field :hotmail_id %>
+  </div>
+  <div class="field">
+    <%= f.label :hotmail_pass %><br />
+    <%= f.text_field :hotmail_pass %>
+  </div>
+  <div class="field">
+    <%= f.label :gmail_id %><br />
+    <%= f.text_field :gmail_id %>
+  </div>
+  <div class="field">
+    <%= f.label :gmail_pass %><br />
+    <%= f.text_field :gmail_pass %>
+  </div>
+  <div class="field">
+    <%= f.label :skype_id %><br />
+    <%= f.text_field :skype_id %>
+  </div>
+  <div class="field">
+    <%= f.label :skype_pass %><br />
+    <%= f.text_field :skype_pass %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_currentcity %><br />
+    <%= f.text_field :contact_currentcity %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_email %><br />
+    <%= f.text_field :contact_email %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_screenname %><br />
+    <%= f.text_field :contact_screenname %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_messenger %><br />
+    <%= f.text_field :contact_messenger %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_phone %><br />
+    <%= f.text_field :contact_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_mobile %><br />
+    <%= f.text_field :contact_mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_countrycode %><br />
+    <%= f.text_field :contact_countrycode %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_zipcode %><br />
+    <%= f.text_field :contact_zipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_address %><br />
+    <%= f.text_field :contact_address %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_town %><br />
+    <%= f.text_field :contact_town %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_neighbour %><br />
+    <%= f.text_field :contact_neighbour %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_website %><br />
+    <%= f.text_field :contact_website %>
+  </div>
+  <div class="field">
+    <%= f.label :tv %><br />
+    <%= f.text_field :tv %>
+  </div>
+  <div class="field">
+    <%= f.label :favour_quotes %><br />
+    <%= f.text_field :favour_quotes %>
+  </div>
+  <div class="field">
+    <%= f.label :political_views %><br />
+    <%= f.text_field :political_views %>
+  </div>
+  <div class="field">
+    <%= f.label :political_views_desc %><br />
+    <%= f.text_field :political_views_desc %>
+  </div>
+  <div class="field">
+    <%= f.label :total_friends %><br />
+    <%= f.text_field :total_friends %>
+  </div>
+  <div class="field">
+    <%= f.label :featured_friends %><br />
+    <%= f.text_field :featured_friends %>
+  </div>
+  <div class="field">
+    <%= f.label :religion %><br />
+    <%= f.text_field :religion %>
+  </div>
+  <div class="field">
+    <%= f.label :religion_name %><br />
+    <%= f.text_field :religion_name %>
+  </div>
+  <div class="field">
+    <%= f.label :religion_logo %><br />
+    <%= f.text_field :religion_logo %>
+  </div>
+  <div class="field">
+    <%= f.label :religion_logo_path %><br />
+    <%= f.text_field :religion_logo_path %>
+  </div>
+  <div class="field">
+    <%= f.label :religion_desc %><br />
+    <%= f.text_field :religion_desc %>
+  </div>
+  <div class="field">
+    <%= f.label :show_birthdate %><br />
+    <%= f.check_box :show_birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label :show_gender %><br />
+    <%= f.check_box :show_gender %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :relation_status %><br />
+    <%= f.text_field :relation_status %>
+  </div>
+  <div class="field">
+    <%= f.label :interested_in %><br />
+    <%= f.text_field :interested_in %>
+  </div>
+  <div class="field">
+    <%= f.label :languages %><br />
+    <%= f.text_field :languages %>
+  </div>
+  <div class="field">
+    <%= f.label :aboutme %><br />
+    <%= f.text_field :aboutme %>
+  </div>
+  <div class="field">
+    <%= f.label :birthdate %><br />
+    <%= f.date_select :birthdate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

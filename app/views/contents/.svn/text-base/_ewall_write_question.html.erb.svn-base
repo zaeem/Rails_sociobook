@@ -1,0 +1,19 @@
+<%= form_for content, :url => { :action => "create_poll" } do |f| %>
+  <%= hidden_field_tag "return_address", request.query_string %>
+  <%= f.hidden_field :type_, { :value => "question" } %>
+  <%= f.hidden_field :profile_id, { :value => v_profile.id } %>
+  <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+  <%= f.hidden_field :group_id, { :value => vd } %>
+
+  <%= f.hidden_field :album_id, { :value => current_user.profile.default_album_content } %>
+  <%= f.hidden_field :flag, { :value => 2 } %>
+
+  <%= f.fields_for :cpoll do |builder| %>
+    <%= render "cpoll_fields", :f => builder %>
+  <% end %>
+  <span style="margin-left: 30%;"/>
+  <% all_friends = find_all_friends %>
+  <%=select_tag 'friend_ids[]', options_for_select(
+    all_friends.map {|f| [f.first_name+" "+f.last_name, f.id]}), :multiple => true, :size => 2%>
+  <%= f.submit "Ask Question"%>
+<% end %>

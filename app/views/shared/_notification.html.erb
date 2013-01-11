@@ -1,0 +1,56 @@
+<%- if user_signed_in? -%>
+ <%= link_to image_tag("notification.png"), "#", :class => "clicknotify"%>
+  <div id="notification-container">
+    <ul style="list-style:none; margin-top:5%;background-color: gainsboro;">
+      <%for notification in get_content_notifications%>
+        <%@user = User.find(1) #get_userfirst(notification.poster_id)%>
+        <li style="border-bottom:1px solid #FFF;">
+          <% @user =current_user %>
+          <%= link_to image_tag(@user.avatar.url(:thumb), :size => "25x25"), ewall_contents_path(:id => current_user.profile.id ,:sk => notification.type_ , :pv => 'w', :vd => 1)%>
+          <span style="font-size: 14px; font-weight: bold"/><%=@user.first_name+" "+ @user.last_name%>
+          <span style="font-size: 9px;"/>  posted  <span style="font-size: 12px;"/><%=  notification.type_%><br/>
+          <span style="font-size: 9px;"/><%= time_ago_in_words(notification.created_at, true) %>
+        </li>
+      <% end %>
+
+      <%for comment in get_comment_notifications%>
+        <%@user = get_userfirst(comment.profile_id)%>
+        <li style="border-bottom:1px solid #FFF;">
+          <%if comment.type_ == "phototag"%> 
+            <%= link_to image_tag(@user.avatar.url(:thumb), :size => "25x25"), tag_photo_contents_path(:id => comment.misc ,:vpid => current_user.profile.id , :comment_id => comment.id)%>
+            <span style="font-size: 14px; font-weight: bold"/><%=@user.first_name+" "+ @user.last_name%>
+            <span style="font-size: 9px;"/>  tag you on  <span style="font-size: 12px;"/>WallPhoto<br/>            
+          <%elsif comment.type_ == "statustag"%>
+            <%= link_to image_tag(@user.avatar.url(:thumb), :size => "25x25"), ewall_contents_path(:id => current_user.profile.id ,:sk => 'status' , :pv => 'w', :vd => 1)%>
+            <span style="font-size: 14px; font-weight: bold"/><%=@user.first_name+" "+ @user.last_name%>
+            <span style="font-size: 9px;"/>  tag you on  <span style="font-size: 12px;"/>Status<br/>            
+          <%end%>
+          <span style="font-size: 9px;"/><%= time_ago_in_words(comment.created_at, true) %>
+        </li>
+      <% end %> 
+    </ul>
+  </div> 
+<%- end -%>
+<script>
+  $('#notification-container').hide();
+  $('.clicknotify').click(function() {
+    var targetContainer = document.getElementById("notification-container");
+    $(targetContainer).slideToggle("slow");
+    if (targetContainer.is(':visible') ){
+      targetContainer.hide();
+    }
+    else{
+      targetContainer.slideToggle("show");
+    }
+
+<%#*var targetContainer = $(this).toggleClass("active").next();%>
+    <%#*if (targetContainer.is(':visible') ){%>
+      <%#*targetContainer.hide();%>
+    <%#*}%>
+    <%#*else{%>
+      <%#*targetContainer.slideToggle("show");%>
+    <%#*}%>
+  });
+</script>
+
+

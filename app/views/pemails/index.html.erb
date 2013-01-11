@@ -1,0 +1,27 @@
+<h1>Listing pemails</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Email</th>
+    <th>Type </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pemails.each do |pemail| %>
+  <tr>
+    <td><%= pemail.profile_id %></td>
+    <td><%= pemail.email %></td>
+    <td><%= pemail.type_ %></td>
+    <td><%= link_to 'Show', pemail %></td>
+    <td><%= link_to 'Edit', edit_pemail_path(pemail) %></td>
+    <td><%= link_to 'Destroy', pemail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pemail', new_pemail_path %>

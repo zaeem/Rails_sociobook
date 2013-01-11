@@ -1,0 +1,43 @@
+
+<div class="block"> <h2> Advertise on Sociobook </h2> <br/></div>
+
+<div class="block">
+
+  <%= form_for(@content ,:html => {:multipart => true }) do |f1| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <%= f1.hidden_field :profile_id, { :value => current_user.profile.id } %>
+    <%= f1.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f1.hidden_field :type_, { :value => "cadd" } %>
+    <%= f1.hidden_field :group_id, { :value =>  params[:vd] } %>
+
+
+    <%= f1.fields_for :cadd do |f| %>
+      <div class="field">
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :link %><br />
+        <%= f.text_field :link %>
+      </div>
+      <div class="field">
+        <%= f.label :body %><br />
+        <%= f.text_field :body %>
+      </div>
+      <div class="field">
+        <%= f.label :ephoto_file_name %><br />
+        <td><%= f.file_field :ephoto %></td>
+      </div>
+      <div class="field">
+        <%= f.label :desc %><br />
+        <%= f.text_field :desc %>
+      </div>
+    <% end %>
+    <div class="actions">
+      <%= f1.submit "Create Advertisement" %>
+    </div>
+
+  <% end %>
+
+
+</div>

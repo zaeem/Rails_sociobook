@@ -1,0 +1,119 @@
+<div class="block">
+Find friends from different parts of your life
+  <p>Use the checkboxes below to discover people you know from your hometown, school, employer and more.</p>
+<table width="80%">
+    <%= form_tag("filter_friends_suggestion") do %>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Home Town:</td>
+        <td><input name="htown" type="text" size="35" maxlength="50"/></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Current City:</td>
+        <td><input name="curr_city" type="text" size="35" maxlength="50"/></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Employer:</td>
+        <td><input name="employer" type="text" size="35" maxlength="50"/></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>College or University</td>
+        <td><input name="university" type="text" size="35" maxlength="50"/></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Graduate School</td>
+        <td><input name="grad_school" type="text" size="35" maxlength="50"/></td>
+      </tr>
+
+       <tr>
+         <%#*<td>&nbsp;</td>%>
+          <%#*<td>&nbsp;</td>%>
+          
+          
+          <td>Mutual Friends</td>
+          <td>
+            <%for mf in find_all_friends%>
+            <tr>
+              <td>
+                <%=mf[:first_name]+" "+mf[:last_name]%>
+                <%#=check_box_tag "mf", mf.id%>
+                <%= check_box_tag "friend_ids[]", mf[:id] %>
+              </td>
+               </tr>
+              <% end -%>
+          </td>
+        <td><%= submit_tag 'Find' %></td>
+      </tr>
+    <% end %>
+</table>
+ 
+
+
+<table width="60%">
+  <% i = 1 %>
+
+  <% for friend in @sug_friend_list %>
+    <% if i%4 == 0 %>
+    <tr>
+  <%end%>
+  <%
+    if @special == false
+      user = friend[:user_obj]
+      user_id = user.id
+      #puts user_id
+      #puts user.inspect
+    end
+  %>
+  <%= form_tag("find_request_friend") do %>
+      <% if @special == false %>
+        <%= hidden_field_tag(:id, user_id) %>
+      <%else%>
+        <%= hidden_field_tag(:id, friend[:id]) %>
+      <%end%>
+      <% if @special == false %>
+      <td>
+        <%= link_to(image_tag(user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => user.profile.id), :style =>"text-decoration: none;") %>
+          <br/>
+          <%= user.first_name+" "+user.last_name%>
+          <% if (friend[:ctype] == "mutual") %>
+           <%= "[mutual friend]" %>
+          <% elsif (friend[:ctype] == "contact") %>
+           <%= "[contact friend]" %>
+          <% elsif (friend[:ctype] == "other") %>
+           <%= "[other friend]" %>
+          <%end%>
+           <br/>
+          <%= submit_tag 'Send Request' %>
+       </td>
+       <%else%>
+        <td>
+          <%if friend.avatar_file_name.blank? %>
+            <%= link_to(image_tag( 'default_thumbnail.png', :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+          <%  else %>
+            <%= link_to(image_tag( friend.profile.user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+          <%end%>
+           <br/>
+          <%= friend[:first_name]+" "+friend[:last_name]%>
+          <br/>
+            <%= submit_tag 'Send Request' %>
+         </td>
+       <%end%>
+      <%end%>
+    <% if i%4 == 0 %>
+      </tr>
+    <% end %>
+  <%i +=1 %>
+
+  <% end %>
+
+</table>
+</div>

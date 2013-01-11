@@ -1,0 +1,29 @@
+<h1>Listing pphones</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Phoneno</th>
+    <th>Type </th>
+    <th>Countrycode</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pphones.each do |pphone| %>
+  <tr>
+    <td><%= pphone.profile_id %></td>
+    <td><%= pphone.phoneno %></td>
+    <td><%= pphone.type_ %></td>
+    <td><%= pphone.countrycode %></td>
+    <td><%= link_to 'Show', pphone %></td>
+    <td><%= link_to 'Edit', edit_pphone_path(pphone) %></td>
+    <td><%= link_to 'Destroy', pphone, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pphone', new_pphone_path %>

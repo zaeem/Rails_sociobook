@@ -1,0 +1,5 @@
+<div id="cvideos" class = "cvideos"> 
+  <%= f.hidden_field :video_file_name, { :value => current_user.profile.id } %>
+  <%= f.hidden_field :video_content_type, { :value => "video/x-flv" } %>
+  <%#= f.label :Say_Something? %>
+<%#= f.text_field :title %>

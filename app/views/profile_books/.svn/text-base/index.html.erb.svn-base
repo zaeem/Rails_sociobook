@@ -1,0 +1,35 @@
+<h1>Listing profile_books</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Title</th>
+    <th>Auther</th>
+    <th>Logo</th>
+    <th>Logo path</th>
+    <th>Desc</th>
+    <th>Is default</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_books.each do |profile_book| %>
+  <tr>
+    <td><%= profile_book.profile_id %></td>
+    <td><%= profile_book.title %></td>
+    <td><%= profile_book.auther %></td>
+    <td><%= profile_book.logo %></td>
+    <td><%= profile_book.logo_path %></td>
+    <td><%= profile_book.desc %></td>
+    <td><%= profile_book.is_default %></td>
+    <td><%= link_to 'Show', profile_book %></td>
+    <td><%= link_to 'Edit', edit_profile_book_path(profile_book) %></td>
+    <td><%= link_to 'Destroy', profile_book, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile book', new_profile_book_path %>

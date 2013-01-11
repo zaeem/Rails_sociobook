@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @pscreen.profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @pscreen.name %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @pscreen.type_ %>
+</p>
+
+
+<%= link_to 'Edit', edit_pscreen_path(@pscreen) %> |
+<%= link_to 'Back', pscreens_path %>

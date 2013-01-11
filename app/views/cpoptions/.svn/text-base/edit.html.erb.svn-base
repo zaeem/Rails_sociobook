@@ -1,0 +1,6 @@
+<h1>Editing cpoption</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @cpoption %> |
+<%= link_to 'Back', cpoptions_path %>

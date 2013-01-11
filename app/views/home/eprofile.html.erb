@@ -1,0 +1,366 @@
+<div class="block">
+<div style="margin-left: 10%"><br/><br/> 
+<%#if user_signed_in? %>
+  <%if @sk == 'basic' %>
+    <%= form_for(@profile,:class => 'edit_profiles') do |f| %>
+      <%= hidden_field_tag "return_type", "basic" %>
+
+      <table width="60%">  
+
+
+        <tr>
+          <td width="25%"><span style="text-align:center"/><%= f.label :current_city %></td>
+          <td width="70%"><%= f.autocomplete_field :contact_currentcity,  autocomplete_profile_contact_currentcity_home_path %></td>
+        </tr>
+
+
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :home_town %></td>
+          <td class="whitetext"><%= f.autocomplete_field :contact_town, autocomplete_profile_contact_town_home_path %></td>
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :Gender %></td>
+          <td><%= f.select :gender, [['Male','Male'],['Female','Female']] %></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="float: right"/><%= f.check_box :show_gender %></td>
+          <td><%= f.label :show_my_gender %></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :interested_in %></td>
+          <td><%= f.select :interested_in, [['Men','Men'],['Women','Women']] %></td>
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :birthdate %></td>
+          <td><%= f.date_select :birthdate, :start_year => (Date.today.year - 100), :end_year => Date.today.year %></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="float: right"/><%= f.check_box :show_birthdate %></td>
+          <td><%= f.label :show_my_birthdate %></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="float: right"/><%= f.label :languages %></td>
+          <td><%= f.autocomplete_field :languages, autocomplete_profile_languages_home_path  %></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="float: right"/><%= f.label :about_me %></td>
+          <td><%= f.text_area :aboutme, :size => "28x8" %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><span style="margin-left: 50%"/><%= f.submit "update", :class => "awesome"%></td>
+        </tr>
+      </table>
+    <% end %>
+
+  <%elsif @sk == 'picture' %>  
+    <%= form_for :user, @user, :url => edit_picture_home_path, :html=>{:multipart => true} do |f| %>
+      <table width="5%">  
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><%= image_tag current_user.avatar.url(:thumb) ,:size => "100x100"%></td>      
+          <td><%= f.file_field :avatar%></td>
+          <td> <%= f.submit "Save Photo" , :class=> "awesome" %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Remove Picture", remove_picture_users_path(:return_path => eprofile_home_path(:sk => "picture")) %></td>
+          <td colspan="2"><span style ="float:right;"/><%= link_to "Take Photo", eprofile_home_url( :sk => 'webcam_picture') %></td>
+        </tr>
+      </table>
+    <% end %>
+
+  <%elsif @sk == 'webcam_picture' %>  
+
+    <div id="webcam"></div>   
+    <script type="text/javascript">
+      function upload_complete(msg) {
+        if (msg == 'ok') {
+          $('new_photo').show();
+          $('photo_description').focus();
+        } else {
+          alert('An error occured');
+          webcam.reset();
+        }
+      }
+  
+      webcam.set_swf_url('/webcam.swf');
+      webcam.set_api_url('<%= take_picture_home_path %>');
+      webcam.set_quality(90);
+      webcam.set_shutter_sound(true, '/shutter.mp3');
+      webcam.set_hook('onComplete', 'upload_complete');
+      document.getElementById('webcam').innerHTML = webcam.get_html(400, 400);
+    </script>
+
+    <%= form_for :user, @user, :url => edit_picture_home_path, :html=>{:multipart => true} do |f| %>   
+      <%= hidden_field_tag 'from', 'webcam_picture' %> 
+      <table width="5%"> 
+        <tr>
+          <td colspan="2"><input type="button" value="Take picture" onclick="webcam.snap();"/></td>      
+          <td> <%= f.submit "Save Photo", :class => "awesome"%></td>
+        </tr>
+
+      </table>
+    <% end %>
+
+
+  <%elsif @sk == 'relationships' %>
+    <%= form_for(@profile,:class => 'edit_profile') do |f| %>
+      <%= hidden_field_tag "return_type", "relationships" %>
+      <table width="60%">  
+        <tr style="border-bottom:1px solid #DDD;">
+          <td width="20%"><span style="text-align:left;"/><%= f.label :relation_status %></td>
+          <td><span style="margin-right: 20%;"/><%= f.select :relation_status , [['Single','Single'],['In a relation','In a relation'],
+              ['Engaged','Engaged'],['Married','Married'],['Divorced','Divorced'],['Separated','Separated']]%></td>
+        </tr>
+
+      </table>
+      <fieldset>
+        <legend><strong>Relationship</strong></legend><br/>   
+        <%= f.fields_for :profile_relations do |builder| %>
+          <%= render "profile_relation_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 60%; border-bottom:1px solid #DDD;">
+          <%= link_to_add_fields "Add Relation", f, :profile_relations %>
+        </span>
+      </fieldset><br/><br/>
+      <span style="margin-left: 65%"/><%= f.submit "update", :class => "awesome"%>
+      <br> </br>
+      <%= link_to " Create / Edit new list ", add_group_profile_groups_path%>
+
+    <% end %>
+
+
+  <%elsif @sk == 'philosophy' %>
+    <%= form_for(@profile,:class => 'edit_profile') do |f| %>
+      <%= hidden_field_tag "return_type", "philosophy" %>
+      <table width="60%">  
+        <tr>
+          <td width="25%"><span style="text-align:center"/><%= f.label :religion %></td>
+          <td width="70%"><%= f.autocomplete_field :religion_name, autocomplete_profile_religion_name_home_path %></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :description %></td>
+          <td><%= f.text_area :religion_desc %></td>
+        </tr>
+        <tr>
+          <td><span style="text-align:center"/><%= f.label :political_views %></td>
+          <td><%= f.text_field :political_views %></td>
+        </tr>
+        <tr style="border-bottom:1px solid #DDD;">
+          <td><span style="text-align:center"/><%= f.label :description%></td>
+          <td><%= f.text_area :political_views_desc %></td>
+        </tr>
+      </table>
+      <fieldset>
+        <legend><strong>Inspiration</strong></legend><br/>   
+        <%= f.fields_for :profile_ppl_inspirations do |builder| %>
+          <%= render "profile_ppl_inspiration_fields", :f => builder %>
+        <% end %>
+      </fieldset><br/><br/>
+      <span style="margin-left: 60%; border-bottom:1px solid #DDD;"> <%= link_to_add_fields "Add Another", f, :profile_ppl_inspirations %></span>
+      <table width="60%">  
+        <tr>
+          <td width="25%"><span style="text-align:center"/><%= f.label :favour_quotes %></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2"><span style="margin-left: 15%"/><%= f.text_area :favour_quotes, :size => "42x4" %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><span style="margin-left: 50%"/><%= f.submit "update", :class => "awesome" %></td>
+        </tr>
+      </table>
+    <% end %>
+
+  <%elsif @sk == 'eduwork' %>  
+    <%= form_for(@profile,:class => 'edit_profile') do |f| %>  
+      <%= hidden_field_tag "return_type", "eduwork" %>
+      <fieldset>
+        <legend><strong>Employment</strong></legend><br/>   
+        <%= f.fields_for :profile_employers do |builder| %>
+          <%= render "profile_employer_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 60%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Employer", f, :profile_employers %></span>
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Education</strong></legend><br/>   
+        <%= f.fields_for :profile_universities do |builder| %>
+          <%= render "profile_university_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 60%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add University", f, :profile_universities%></span>
+      </fieldset><br/><br/>
+      <span style="margin-left: 65%"/><%= f.submit "update", :class=> "awesome"%>
+    <% end %>
+
+  <%elsif @sk == 'entertainment' %>  
+    <%= form_for(@profile, :class => 'edit_profile') do |f| %>
+      <%= hidden_field_tag "return_type", "entertainment" %>
+      <fieldset>
+        <legend><strong>Music</strong></legend><br/>   
+        <%= f.fields_for :profile_musics do |builder| %>
+          <%= render "profile_music_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 65%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Music", f, :profile_musics %></span>
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Book</strong></legend><br/>   
+        <%= f.fields_for :profile_books do |builder| %>
+          <%= render "profile_book_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 65%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Book", f, :profile_books %></span>
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Movie</strong></legend><br/>   
+        <%= f.fields_for :profile_movies do |builder| %>
+          <%= render "profile_movie_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 65%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Movie", f, :profile_movies %></span>
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Game</strong></legend><br/>   
+        <%= f.fields_for :profile_games do |builder| %>
+          <%= render "profile_game_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 65%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Game", f, :profile_games %></span>
+      </fieldset><br/><br/>
+
+      <table width="60%">  
+        <tr>
+          <td>&nbsp;</td>
+          <td width="10%"><%= f.label :tv %></td>
+          <td><%= f.autocomplete_field :tv, autocomplete_profile_tv_home_path %></td>
+        </tr>
+      </table>
+
+      <span style="margin-left: 65%"/><%= f.submit "update", :class => "awesome" %>
+    <% end %>
+
+  <%elsif @sk == 'sports' %>  
+    <%= form_for(@profile,:class => 'edit_profile') do |f| %>
+      <%= hidden_field_tag "return_type", "sports" %>
+      <fieldset>
+        <legend><strong>Sport</strong></legend><br/>   
+        <%= f.fields_for :profile_play_sports do |builder| %>
+          <%= render "profile_play_sport_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Sports", f, :profile_play_sports %></span>    
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Player</strong></legend><br/>   
+        <%= f.fields_for :profile_player_sports do |builder| %>
+          <%= render "profile_player_sport_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Players", f, :profile_player_sports%></span>
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Team</strong></legend><br/>   
+        <%= f.fields_for :profile_team_sports do |builder| %>
+          <%= render "profile_team_sport_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Teams", f, :profile_team_sports %>
+      </fieldset><br/><br/>
+
+      <span style="margin-left: 65%"/><%= f.submit %>
+    <% end %>
+
+  <%elsif @sk == 'activities' %>  
+    <%= form_for(@profile,:class => 'edit_profile') do |f| %>
+      <%= hidden_field_tag "return_type", "activities" %>
+      <fieldset>
+        <legend><strong>Activities</strong></legend><br/>   
+        <%= f.fields_for :profile_activities do |builder| %>
+          <%= render "profile_activity_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Activities", f, :profile_activities %></span>
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Interests</strong></legend><br/>   
+        <%= f.fields_for :profile_interests do |builder| %>
+          <%= render "profile_interest_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Interests", f, :profile_interests %></span>   
+      </fieldset><br/><br/>
+
+      <span style="margin-left: 65%"/><%= f.submit "update", :class => "awesome" %>
+    <% end %>
+
+  <%elsif @sk == 'contact'%>  
+
+    <%= form_for(@profile,:class => 'edit_profile') do |f| %>
+      <%= hidden_field_tag "return_type", "contact" %>
+      <fieldset>
+        <legend><strong>Emails</strong></legend><br/>   
+        <span style="float:left"/>
+        <table width="60%">  
+          <tr>
+            <td width="10%"><%= f.label :email %></td>
+            <td width="30%"><%= f.text_field :contact_email  , { :value => current_user.email }  %></td>
+          </tr>
+        </table>
+
+        </span>
+        
+        <fieldset>
+          <legend><strong>Alternative Email</strong></legend><br/>   
+          <%= f.fields_for :pemails do |builder| %>
+            <%= render "pemail_fields", :f => builder %>
+          <% end %>
+          <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Email", f, :pemails %></span>   
+        </fieldset><br/><br/>
+        </span>
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>Phones</strong></legend><br/>   
+        <%= f.fields_for :pphones do |builder| %>
+          <%= render "pphone_fields", :f => builder %>   
+        <% end %>
+        <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Phone", f, :pphones %></span>   
+      </fieldset><br/><br/>
+
+      <table width="60%">  
+        <tr>
+          <td width="10%"><span style="text-align:center"/><%= f.label :address %></td>
+          <td width="30%"><%= f.text_field :contact_address %></td>
+        </tr>
+
+        <tr>
+          <td ><span style="text-align:center"/><%= f.label :city_Town %></td>
+          <td><%= f.text_field :contact_town %></td> 
+        </tr>
+
+        <tr>
+          <td style="border-bottom:1px solid #DDD;"><span style="text-align:center"/><%= f.label :zip_Code %></td>
+          <td width="30%"><%= f.text_field :contact_zipcode %></td>
+        </tr>
+      </table>
+
+      <fieldset>
+        <legend><strong>Neighbour</strong></legend><br/>   
+        <%= f.fields_for :pneighbours do |builder| %>
+          <%= render "pneighbour_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Neighbour", f, :pneighbours %></span>   
+      </fieldset><br/><br/>
+
+      <fieldset>
+        <legend><strong>WebSite</strong></legend><br/>   
+        <%= f.fields_for :pwebsites do |builder| %>
+          <%= render "pwebsite_fields", :f => builder %>
+        <% end %>
+        <span style="margin-left: 63%; border-bottom:1px solid #DDD;"><%= link_to_add_fields "Add Website", f, :pwebsites %></span>  
+      </fieldset><br/><br/>
+
+      <span style="margin-left: 65%"/><%= f.submit %>
+    <% end %>
+
+  <%else%>  
+    <div> not basic </div>    
+  <%end%>  
+</div>
+</div>

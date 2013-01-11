@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @cstatus.content_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @cstatus.title %>
+</p>
+
+<p>
+  <b>Text :</b>
+  <%= @cstatus.text_ %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @cstatus.desc %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @cstatus.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_cstatus_path(@cstatus) %> |
+<%= link_to 'Back', cstatuses_path %>

@@ -1,0 +1,47 @@
+<div class="add_dataset">
+  <table width="60%">  
+    <tr>
+      <td width ="10%"><%= image_tag("company_logo.png", :size => "50x50")%></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td> 
+      <td width ="10%" float="left"> <%= f.label :title %></td>
+      <td> <%= f.autocomplete_field :title, autocomplete_profile_employer_title_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :position %></td>
+      <td> <%= f.autocomplete_field :position, autocomplete_profile_employer_position_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :city %></td>
+      <td> <%= f.autocomplete_field :city, autocomplete_profile_employer_city_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :project%></td>
+      <td> <%= f.autocomplete_field :project, autocomplete_profile_employer_project_home_path %></td>
+
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :with %></td>
+      <td><%= f.autocomplete_field :with, autocomplete_profile_employer_with_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :description %></td>
+      <td><%= f.text_area :desc, :size => "28x3" %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float: right"/><%= f.check_box :iscurrent %></td>
+      <td> <%= f.label :current_working %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :duration %></td>
+      <td> From<%= f.date_select :duration, :start_year => (Date.today.year - 100), :end_year => Date.today.year %> <br/>To   <%= f.date_select :duration, :start_year => (Date.today.year - 100), :end_year => Date.today.year %>  </td>
+    </tr>
+    <tr>
+      <td colspan="3"><span style="float: right"/>
+        <%#*<button type="button" class="delete_div_btn">Remove</button>%>
+          <%= link_to_remove_fields "Remove", f %>
+      </td>
+    </tr>
+  </table>
+</div>

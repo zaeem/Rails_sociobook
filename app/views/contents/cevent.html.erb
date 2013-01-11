@@ -1,0 +1,76 @@
+<div class="block"> <h2> Post an event on Sociobook </h2> <br/></div>
+
+<div class="block">
+
+<%= form_for(@content ,:html => {:multipart => true }) do |f1| %>
+ <%= hidden_field_tag "return_address", request.query_string %>
+  <%= f1.hidden_field :profile_id, { :value => current_user.profile.id } %>
+    <%= f1.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f1.hidden_field :type_, { :value => "cevent" } %>
+    <%= f1.hidden_field :group_id, { :value =>  params[:vd] } %>
+
+  <%= f1.fields_for :cevent do |f| %>
+  
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br />
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :fromdate %><br />
+    <%= f.date_select :fromdate %>
+  </div>
+  <div class="field">
+    <%= f.label :todate %><br />
+    <%= f.date_select :todate %>
+  </div>
+  <div class="field">
+    <%= f.label :plan %><br />
+    <%= f.text_field :plan %>
+  </div>
+  <div class="field">
+    <%= f.label :where %><br />
+    <%= f.text_field :where %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :citytown %><br />
+    <%= f.text_field :citytown %>
+  </div>
+  <div class="field">
+    <%= f.label :moreinfo %><br />
+    <%= f.text_field :moreinfo %>
+  </div>
+  <div class="field">
+    <%= f.label :flag_invitemembersofhosts %><br />
+    <%= f.check_box :flag_invitemembersofhosts %>
+    <%#= f.text_field :flag_invitemembersofhosts %>
+  </div>
+  <div class="field">
+    <%= f.label :flag_view %><br />
+    <%= f.check_box :flag_view %>
+  </div>
+  <div class="field">
+    <%= f.label :flag_showgroup %><br />
+    <%= f.check_box :flag_showgroup %>
+  </div>
+      <div class="field">
+        <%= f.label :ephoto_file_name %><br />
+        <td><%= f.file_field :ephoto %></td>
+      </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+
+  <%end %>
+  <div class="actions">
+    <%= f1.submit %>
+  </div>
+<% end %>

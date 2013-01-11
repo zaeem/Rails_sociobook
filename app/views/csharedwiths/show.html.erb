@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @csharedwith.content_id %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @csharedwith.group_id %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%= @csharedwith.profile_id %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @csharedwith.type_ %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @csharedwith.flag %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @csharedwith.desc %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @csharedwith.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_csharedwith_path(@csharedwith) %> |
+<%= link_to 'Back', csharedwiths_path %>

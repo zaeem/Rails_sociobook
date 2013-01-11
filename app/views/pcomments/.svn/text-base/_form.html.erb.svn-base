@@ -1,0 +1,49 @@
+<%= form_for(@pcomment) do |f| %>
+  <% if @pcomment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pcomment.errors.count, "error") %> prohibited this pcomment from being saved:</h2>
+
+      <ul>
+      <% @pcomment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cphoto_id %><br />
+    <%= f.text_field :cphoto_id %>
+  </div>
+  <div class="field">
+    <%= f.label :type_ %><br />
+    <%= f.text_field :type_ %>
+  </div>
+  <div class="field">
+    <%= f.label :flag %><br />
+    <%= f.text_field :flag %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_id %><br />
+    <%= f.text_field :profile_id %>
+  </div>
+  <div class="field">
+    <%= f.label :is_spam %><br />
+    <%= f.text_field :is_spam %>
+  </div>
+  <div class="field">
+    <%= f.label :is_abuse %><br />
+    <%= f.text_field :is_abuse %>
+  </div>
+  <div class="field">
+    <%= f.label :noof_dislike %><br />
+    <%= f.text_field :noof_dislike %>
+  </div>
+  <div class="field">
+    <%= f.label :noof_like %><br />
+    <%= f.text_field :noof_like %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

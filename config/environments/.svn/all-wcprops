@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/dssdteam8/!svn/ver/5/sociobook/config/environments
+END
+test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/dssdteam8/!svn/ver/3/sociobook/config/environments/test.rb
+END
+development.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/dssdteam8/!svn/ver/5/sociobook/config/environments/development.rb
+END
+production.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/dssdteam8/!svn/ver/3/sociobook/config/environments/production.rb
+END

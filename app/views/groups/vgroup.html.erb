@@ -1,0 +1,198 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<div class="block">
+  <% if @pv == 'w' %>
+  <%#*--------------------------------------  EDIT Group -------------------------------%>
+    <div>
+      <%#@group= Group.find_by_id(params[:gid])%>
+  <%#puts "=========================" + params[:gid].to_s %>
+      <%= image_tag( 'default_group.png', :size => "64x64") %>
+      <%=@group.name%>
+      <br/><br/>
+        <table>
+
+      <%= form_for(@group) do |f| %>
+          <tr>
+            Notify me when: 
+            <%= f.select :flag_notifications , [['A member posts a comment',1],['A member posts',2],['A friend posts',3],['Only posts I am subscribed to',4]]%>
+          </tr>
+          <tr> 
+            <%= f.label :Also_Send_an_Email_to %><%= f.check_box :flag_email  , { :value => 1 } %>
+          </tr>       
+          <tr>
+            Show this group in home nevigations: 
+            <%= f.select :flag_showgroup , [['Some times',1],['Always',2],['Never',3]]%>
+          </tr>
+          <tr>
+           <%= f.label :Send_Me_Group_Chat_Messages %><%= f.check_box :flag_chat, { :value => 1 } %> 
+            <%= f.label :Membership_Approval %><%= f.check_box :flag_chat, { :value => 1 } %> <br/>
+           
+            <%= f.label :Description %>
+             <%= f.text_field :desc,  :size=>"50" %>
+           
+            <%= f.submit "Save Settings"%>
+          </tr>
+          
+      <% end %>
+     </table>
+
+    </div>
+  </div>
+
+<% elsif @pv == 'f' %>
+<%#*--------------------------------------   webcam  -------------------------------%>
+<div class="" name="toggle_pcontainer">
+  <%= form_for(current_user.profile.default_album_content, :html => {:multipart => true }) do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <%#= f.hidden_field :profile_id, { :value => @vprofile } %>
+    <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f.hidden_field :type_, { :value => "photo" } %>
+    <table cellspacing="5" cellpadding="5" border="0" width="80%">
+      <tbody>
+        <tr>
+          <td width="40" valign="top">
+            <div id="webcam"></div> 
+          </td>
+          <td align ="right">
+            <table cellspacing="5" cellpadding="5" border="0" width="99%">
+              <tr>
+                <td>
+                   <%= text_field_tag 'title', 'Say something about photo', :class=>"text-input", :onclick=>"this.value='';"%>
+                </td>
+                <td>
+                  <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+                </td>
+              </tr>
+              <tr>
+                <td align ="right">
+                  <label>
+                    <input type="button" value="Take picture" onclick="webcam.snap();" class="awesome"/>
+                  </label>
+                </td>
+                <td align ="right">
+                  <label>
+                    <%= f.submit "Share", :class =>"awesome"%>
+                  </label>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>   
+  <% end %>
+  <script type="text/javascript">
+    function upload_complete(msg) {
+      if (msg == 'ok') {
+        $('new_photo').show();
+        $('photo_description').focus();
+      } else {
+        alert('An error occured');
+        webcam.reset();
+      }
+    }
+    webcam.set_swf_url('/webcam.swf');
+    webcam.set_api_url('<%= take_picture_home_path %>');
+    webcam.set_quality(90);
+    webcam.set_shutter_sound(true, '/shutter.mp3');
+    webcam.set_hook('onComplete', 'upload_complete');
+    document.getElementById('webcam').innerHTML = webcam.get_html(260, 250);
+  </script>
+</div>
+
+<%#*--------------------------------------   photo  -------------------------------%>
+<div class="" name="toggle_pcontainer">
+  <%= form_for(current_user.profile.default_album_content, :html => {:multipart => true }) do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <%#= f.hidden_field :profile_id, { :value => @vprofile } %>
+    <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f.hidden_field :type_, { :value => "photo" } %>
+    <table cellspacing="5" cellpadding="5" border="0" width="76%">
+      <tbody>
+        <tr>
+          <td width="40" valign="top">
+            <%= f.label 'Upload picture from your disk' %>         
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.fields_for :cphotos, current_user.profile.default_album_content.cphotos.build do |builder| %>
+              <%= builder.file_field :photo %>        
+            <% end %>
+          </td>
+          <td align ="right">
+            <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+          </td>
+          <td align ="right">
+            <label>
+              <%= f.submit "Upload", :class =>"awesome"%>
+            </label>
+          </td>
+        </tr>  
+      </tbody>
+    </table>
+  <%end%> 
+</div>
+
+
+<% elsif @pv == 'g' %>
+
+
+
+
+  <% @group = Group.find_by_id(params[:gid]) %>       
+  <% unless @group.blank? %>
+    Members ( <%=@group.members.count  %> )    
+    <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+
+    <% for member in @group.members%>
+
+      <table> 
+        <td>
+        <tr>
+          <%= link_to(image_tag( member.profile.user.avatar.url(:thumb), :size => "25x25"),  ewall_contents_path(:id => current_user.profile.id ,:sk => 'photo' , :pv => 'w', :vd => 0)) %>
+          <%= member.profile.user.first_name + " " +  member.profile.user.last_name %>
+        </tr>
+      </td>
+      </table> 
+    <% end %>    
+  <% end %>    
+
+<tr>
+  
+  <%= link_to "Add Friends to Group", "#", :id => "fgroup"%>
+    <div id="addfgroup" style="display: none">
+      <% @group = Group.new %>
+      <%= form_for(@group) do |f| %>
+
+        <table>
+          <tr> 
+          <div id="cust" style="float: left; visibility: visible ; margin-right: 10px;">
+            <% @all_friends = find_all_friends %>
+            <%=select_tag 'friend_ids[]', options_for_select(
+              @all_friends.map {|f| [f.first_name+" "+f.last_name, f.id]}), :multiple => true%>
+          </div>
+          <input type="checkbox" name="c1" onclick=showMe('cust') value="Customize ?" /> Customize ?
+          </tr>
+          <div class="actions">
+            <%= f.submit "Add Member"%>
+          </div>
+        </table>
+      <% end %>
+
+    </div>
+
+  
+</tr>
+  </table>
+
+  
+  
+  
+<%end%>
+
+
+<br/><br/>
+</div>

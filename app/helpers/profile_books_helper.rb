@@ -1,0 +1,2 @@
+module ProfileBooksHelper
+end

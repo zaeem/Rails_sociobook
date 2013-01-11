@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile university:</b>
+  <%= @profile_university_class.profile_university_id %>
+</p>
+
+<p>
+  <b>Class:</b>
+  <%= @profile_university_class.class %>
+</p>
+
+<p>
+  <b>With:</b>
+  <%= @profile_university_class.with %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_university_class.desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_university_class_path(@profile_university_class) %> |
+<%= link_to 'Back', profile_university_classes_path %>

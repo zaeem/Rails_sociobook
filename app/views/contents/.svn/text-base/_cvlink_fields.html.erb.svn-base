@@ -1,0 +1,109 @@
+<%     
+#@url = "http://www.youtube.com/watch?v=O4IgYxHEAuk&playnext=1&list=PL6A4C9E8E0D1E9148"
+#@url = "http://www.cnn.com"
+#@url = @content.clink.link.gsub("http://", "")
+@url= @content.clink.link
+#@url = "http://#{@url}"
+      
+  begin
+      doc = Nokogiri::HTML(open(@url))
+      @og_type = ng_first_attribute(doc, "//head/meta[@property='og:type']", "content")
+      @og_url = ng_first_attribute(doc, "//head/meta[@property='og:url']", "content")
+      @og_title = ng_first_attribute(doc, "//head/meta[@property='og:title']", "content")
+      @og_image = ng_first_attribute(doc, "//head/meta[@property='og:image']", "content")
+      @og_description = ng_first_attribute(doc, "//head/meta[@property='og:description']", "content")
+      if(@og_type == "video")
+        embed= @url.split("?v=").last
+        embed= embed.split("&").first
+        %{<iframe width="560" height="349" src="http://www.youtube.com/embed/#{embed}" frameborder="0" allowfullscreen></iframe>}
+        @utube_embed_url = "http://www.youtube.com/embed/#{embed}"
+        #      @utube_embed_url = @og_url.split("http://www.youtube.com/watch?v=").last
+        @og_vid_width = ng_first_attribute(doc, "//head/meta[@property='og:video:width']", "content")
+        @og_vid_height = ng_first_attribute(doc, "//head/meta[@property='og:video:height']", "content")
+        @video = %[<iframe width="#{@og_vid_width}" height="#{@og_vid_height}" src="#{@utube_embed_url}" frameborder="0" allowfullscreen></iframe>]
+        
+      end
+
+      title = @og_title || ng_first_text(doc, '//head/title')
+      #    desc = doc.xpath('//head/meta[@name="description"]').first["content"],
+      desc = ng_first_attribute(doc, "//head/meta[@name='description']", "content")
+      p1 = ng_first_text(doc, "//body//p")
+      base_img = @og_image || ng_first_attribute(doc, "//head/link[@rel='image_src']", "href")
+      imgs = ng_relevant_images(doc)
+      imgs.first && imgs.delete_at(0)
+      @data = {
+        :url => @og_url || @url,
+        :title => title,
+        :description => @og_description || desc || p1,
+        :img => base_img,
+        :images => imgs,
+        :e3 => nil}
+    rescue
+      @data={:url => @url, :images => []}
+    end
+%>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <% if @video.present? %>
+      <td valign="top">
+        <%= raw @video %>
+      </td>  
+    <% else %>
+      <td valign="top">
+        <div id="thumb">
+          <% i = 0 %>
+          <% if @data[:img].present? %>
+            <div id="image-div-<%= i %>">
+              <% i = i+1 %>
+              <%= image_tag @data[:img], :width => "50", :hieght => "50" %>
+            </div>
+          <% end %>
+          <% @data[:images].each do |image| %>
+            <div id="image-div-<%= i %>" <% if i > 0 %> style="display: none;" <% end %>>
+              <% i = i+1 %>
+              <%= image_tag image, :width => "100", :hieght => "100" %>
+            </div>
+          <% end %>
+          <% if i > 0 %>
+            <div style="text-align: center;">
+              <%= link_to "<", "#", :id => "prev-image", :style => "display: none;" %>
+              <%= link_to ">", "#", :id => "next-image" %>
+            </div>
+          <% end %>
+          <% hidden_field_tag :total_count, i %>
+        </div>
+      </td>
+      <td width="60" valign="bottom">
+        <input type="checkbox" name="c1" onclick=showMe('thumb') value="Show thumbnail">
+        <span  style="font-size: 9px; color: silver;">show/hide</span>
+      </td>
+      <td>&nbsp;</td>
+      <td valign="top">
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <span style="font-size: 12px; font-weight: bold;">
+                 <%= raw @data[:url] %>
+              </span>
+             </td>
+          </tr>  
+          <tr>
+            <td>
+              <span style="font-size: 12px;">
+                 <%= raw @data[:title] %>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 10px;">
+                 <%= raw @data[:description] %>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </td>
+    <%end%>
+  </tr>
+</table>

@@ -1,0 +1,32 @@
+<div class="share-data">
+  <%= form_for(content) do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <%= f.hidden_field :profile_id, { :value => v_profile.id } %>
+    <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f.hidden_field :type_, { :value => "link" } %>
+    <%= f.hidden_field :group_id, { :value => vd } %>
+    <table cellspacing="5" cellpadding="5" border="0" width="85%">
+      <tbody>
+        <tr>
+          <td width="40" valign="top">
+            <%= f.fields_for :clink do |link| %>
+              <%= link.text_field :link, {:class=>"text-input",:value => "http://",:size=>"50", :maxlength=>"1000", :onclick=>"this.value='';"}%> 
+            <% end %>
+          </td>
+          <td align ="right">
+            <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+          </td>
+          <td align ="right">
+            <label>
+              <%= f.submit "Attach", :class =>"awesome"%>
+            </label>
+          </td>
+        </tr>  
+        <tr>
+          <td align="right">
+            <%= f.text_field :misc, :class=>"text-input",:size=>"50", :maxlength=>"420", :value => "Say something about that link", :onclick=>"this.value='';"%>      
+          </td>
+        </tr>
+    </table>
+  <%end%> 
+</div>

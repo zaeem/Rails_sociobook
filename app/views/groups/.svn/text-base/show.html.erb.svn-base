@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @group.profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @group.name %>
+</p>
+
+<p>
+  <b>Flag privacy:</b>
+  <%= @group.flag_privacy %>
+</p>
+
+<p>
+  <b>Flag notifications:</b>
+  <%= @group.flag_notifications %>
+</p>
+
+<p>
+  <b>Flag chat:</b>
+  <%= @group.flag_chat %>
+</p>
+
+<p>
+  <b>Flag showgroup:</b>
+  <%= @group.flag_showgroup %>
+</p>
+
+<p>
+  <b>Flag email:</b>
+  <%= @group.flag_email %>
+</p>
+
+<p>
+  <b>Flag sms:</b>
+  <%= @group.flag_sms %>
+</p>
+
+<p>
+  <b>Gphoto file name:</b>
+  <%= @group.gphoto_file_name %>
+</p>
+
+<p>
+  <b>Gphoto content type:</b>
+  <%= @group.gphoto_content_type %>
+</p>
+
+<p>
+  <b>Gphoto file size:</b>
+  <%= @group.gphoto_file_size %>
+</p>
+
+<p>
+  <b>Gphoto updated at:</b>
+  <%= @group.gphoto_updated_at %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @group.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @group.is_default %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @group.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

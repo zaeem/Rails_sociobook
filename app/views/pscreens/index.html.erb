@@ -1,0 +1,27 @@
+<h1>Listing pscreens</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Name</th>
+    <th>Type </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pscreens.each do |pscreen| %>
+  <tr>
+    <td><%= pscreen.profile_id %></td>
+    <td><%= pscreen.name %></td>
+    <td><%= pscreen.type_ %></td>
+    <td><%= link_to 'Show', pscreen %></td>
+    <td><%= link_to 'Edit', edit_pscreen_path(pscreen) %></td>
+    <td><%= link_to 'Destroy', pscreen, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pscreen', new_pscreen_path %>

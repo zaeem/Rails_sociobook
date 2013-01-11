@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile employer:</b>
+  <%= @profile_employer_project.profile_employer_id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @profile_employer_project.project %>
+</p>
+
+<p>
+  <b>With:</b>
+  <%= @profile_employer_project.with %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @profile_employer_project.duration %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_employer_project.desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_employer_project_path(@profile_employer_project) %> |
+<%= link_to 'Back', profile_employer_projects_path %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @ccomment.content_id %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @ccomment.type_ %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @ccomment.flag %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%= @ccomment.profile_id %>
+</p>
+
+<p>
+  <b>Text :</b>
+  <%= @ccomment.text_ %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @ccomment.desc %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @ccomment.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_ccomment_path(@ccomment) %> |
+<%= link_to 'Back', ccomments_path %>

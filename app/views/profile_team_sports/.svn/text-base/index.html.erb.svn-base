@@ -1,0 +1,35 @@
+<h1>Listing profile_team_sports</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Title</th>
+    <th>Game</th>
+    <th>Logo</th>
+    <th>Logo path</th>
+    <th>Desc</th>
+    <th>Is default</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_team_sports.each do |profile_team_sport| %>
+  <tr>
+    <td><%= profile_team_sport.profile_id %></td>
+    <td><%= profile_team_sport.title %></td>
+    <td><%= profile_team_sport.game %></td>
+    <td><%= profile_team_sport.logo %></td>
+    <td><%= profile_team_sport.logo_path %></td>
+    <td><%= profile_team_sport.desc %></td>
+    <td><%= profile_team_sport.is_default %></td>
+    <td><%= link_to 'Show', profile_team_sport %></td>
+    <td><%= link_to 'Edit', edit_profile_team_sport_path(profile_team_sport) %></td>
+    <td><%= link_to 'Destroy', profile_team_sport, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile team sport', new_profile_team_sport_path %>

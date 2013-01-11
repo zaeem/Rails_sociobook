@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Album:</b>
+  <%= @content.album_id %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%= @content.profile_id %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @content.flag %>
+</p>
+
+<p>
+  <b>Shareflag:</b>
+  <%= @content.shareflag %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @content.name %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @content.flag %>
+</p>
+
+<p>
+  <b>Album:</b>
+  <%= @content.album %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @content.group %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @content.type_ %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @content.desc %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @content.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_content_path(@content) %> |
+<%= link_to 'Back', contents_path %>

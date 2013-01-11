@@ -1,0 +1,69 @@
+<div class="block">
+<%= render :partial => 'shared/steps' %>
+<div class="stepContent">
+  <h4>Are your friends already on Facebook?</h4>
+  <p>Many of your friends may already be here. Searching your email account is the fastest way to find your friends on Facebook.</p>
+  <table width="80%">
+    <%= form_tag("import_yahoo") do %>
+      <tr>
+        <td width="10%"><span style="float: right"/><%= image_tag("yahoo_icon.png", :size => "25x25", :alt => "Yahoo")%></td>
+        <td width="10%"><strong> Yahoo!</strong></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Email:</td>
+        <td><input name="yahoo_id" type="text" size="35" maxlength="50"/></td>
+      </tr> 
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Password:</td>
+        <td><input name="yahoo_password" type="password" size="35" maxlength="50" /></td>
+        <td><%= submit_tag 'Find & Save' %></td>
+      </tr>
+    <% end -%>
+
+    <%= form_tag("import_hotmail") do -%>
+      <tr>
+        <td><span style="float: right"/><%= image_tag("hotmail_icon.png", :size => "25x25", :alt => "Hotmail")%></td>
+        <td><strong> Hotmail</strong></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Email:</td>
+        <td><input name="hotmail_id" type="text" size="35" maxlength="50"/></td>
+      </tr> 
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Password:</td>
+        <td><input name="hotmail_password" type="password" size="35" maxlength="50" /></td>
+        <td><%= submit_tag 'Find & Save' %></td>
+      </tr>
+    <% end -%>
+
+    <%= form_tag("import_gmail") do -%>
+      <tr>
+        <td><span style="float: right"/><%= image_tag("gmail_icon.png", :size => "25x25", :alt => "Hotmail")%></td>
+        <td><strong> Gmail</strong></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Email:</td>
+        <td><input name="gmail_id" type="text" size="35" maxlength="50"/></td>
+      </tr> 
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Password:</td>
+        <td><input name="gmail_password" type="password" size="35" maxlength="50" /></td>
+        <td><%= submit_tag 'Find & Save' %></td>
+      </tr>
+    <% end -%>
+  </table>
+  <%= link_to "next", upload_pic_home_path, :class => "cornerButtonRight" %>
+</div>
+  </div>

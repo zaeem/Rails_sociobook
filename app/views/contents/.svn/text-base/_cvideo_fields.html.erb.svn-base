@@ -1,0 +1,10 @@
+<div id="cvideos" class = "cvideos"> 
+  <%= f.label  :Select_a_video_file_on_your_computer %>
+  <%= f.file_field :video %><br/>
+  <span  style="font-size: 16px;"/>Please upload only if:<br/>
+   <span  style="font-size: 13px;"/>
+     The video is under 100 MB and 2 minutes.<br/>
+     The video was made by you or your friends.
+     <%#= f.label :Say_Something? %>
+     <%#= f.text_field :title %>
+ </div>

@@ -1,0 +1,6 @@
+Hi  <%= @reciever_name %>,
+<%= @sender_name %> wants to add you as a friend .
+Please log into DSSDSocio book for details.
+
+Regards,
+DSSDSocio

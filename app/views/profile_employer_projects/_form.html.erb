@@ -1,0 +1,37 @@
+<%= form_for(@profile_employer_project) do |f| %>
+  <% if @profile_employer_project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile_employer_project.errors.count, "error") %> prohibited this profile_employer_project from being saved:</h2>
+
+      <ul>
+      <% @profile_employer_project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :profile_employer_id %><br />
+    <%= f.text_field :profile_employer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :project %><br />
+    <%= f.text_field :project %>
+  </div>
+  <div class="field">
+    <%= f.label :with %><br />
+    <%= f.text_field :with %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.date_select :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

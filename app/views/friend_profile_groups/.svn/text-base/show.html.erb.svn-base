@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Friend:</b>
+  <%= @friend_profile_group.friend_id %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @friend_profile_group.profile_group_id %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @friend_profile_group.desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_friend_profile_group_path(@friend_profile_group) %> |
+<%= link_to 'Back', friend_profile_groups_path %>

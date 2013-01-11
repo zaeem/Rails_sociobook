@@ -1,0 +1,26 @@
+<div class="add_dataset">
+  <table width="60%">  
+    <tr>
+      <td width ="10%"><%= image_tag("university_logo.png", :size => "60x60")%></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td> 
+      <td width ="10%"> <%= forma.label :class%></td>
+      <td> <%= forma.text_field :class %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= forma.label :with %></td>
+      <td><%= forma.text_field :with %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= forma.label :desc %></td>
+      <td><%= forma.text_field :desc %></td>
+    </tr>
+    <tr>
+      <td colspan="3"><span style="float: right"/>
+        <%#*<button type="button" class="delete_div_btn">Remove</button>%>
+        <%= link_to_remove_fields "Remove", f %>
+      </td>
+    </tr>
+  </table>
+</div>

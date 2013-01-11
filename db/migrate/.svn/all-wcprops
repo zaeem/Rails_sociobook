@@ -1,0 +1,305 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/dssdteam8/!svn/ver/290/sociobook/db/migrate
+END
+20110702070323_create_csharedwiths.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110702070323_create_csharedwiths.rb
+END
+20110624172925_create_pphones.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110624172925_create_pphones.rb
+END
+20110615054542_create_friend_profile_groups.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/dssdteam8/!svn/ver/125/sociobook/db/migrate/20110615054542_create_friend_profile_groups.rb
+END
+20110612072655_create_profile_musics.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612072655_create_profile_musics.rb
+END
+20110612072806_create_profile_books.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612072806_create_profile_books.rb
+END
+20110625101602_create_pwebsites.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110625101602_create_pwebsites.rb
+END
+20110612163453_create_profile_groups.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612163453_create_profile_groups.rb
+END
+20110624173120_create_cstatuses.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110624173120_create_cstatuses.rb
+END
+20110626200438_create_cpshares.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110626200438_create_cpshares.rb
+END
+20110612072924_create_profile_movies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612072924_create_profile_movies.rb
+END
+20110605073302_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110605073302_create_users.rb
+END
+20110612092458_create_profile_player_sports.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612092458_create_profile_player_sports.rb
+END
+20110623131344_create_profile_activities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110623131344_create_profile_activities.rb
+END
+20110618123915_create_clinks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110618123915_create_clinks.rb
+END
+20110714050836_add_group_name.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/290/sociobook/db/migrate/20110714050836_add_group_name.rb
+END
+20110624172956_create_pemails.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110624172956_create_pemails.rb
+END
+20110624173052_create_ccomments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110624173052_create_ccomments.rb
+END
+20110706205609_rename_type_of_contacts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/dssdteam8/!svn/ver/192/sociobook/db/migrate/20110706205609_rename_type_of_contacts.rb
+END
+20110704140002_create_ctags.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110704140002_create_ctags.rb
+END
+20110624173347_create_cvideos.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110624173347_create_cvideos.rb
+END
+20110615175948_create_profile_relations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110615175948_create_profile_relations.rb
+END
+20110627184352_create_photoalbums.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110627184352_create_photoalbums.rb
+END
+20110608211451_add_users_password_reset_fields.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110608211451_add_users_password_reset_fields.rb
+END
+20110701114761_create_contents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110701114761_create_contents.rb
+END
+20110619145157_create_profile_interests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110619145157_create_profile_interests.rb
+END
+20110611221129_create_profile_ppl_inspirations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110611221129_create_profile_ppl_inspirations.rb
+END
+20110610144349_create_contacts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110610144349_create_contacts.rb
+END
+20110713090228_create_cevents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/266/sociobook/db/migrate/20110713090228_create_cevents.rb
+END
+20110713090345_create_cadds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/266/sociobook/db/migrate/20110713090345_create_cadds.rb
+END
+20110612142906_create_profile_universities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612142906_create_profile_universities.rb
+END
+20110618123944_create_cpoptions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110618123944_create_cpoptions.rb
+END
+20110630041529_create_albums.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/125/sociobook/db/migrate/20110630041529_create_albums.rb
+END
+20110709160506_create_members.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/215/sociobook/db/migrate/20110709160506_create_members.rb
+END
+20110612073822_create_profile_games.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612073822_create_profile_games.rb
+END
+20110713085431_create_pcomments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/266/sociobook/db/migrate/20110713085431_create_pcomments.rb
+END
+20110612092405_create_profile_team_sports.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612092405_create_profile_team_sports.rb
+END
+20110611183649_create_profile_employer_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/dssdteam8/!svn/ver/125/sociobook/db/migrate/20110611183649_create_profile_employer_projects.rb
+END
+20110618123820_create_cphotos.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110618123820_create_cphotos.rb
+END
+20110624173019_create_pneighbours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110624173019_create_pneighbours.rb
+END
+20110612142945_create_profile_employers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612142945_create_profile_employers.rb
+END
+20110610144321_create_friends.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110610144321_create_friends.rb
+END
+20110709160331_create_groups.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/215/sociobook/db/migrate/20110709160331_create_groups.rb
+END
+20110713224758_create_chats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/290/sociobook/db/migrate/20110713224758_create_chats.rb
+END
+20110624172850_create_pscreens.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110624172850_create_pscreens.rb
+END
+20110714021157_add_chat_status.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/290/sociobook/db/migrate/20110714021157_add_chat_status.rb
+END
+20110626164952_create_cpolls.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110626164952_create_cpolls.rb
+END
+20110605205320_add_avatar_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/dssdteam8/!svn/ver/125/sociobook/db/migrate/20110605205320_add_avatar_to_user.rb
+END
+20110610140605_create_profiles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110610140605_create_profiles.rb
+END
+20110612092346_create_profile_play_sports.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/dssdteam8/!svn/ver/210/sociobook/db/migrate/20110612092346_create_profile_play_sports.rb
+END
+20110714011421_add_last_chat_count.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/dssdteam8/!svn/ver/290/sociobook/db/migrate/20110714011421_add_last_chat_count.rb
+END

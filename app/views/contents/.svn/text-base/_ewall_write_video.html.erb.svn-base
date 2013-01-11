@@ -1,0 +1,103 @@
+<div class="sub_menus">
+  <%= link_to "Upload Video", "#", :onclick=>"view_video(#{0})", :style=> "margin-left: 25%;" %>
+  <%= link_to "Record Video", "#", :onclick=>"view_video(#{1})", :style=> "margin-left: 20%;" %>
+</div>  
+<%#*------------------------    upload video   -------------------------------%>
+<div class="view-photo vcontainer onload" name="toggle_vcontainer">
+  <%= form_for(content  ,:html => {:multipart => true }) do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <%= f.hidden_field :profile_id, { :value => v_profile.id } %>
+    <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f.hidden_field :group_id, { :value => vd } %>
+    <%= f.hidden_field :type_, { :value => "video" } %>
+    <table cellspacing="5" cellpadding="5" border="0" width="76%">
+      <tbody>
+        <tr>
+          <td width="40" valign="top">
+            <%= f.label 'Select a video file on your computer.' %>         
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.fields_for :cvideo do |video| %>
+              <%= video.file_field :video %>
+            <% end %>
+          </td>
+          <td align ="right">
+            <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+          </td>
+          <td align ="right">
+            <label>
+              <%= f.submit "Upload", :class =>"awesome"%>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <span style="font-size: 14px; color: silver;">Please upload only if:</span><br/>
+             <span  style="font-size: 12px; color: silver;">
+               The video is under 100 MB and 2 minutes.<br/>
+               The video was made by you or your friends.          
+             </span>
+           </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <%= f.text_field :misc, :class=>"text-input",:size=>"40", :maxlength=>"420",:value => "Say something about this video", :onclick=>"this.value='';"%>           
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <%end%> 
+</div>
+
+<%#*--------------------------------------   record  -------------------------------%>
+<div class="view-photo vcontainer" name="toggle_vcontainer">
+  <%= form_for(content  ,:html => {:multipart => true }) do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <%= f.hidden_field :profile_id, { :value => v_profile.id } %>
+    <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f.hidden_field :type_, { :value => "svideo" } %>
+    <%= f.fields_for :cvideo do |video| %>
+      <%= video.hidden_field :video_file_name, { :value => current_user.profile.id } %>
+      <%= video.hidden_field :video_content_type, { :value => "video/x-flv" } %>
+    <% end %>
+    <table cellspacing="5" cellpadding="5" border="0" width="80%">
+      <tbody>
+        <tr>
+          <td width="40" valign="top">
+            <div id ="myContent">
+              <h1>You need the Adobe Flash Player for this demo, download it by clicking the image below.</h1>
+              <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+            </div> 
+          </td>
+          <td align ="right">
+            <table cellspacing="5" cellpadding="5" border="0" width="99%">
+              <tr>
+                <td>
+                <%= f.text_field :misc, :class=>"text-input",:size=>"30", :maxlength=>"420",:value => "Say something about this video", :onclick=>"this.value='';"%>  
+                </td>
+              </tr>
+              <tr>
+                <td align ="center">
+                  <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+                </td>
+                <td align ="right">
+                  <label>
+                    <%= f.submit "Share", :class =>"awesome"%>
+                  </label>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>   
+  <% end %>
+</div>
+<div id="loading" style="display: none">
+  <%= image_tag 'loadingbar.gif', :size => "250x100" %>
+</div>
+<script type="text/javascript">
+  swfobject.embedSWF("/assets/simpleRecorder.swf", "myContent", "260", "250", "8.0.0", "/assets/expressInstall.swf");
+</script>

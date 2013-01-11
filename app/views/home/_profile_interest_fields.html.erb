@@ -1,0 +1,25 @@
+<div class="add_dataset">
+  <table width="60%">  
+    <tr>
+      <td><span style="float:right;"/><%= image_tag("interest_logo.png", :size => "50x50")%></td>
+      <td width="10%"><%= f.check_box :is_default %></td>
+      <td><%= f.label :default %></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td> 
+      <td width ="10%"><%= f.label :name %></td>
+      <td><%= f.autocomplete_field :name, autocomplete_profile_interest_name_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :title %></td>
+      <td><%= f.text_field :title %></td>
+    </tr>
+
+    <tr>
+      <td colspan="3"><span style="float: right"/>
+        <%#*<button type="button" class="delete_div_btn">Remove</button>%>
+          <%= link_to_remove_fields "Remove", f %>
+      </td>
+    </tr>
+  </table>
+</div>

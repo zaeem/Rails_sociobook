@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_interest.profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @profile_interest.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @profile_interest.title %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @profile_interest.type_ %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @profile_interest.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @profile_interest.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_interest.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @profile_interest.is_default %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_interest_path(@profile_interest) %> |
+<%= link_to 'Back', profile_interests_path %>

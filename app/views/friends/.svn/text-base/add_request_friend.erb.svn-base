@@ -1,0 +1,14 @@
+<table width="60%">
+  <% for friend in @pending_friends %>
+    <%= form_tag("add_request_friend") do %>
+      <tr>
+        <td><%= image_tag url(friend[:image_url]), :size => "200x200", :style => "padding: 15px 0 0 10px;"%></td>
+        <td><%= friend[:first_name] " " friend[:last_name]%></td>
+        <td><%= submit_tag 'Add Friend' %></td>
+      </tr>
+    <%end%>
+  <% end %>
+</table>
+
+
+

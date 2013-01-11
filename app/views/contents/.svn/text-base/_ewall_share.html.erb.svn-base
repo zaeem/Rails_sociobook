@@ -1,0 +1,32 @@
+<div id="sharing" name ="sharing" style="display: none">
+  <%= form_for content.clone, :url => { :action => "shared_with", :newcontent => content } do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <table>
+      <tr>
+        <td><%= select_tag "sharewith", options_for_select([ "On your own Wall", "On a Friend's Wall", "In a group", "In a private Message"], "On your own wall"), :onchange=>"share_view(this.value)" %></td>
+        <td><div name="own_view"><%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',4],['Only me',1] ]%></div></td>
+      </tr>
+      <tr>
+        <td>
+            <div id="cust" style="float: left; visibility: hidden ; margin-right: 10px;">
+            <% @all_friends = find_all_friends %>
+            <%=select_tag 'friend_ids[]', options_for_select(
+             @all_friends.map {|f| [f.first_name+" "+f.last_name, f.id]}), :multiple => true%>
+          </div> 
+           <%#*<div id="friend_view" style="float: left; visibility: hidden;">%>
+               <%#*<input type="checkbox" name="c1" onclick=showMe('custom') value="Customize ?" /> Customize ?%>
+               <input type="checkbox" name="c1" onclick=showMe('cust') value="Customize ?" /> Customize ?
+               <%#*<input type="checkbox" name="c1" onclick="$(this).prev().toggle(); return false;" value="Customize ?" /> Customize ?%>
+           <%#*</div>%>
+         </td>
+      </tr>
+      <tr>
+        <td><span style="text-align:center"/><%= f.label :Say_Something? %><br /></td>
+        <td><%= f.text_field :misc , {:class=>"text-input",:size=>"35", :maxlength=>"420"} %></td>
+      </tr>
+      <tr>
+        <td colspan ="2"><%= f.submit "Share" %> </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

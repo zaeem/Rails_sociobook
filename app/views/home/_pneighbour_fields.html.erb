@@ -1,0 +1,22 @@
+<div class="add_dataset">
+  <table width="60%">  
+
+    <tr style="border-bottom:1px solid #DDD;">
+      <td><span style="text-align:center"/><%= f.label :neighbour %></td>
+      <td><%= f.text_field :title %></td> 
+    </tr>
+    <br></br>
+    <tr style="border-bottom:1px solid #DDD;">
+    <div class="field">
+      <td><span style="text-align:center"/><%= f.label :desc %></td>
+      <td><%= f.text_field :desc %></td>
+    </div>
+
+    </tr>
+    <tr>
+      <td colspan="3"><span style="float: right"/>
+        <%= link_to_remove_fields "Remove", f %>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+<div class="add_likeset">
+  <%= f.hidden_field :type_, { :value => "like" } %>
+  <%=f.hidden_field :flag, { :value => 1 } %>
+  <table><tr>
+      <td><%= image_tag current_user.avatar.url(:thumb), :size => "25x25"%></td>
+      <td valign="bottom">&nbsp;<%= f.radio_button :desc, "like"%></td>
+      <td>&nbsp;Like</td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td valign="bottom"><%= f.radio_button :desc, "dislike"%></td>
+      <td>&nbsp;Dislike</td>
+      <%=f.hidden_field :profile_id, { :value => current_user.profile.id } %>  
+ </tr></table>  
+</div>

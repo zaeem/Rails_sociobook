@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_movie.profile_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @profile_movie.title %>
+</p>
+
+<p>
+  <b>Novel:</b>
+  <%= @profile_movie.novel %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%= @profile_movie.artist %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @profile_movie.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @profile_movie.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_movie.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @profile_movie.is_default %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_movie_path(@profile_movie) %> |
+<%= link_to 'Back', profile_movies_path %>

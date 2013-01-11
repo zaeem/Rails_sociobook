@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cphoto:</b>
+  <%= @pcomment.cphoto_id %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @pcomment.type_ %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @pcomment.flag %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%= @pcomment.profile_id %>
+</p>
+
+<p>
+  <b>Is spam:</b>
+  <%= @pcomment.is_spam %>
+</p>
+
+<p>
+  <b>Is abuse:</b>
+  <%= @pcomment.is_abuse %>
+</p>
+
+<p>
+  <b>Noof dislike:</b>
+  <%= @pcomment.noof_dislike %>
+</p>
+
+<p>
+  <b>Noof like:</b>
+  <%= @pcomment.noof_like %>
+</p>
+
+
+<%= link_to 'Edit', edit_pcomment_path(@pcomment) %> |
+<%= link_to 'Back', pcomments_path %>

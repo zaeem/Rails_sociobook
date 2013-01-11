@@ -1,0 +1,1 @@
+<td><%= f.file_field :photo %></td>

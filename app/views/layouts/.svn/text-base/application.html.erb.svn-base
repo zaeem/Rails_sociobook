@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web App</title>
+
+    <%= javascript_include_tag :defaults, "application", :cache => true%>
+    <%= javascript_include_tag 'jquery.tooltip', 'jquery-ui-1.8.2.custom.min', 'rails', :cache => true %>
+    <%= javascript_include_tag 'js/jquery.min', 'js/jquery-ui.min', 'js/jquery.tag.min','flowplayer-3.2.6.min', :cache => true%>
+    <%= javascript_include_tag 'js/jquery.history', 'js/jquery.galleriffic', 'js/jquery.opacityrollover', :cache => true %>
+    <%= javascript_include_tag  'preloadCssImages', 'jquery.tools.min','jquery.easing.1.3','jquery.prettyPhoto', 'slides.jquery',  'jquery.jcarousel.min', :cache => true %>
+    <%= javascript_include_tag 'autocomplete-rails','webcam','swfobject.js', :cache => true%>
+<%#= javascript_include_tag 'jquery-1.4.2.min', :cache => true %>
+    <%= stylesheet_link_tag "jquery-flora.tabs.css", "jquery.tooltip.css", "facebox.css", :cache => true %>
+    <%= stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/default/style", "style_flash", "web-app-theme/override", :cache => true %>
+    <%= stylesheet_link_tag 'jquery-ui-1.8.2.custom.css', 'jquery.tag.css', 'splash.css',:cache => true %>
+    <%= stylesheet_link_tag "default","typography.css","splash.css", :cache => true %>
+    <%= stylesheet_link_tag "css/galleriffic-5", :cache => true %>
+
+    <%= javascript_include_tag "chat" %>
+    <%= stylesheet_link_tag "chat.css", "screen.css" %>
+    <%= csrf_meta_tag %>
+
+<%#= javascript_include_tag :defaults %>
+<%#= javascript_include_tiny_mce_if_used %>
+<%#= tiny_mce if using_tiny_mce? %>
+    <%= init_tinymce_hammer_if_required %>
+
+
+  </head>
+  <body>
+    <% if current_user %>
+      <script>
+      
+        javascript:chatWith('Chat');
+        
+      </script>
+    <% end %>
+    <div id="container">
+      <div class="head_bar">
+        <div class="container_12">
+		<%#=  link_to(image_tag('/images/sociobook.png'), ewall_contents_path(:id => current_user.profile.id ,:sk => 'status', :pv => 'f',  :vd => 0 )) %>
+		  <div class="logo">
+            <% if current_user %>
+              <%=  link_to(image_tag('/images/sociobook.png'), ewall_contents_path(:id => current_user.profile.id ,:sk => 'status', :pv => 'f',  :vd => 0 )) %>
+            <% else %>
+              <%=  link_to(image_tag('/images/sociobook.png'), "/") %>
+  			   <%#= link_to "SocioBook", "/" %>
+            <% end %>
+          </div>
+
+          <div class="topmenu">
+            <ul class="dropdown">
+              <li><a href="#Features"><span style="color: white;">Home</span></a>
+                <ul>
+                  <li><a href="#"><span style="color: white;">4 Color Styles</span></a>
+                    <ul>
+                      <li><a href="index-2.html"><span style="color: white;">Blue</span></a></li>
+                      <li><a href="../orange/index-2.html"><span style="color: white;">Orange</span></a></li>
+                      <li><a href="../black/index-2.html"><span style="color: white;">Black</span></a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#footer-form"><span style="color: white;">Contact Form</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#Screenshots"><span style="color: white;">Profile</span></a></li>
+              <li><a href="#Reviews"><span style="color: white;">Friends</span></a></li>
+               <li><a href="#Reviews"><span style="color: white;">Account</span></a></li>
+            </ul>
+          </div>
+          <%= render :partial => 'shared/header' %>
+          <div class="clear"></div>
+        </div>
+      </div>
+
+      <div id="wrapper" class="wat-cf">
+        <div class="flash">
+          <% flash.each do |type, message| -%>
+            <div class="message <%= type %>">
+              <p><%= message %></p>
+
+            <% end -%>
+          </div>
+        </div>
+        <%= render :partial => 'shared/leftsidebar' %>
+        <%= render :partial => 'shared/rightsidebar' %>
+
+        <div id="main">
+          <%= yield %>
+        </div>
+      </div>    
+    </div>
+    <% if current_user %>
+      <script>
+        $(document).ready(function(){
+          $("#available_statuses").val(<%= current_user.status %>);
+          $("#available_statuses").live("change", function(){
+            $.ajax({
+              url: "/set_status?new_status="+$(this).val()
+            });
+          });
+          username = "<%= current_user.login %>";
+          setInterval( function() {
+            $.ajax({
+              url: "/chats/update_chat_status",
+              success: function(data){ 
+                offline_links = "";
+                online_links = "";
+                away_links = "";
+                busy_links = "";
+
+                $.each(data, function(key, val) {
+                  if(!val){
+                    return;
+                  }
+           
+                  if(key == "offline"){
+                    $.each(val.toString().split(","), function(intIndex, objValue){
+                      if(!objValue){
+                        return;
+                      }
+                      offline_links = offline_links +'<div id="chat-tuples"><img id="status_images"src="/images/offline.jpeg" /><a href="javascript:void(0)" onclick="javascript:chatWith(\''+objValue+'\')">'+objValue+'</a>' +  "<br /></div>" ;
+                    });
+                  }
+                  else if(key == "online"){
+                    $.each(val.toString().split(","), function(intIndex, objValue){
+                      if(!objValue){
+                        return;
+                      }
+                      online_links = online_links + '<div id="chat-tuples"><img id="status_images"src="/images/online.jpg" /><a href="javascript:void(0)" onclick="javascript:chatWith(\''+objValue+'\')">'+objValue+'</a>' + "<br /></div>" ;
+                    });
+                  }
+                  else if(key == "away"){
+                    $.each(val.toString().split(","), function(intIndex, objValue){
+                      if(!objValue){
+                        return;
+                      }
+                      away_links = away_links +'<div id="chat-tuples"><img id="status_images"src="/images/away.png" /><a href="javascript:void(0)" onclick="javascript:chatWith(\''+objValue+'\')">'+objValue+'</a>' +  "<br /></div>" ;
+                    });
+                  }
+                  else if(key == "busy"){
+                    $.each(val.toString().split(","), function(intIndex, objValue){
+                      if(!objValue){
+                        return;
+                      }
+                      busy_links = busy_links + '<div id="chat-tuples"><img id="status_images"src="/images/busy.jpg" /><a href="javascript:void(0)" onclick="javascript:chatWith(\''+objValue+'\')">'+objValue+'</a>' + "<br /></div>" ;
+                    });
+                  }
+                  else if(key == "chats"){
+                    $.each(val, function(chatkey, chatval) {
+                      if(!chatval){
+                        return;
+                      }
+                      $.each(chatval, function(chatobjkey, chatobjval) {
+                        if(!chatobjval){
+                          return;
+                        }
+                        from = "";
+                        to = "";
+                        message = "";
+                        group_name = "";
+                        
+                        $.each(chatobjval, function(chatobjectkey, chatobjectval) {
+                          if(!chatobjectval){
+                            return;
+                          }
+                          if(chatobjectkey == "from"){
+                            from = chatobjectval; 
+                          }
+                          else if(chatobjectkey == "message"){
+                            message = chatobjectval; 
+                          }
+                          else if(chatobjectkey == "to"){
+                            to = chatobjectval; 
+                          }
+                          else if(chatobjectkey == "group_name"){
+                            group_name = chatobjectval; 
+                          }
+                          
+                      
+                        });
+                        var now = new Date();
+
+                        chatWith(group_name);
+                        message = message.replace(/:\)/g,"<img id='smileys' src='/images/smiley.jpg' />").replace(/:\(/g,"<img id='smileys' src='/images/sad-smiley.jpg' />").replace(/:\S/g,"<img id='smileys' src='/images/lonely.gif' />").replace(/:\s/g,"<img id='smileys' src='/images/lonely.gif' />").replace(/:\D/g,"<img id='smileys' src='/images/rofl.gif' />").replace(/:\p/g,"<img id='smileys' src='/images/naughty.gif' />").replace(/:\P/g,"<img id='smileys' src='/images/naughty.gif' />");
+
+                        $("#chatbox_"+group_name+" .chatboxcontent" ).append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+from+':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">'+message+'</span></div><br /><span id="timepicker">'+new Date(now.getTime())+'</span>');
+                      
+                      });
+                      
+                    });
+                  }
+
+                });
+                phone_lnk = '<br /><a href="javascript:void(0)" onclick="javascript:chatWith(\'Phone-923004200045\')">923004200045</a>';
+                $("div#chatboxcontent").html(online_links + away_links + busy_links + offline_links + phone_lnk);
+
+              },
+              dataType: "json"
+            
+            })}, 5000 );});
+      </script>
+    <% end %>
+  </body>
+</html>

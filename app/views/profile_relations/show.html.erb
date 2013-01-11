@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_relation.profile_id %>
+</p>
+
+<p>
+  <b>Is family:</b>
+  <%= @profile_relation.is_family %>
+</p>
+
+<p>
+  <b>Family name:</b>
+  <%= @profile_relation.family_name %>
+</p>
+
+<p>
+  <b>Family relation:</b>
+  <%= @profile_relation.family_relation %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_relation_path(@profile_relation) %> |
+<%= link_to 'Back', profile_relations_path %>

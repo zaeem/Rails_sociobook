@@ -1,0 +1,35 @@
+<h1>Listing ccomments</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Type </th>
+    <th>Flag</th>
+    <th>Profile</th>
+    <th>Text </th>
+    <th>Desc</th>
+    <th>Misc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ccomments.each do |ccomment| %>
+  <tr>
+    <td><%= ccomment.content_id %></td>
+    <td><%= ccomment.type_ %></td>
+    <td><%= ccomment.flag %></td>
+    <td><%= ccomment.profile_id %></td>
+    <td><%= ccomment.text_ %></td>
+    <td><%= ccomment.desc %></td>
+    <td><%= ccomment.misc %></td>
+    <td><%= link_to 'Show', ccomment %></td>
+    <td><%= link_to 'Edit', edit_ccomment_path(ccomment) %></td>
+    <td><%= link_to 'Destroy', ccomment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ccomment', new_ccomment_path %>

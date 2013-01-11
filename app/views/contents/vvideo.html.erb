@@ -1,0 +1,30 @@
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Minimal Flowplayer setup</title>
+
+  </head><body>
+    <div id="page">
+
+      <!-- this A tag is where your Flowplayer will be placed. it can be anywhere -->
+      <%=   "--------        Inside  page -----------"  %>
+      <%=  @content.cvideo.video.url %>
+      <a
+        href="http://localhost:3000<%= @content.cvideo.video.url %>" style="display:block;width:520px;height:330px"
+        id="player">
+      </a>
+      <a
+        href="http://localhost:3000<%= @content.cvideo.video.url %>" style="display:block;width:520px;height:330px"
+        id="player">
+      </a>
+
+      <!-- this will install flowplayer inside previous A- tag. -->
+      <script>
+        flowplayer("player", "/system/player-plugin/flowplayer-3.2.7.swf", {
+          clip:  {
+            autoPlay: false,
+            autoBuffering: false
+          }
+        });
+      </script>
+    </div>
+  </body></html>

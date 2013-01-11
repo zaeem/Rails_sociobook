@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cphoto:</b>
+  <%= @ctag.cphoto_id %>
+</p>
+
+<p>
+  <b>Label:</b>
+  <%= @ctag.label %>
+</p>
+
+<p>
+  <b>Width:</b>
+  <%= @ctag.width %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @ctag.height %>
+</p>
+
+<p>
+  <b>Top:</b>
+  <%= @ctag.top %>
+</p>
+
+<p>
+  <b>Left:</b>
+  <%= @ctag.left %>
+</p>
+
+
+<%= link_to 'Edit', edit_ctag_path(@ctag) %> |
+<%= link_to 'Back', ctags_path %>

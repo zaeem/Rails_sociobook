@@ -1,0 +1,63 @@
+<table class="stepList">
+  <tr >
+    <td class="stepElement">
+      <%- if @step == 1 -%>
+        <div class="stepSelected"> 
+          <span class="content">Step 1</span> <br/>
+          <span class="description">
+            <%if @stepFriend%> Import Contacts
+            <% else%> Find Friends <%end%>
+          </span>
+        </div>
+      <%- else -%>  
+        <div>   
+          <span class="content">Step 1</span> <br/>
+          <span class="description">
+            <%if @stepFriend%> Import Contacts
+            <% else%> Find Friends <%end%>
+          </span>
+        </div>
+      <%- end -%>
+    </td>
+    <td class="stepElement">
+      <%- if @step == 2 -%>
+        <div class="stepSelected"> 
+          <span class="content">Step 2</span> <br/>
+          <span class="description">
+            <%if @stepFriend%> Add Friends
+            <% else%> Update Profile <%end%>
+          </span>
+          <span class="description"></span>        
+        </div>
+      <%- else -%>  
+        <div>   
+          <span class="content">Step 2</span> <br/>
+          <span class="description">
+            <%if @stepFriend%> Add Friend
+            <% else%> Update Profile <%end%>
+          </span>
+        </div>
+      <%- end -%>
+    </td>
+
+    <td class="stepElement">
+      <%- if @step == 3 -%>
+        <div class="stepSelected"> 
+          <span class="content">Step 3</span> <br/>
+          <span class="description">
+            <%if @stepFriend%> Invite Friend
+            <% else%> Profile Picture <%end%>
+          </span>
+        </div>
+      <%- else -%>  
+        <div>   
+          <span class="content">Step 3</span> <br/>
+          <span class="description">
+            <%if @stepFriend%> Invite Friend
+            <% else%> Profile Picture <%end%>
+          </span>  
+        </div>
+      <%- end -%>
+    </td>
+  </tr>
+</table>

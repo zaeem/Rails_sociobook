@@ -1,0 +1,67 @@
+<%#*--------------------------------------   LABEL SHOW -------------------------------%>
+    <%  if (pv == 'w') %>
+      Wall        
+    <%elsif(pv == 'g')%> 
+   <input type=text name=type value='Search This Group ...'  onclick="this.value='';" />
+  <%#*--------------------------------------  EDIT Group -------------------------------%>
+      <div class="block">
+        <% if (!params[:vd].blank?)%>
+        <%@group= Group.find(params[:vd])%>
+        <%= image_tag( 'default_group.png', :size => "64x64") %>
+        <%=@group.name%>
+        <br/><br/>
+        <%= link_to "Edit Settings", "#", :id => "editgroup"%>
+        <div id="edit_group" style="display: none" width="100" >
+        <% else%>
+        <% @group=Group.new %>
+        <%end%>
+ 
+         <%= form_for(@group) do |f| %>
+            <table>
+              <tr>
+                Notify me when: 
+                <%= f.select :flag_notifications , [['A member posts a comment',1],['A member posts',2],['A friend posts',3],['Only posts I am subscribed to',4]]%>
+              </tr>
+              <tr> 
+                <%= f.label :Also_Send_an_Email_to %><%= f.check_box :flag_email  , { :value => 1 } %>
+              </tr>       
+              <tr>
+                Show this group in home nevigations: 
+                <%= f.select :flag_showgroup , [['Some times',1],['Always',2],['Never',3]]%>
+              </tr>
+              <tr>
+                <%= f.label :Send_Me_Group_Chat_Messages %><%= f.check_box :flag_chat, { :value => 1 } %>
+              </tr>
+              <div class="actions">
+                <%= f.submit "Save Settings"%>
+              </div>
+            </table>
+          <% end %>
+
+        </div>
+        <%if @group.flag_privacy == 3%>
+          Private Group
+        <%elsif @group.flag_privacy == 2%>
+          Closed Group
+        <%else @group.flag_privacy == 1%>
+          Open Group
+        <%end%>
+
+
+      </div>
+
+
+    <%else %>
+      NewsFeed
+    <%end %>
+<%#= (pv == 'f') ?  : "Wall" %>
+<%#*--------------------------------------   TOP LINKS SHOW -------------------------------%>
+<div class="block">
+  <ul id="menu">
+    <li><%= link_to "Status", ewall_contents_path(:id => vprofile, :sk => 'status', :pv => pv,  :vd => vd)%></li>
+    <li><%= link_to "Photo", ewall_contents_path(:id => vprofile, :sk => 'photo', :pv => pv, :vd => vd)%></li>
+    <li><%= link_to "Link", ewall_contents_path(:id => vprofile, :sk => 'link', :pv => pv, :vd => vd)%></li>
+    <li><%= link_to "Video", ewall_contents_path(:id => vprofile, :sk => 'video', :pv => pv, :vd => vd)%></li>
+    <li><%= link_to "Question", ewall_contents_path(:id => vprofile, :sk => 'question', :pv => pv, :vd => vd)%></li>
+  </ul>
+</div>  

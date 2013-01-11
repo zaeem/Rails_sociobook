@@ -1,0 +1,6 @@
+<h1>Editing profile_team_sport</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @profile_team_sport %> |
+<%= link_to 'Back', profile_team_sports_path %>

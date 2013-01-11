@@ -1,0 +1,49 @@
+<div class="add_dataset">
+  <% if f.object.new_record? %> 
+    <%=f.hidden_field :profile_id, { :value => current_user.profile.id } %> 
+    <%=f.hidden_field :postedagainst, { :value => f.object.content_id } %> 
+   <% else %>
+    <%=f.hidden_field :profile_id, { :value => f.object.profile_id } %>
+  <% end %>
+  
+
+  <%= f.hidden_field :type_, { :value => "comment" } %>
+  <%=f.hidden_field :flag, { :value => 1 } %>  
+  <table>  
+    <tr>
+      <% if f.object.new_record? %>
+        <td width="28" rowspan="10" valign="top">
+          <%=  link_to(image_tag(current_user.avatar.url(:thumb), :size => "25x25"), vprofile_home_url( :id => current_user.profile.id) )%>
+        </td>
+        <td>
+          <%= f.text_field :desc , {:class=>"text-input",:size=>"30", :maxlength=>"8000"} %>
+        </td>
+      <% else %>
+        <td width="28" rowspan="10"  valign="top">
+          <%=  link_to(image_tag(get_userfirst(f.object.profile_id).avatar.url(:thumb), :size => "25x25"), vprofile_home_url( :id => f.object.profile_id) )%>
+        </td>
+        <td>
+          <%= f.text_field :desc, :readonly => true, :size=>"30" %>
+        </td>
+      <% end %>
+      <td  width="70" align="right">
+        <table>
+          <tr>
+            <% if !f.object.new_record? %>
+              <td><span style="font-size: 10px"/>spam<%= f.check_box :is_spam , { :value => 1 } %></td>
+            <%end%>
+            <td valign="top"><%= link_to_remove_fields "x", f %></td>
+          </tr>
+          <% if !f.object.new_record? %>
+            <tr>
+              <td valign="top"><span style="font-size: 10px"/>abuse<%= f.check_box :is_abuse , { :value => 1 } %></td>
+            </tr>
+          <%end%>
+        </table>
+      </td>      
+    </tr>
+    <% if !f.object.new_record? %>
+      <tr><td valign="top"><span style="font-size: 9px;"/> <%= time_ago_in_words(f.object.created_at, true) %> </td></tr>  
+    <% end %>
+  </table>
+</div>

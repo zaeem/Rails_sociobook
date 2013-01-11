@@ -1,0 +1,31 @@
+<h1>Listing profile_employer_projects</h1>
+
+<table>
+  <tr>
+    <th>Profile employer</th>
+    <th>Project</th>
+    <th>With</th>
+    <th>Duration</th>
+    <th>Desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_employer_projects.each do |profile_employer_project| %>
+  <tr>
+    <td><%= profile_employer_project.profile_employer_id %></td>
+    <td><%= profile_employer_project.project %></td>
+    <td><%= profile_employer_project.with %></td>
+    <td><%= profile_employer_project.duration %></td>
+    <td><%= profile_employer_project.desc %></td>
+    <td><%= link_to 'Show', profile_employer_project %></td>
+    <td><%= link_to 'Edit', edit_profile_employer_project_path(profile_employer_project) %></td>
+    <td><%= link_to 'Destroy', profile_employer_project, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile employer project', new_profile_employer_project_path %>

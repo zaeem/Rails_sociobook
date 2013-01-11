@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_book.profile_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @profile_book.title %>
+</p>
+
+<p>
+  <b>Auther:</b>
+  <%= @profile_book.auther %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @profile_book.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @profile_book.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_book.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @profile_book.is_default %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_book_path(@profile_book) %> |
+<%= link_to 'Back', profile_books_path %>

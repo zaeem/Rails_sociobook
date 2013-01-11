@@ -1,0 +1,6 @@
+<h1>Editing cvideo</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @cvideo %> |
+<%= link_to 'Back', cvideos_path %>

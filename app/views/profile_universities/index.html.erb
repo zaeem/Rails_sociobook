@@ -1,0 +1,49 @@
+<h1>Listing profile_universities</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Title</th>
+    <th>Concentration</th>
+    <th>Todate</th>
+    <th>Fromdate</th>
+    <th>Classname</th>
+    <th>Website</th>
+    <th>Attendedfor</th>
+    <th>Logo</th>
+    <th>Logo path</th>
+    <th>With</th>
+    <th>Iscurrent</th>
+    <th>Desc</th>
+    <th>Duration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_universities.each do |profile_university| %>
+  <tr>
+    <td><%= profile_university.profile_id %></td>
+    <td><%= profile_university.title %></td>
+    <td><%= profile_university.concentration %></td>
+    <td><%= profile_university.todate %></td>
+    <td><%= profile_university.fromdate %></td>
+    <td><%= profile_university.classname %></td>
+    <td><%= profile_university.website %></td>
+    <td><%= profile_university.attendedfor %></td>
+    <td><%= profile_university.logo %></td>
+    <td><%= profile_university.logo_path %></td>
+    <td><%= profile_university.with %></td>
+    <td><%= profile_university.iscurrent %></td>
+    <td><%= profile_university.desc %></td>
+    <td><%= profile_university.duration %></td>
+    <td><%= link_to 'Show', profile_university %></td>
+    <td><%= link_to 'Edit', edit_profile_university_path(profile_university) %></td>
+    <td><%= link_to 'Destroy', profile_university, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile university', new_profile_university_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cpoll:</b>
+  <%= @cpoption.cpoll_id %>
+</p>
+
+<p>
+  <b>Option:</b>
+  <%= @cpoption.option %>
+</p>
+
+<p>
+  <b>Optiontext:</b>
+  <%= @cpoption.optiontext %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @cpoption.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_cpoption_path(@cpoption) %> |
+<%= link_to 'Back', cpoptions_path %>

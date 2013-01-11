@@ -1,0 +1,29 @@
+<h1>Listing cpoptions</h1>
+
+<table>
+  <tr>
+    <th>Cpoll</th>
+    <th>Option</th>
+    <th>Optiontext</th>
+    <th>Misc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cpoptions.each do |cpoption| %>
+  <tr>
+    <td><%= cpoption.cpoll_id %></td>
+    <td><%= cpoption.option %></td>
+    <td><%= cpoption.optiontext %></td>
+    <td><%= cpoption.misc %></td>
+    <td><%= link_to 'Show', cpoption %></td>
+    <td><%= link_to 'Edit', edit_cpoption_path(cpoption) %></td>
+    <td><%= link_to 'Destroy', cpoption, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cpoption', new_cpoption_path %>

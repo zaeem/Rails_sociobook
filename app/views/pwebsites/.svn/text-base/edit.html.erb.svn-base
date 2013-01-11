@@ -1,0 +1,6 @@
+<h1>Editing pwebsite</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @pwebsite %> |
+<%= link_to 'Back', pwebsites_path %>

@@ -1,0 +1,6 @@
+<h1>Editing profile_activity</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @profile_activity %> |
+<%= link_to 'Back', profile_activities_path %>

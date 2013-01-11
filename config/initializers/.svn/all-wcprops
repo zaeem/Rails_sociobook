@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/dssdteam8/!svn/ver/236/sociobook/config/initializers
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/dssdteam8/!svn/ver/3/sociobook/config/initializers/inflections.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/3/sociobook/config/initializers/session_store.rb
+END
+secret_token.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/3/sociobook/config/initializers/secret_token.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/dssdteam8/!svn/ver/3/sociobook/config/initializers/backtrace_silencers.rb
+END
+recaptcha.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/3/sociobook/config/initializers/recaptcha.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/dssdteam8/!svn/ver/3/sociobook/config/initializers/mime_types.rb
+END
+localsettings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/dssdteam8/!svn/ver/236/sociobook/config/initializers/localsettings.rb
+END

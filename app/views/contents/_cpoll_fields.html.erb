@@ -1,0 +1,16 @@
+<table width="60%">
+  <tr style="border-bottom:1px solid #DDD;">
+    <td><span style="text-align:center;"/><%= f.label :question %></td>
+    <td><span style="float:left;"/><%= f.text_field :question %></td>
+  </tr>
+</table>
+<%= f.fields_for :cpoptions do |builder|%>
+  <%= render "cpoption_fields", :f => builder %>
+<% end %>
+<span class="add_optionlink"><%= link_to_add_fields "Add Option", f, :cpoptions %></span><br/><br/>
+<table width="60%">
+  <tr>
+    <td><span style="float:right;"/><%= f.check_box :allow_options %></td>
+    <td><%= f.label :allow_friends_to_add_options %></td>
+  </tr>
+</table>

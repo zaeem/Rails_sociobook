@@ -1,0 +1,84 @@
+<div class="post-data">
+  <%= form_for(content) do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+
+    <table width="80%" border="0" cellspacing="5" cellpadding="5">
+      <tr>
+        <td width="60" rowspan="10" valign="top">
+          <%= link_to(image_tag(get_userfirst(content.poster_id).avatar.url(:thumb), :size => "50x50"),vprofile_home_url( :id => content.poster_id))%>
+        </td>
+        <td align="left">
+          <span class="style1">
+            <%= link_to get_userfirst(content.poster_id).first_name+" "+ get_userfirst(content.poster_id).last_name, eprofile_home_url( :sk => 'basic') %>
+          </span>
+          <span class="grey-text-post">
+            share Status
+          </span>          
+        </td>
+        <td>
+          <%if content.profile_id == current_user.profile.id  %>
+            <%= link_to 'x', "#{content_path(content)}?return_address=#{CGI::escape(request.query_string)}", :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        </td> 
+      </tr>
+      <tr>
+        <td align="left">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="left"><%= content.misc %></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="left">
+          <span class="grey-text-post">
+            <%= time_ago_in_words(f.object.created_at, true) %>
+          </span> 
+          - <%= link_to_like_without_share_fields "like/dislike", f, :ccomments, "clikeunlike"%>
+          - <%= link_to_comment_without_share_fields "comment", f, :ccomments %>
+        </td>
+      </tr>
+
+      <%= f.fields_for :ccomments do |like| %>
+        <% if like.object.type_ == "like" && like.object.new_record?%>
+          <tr>
+            <td align="left">
+              <%= render "clikeunlike_fields", :f => like %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr>
+        <td align="left">
+          <div class="add_likeset">
+            <span style="font-size: 12px;">
+              <%= content.ccomments.find_all_by_desc("like").length %> people
+              <%= link_to (image_tag "like-icon.jpg"), "#",:onclick=>"like(#{sharecount})"%> and
+              <%= content.ccomments.find_all_by_desc("dislike").length %> people
+              <%= link_to (image_tag "dislike-icon.jpg"), "#",:onclick=>"dislike(#{sharecount})"%>          
+            </span> 
+          </div>
+        </td>
+      </tr>
+
+      <%= f.fields_for :ccomments do |comment| %>
+        <% if comment.object.type_ == "comment" || comment.object.new_record?%>
+          <tr>
+            <td align="left">
+              <%= render "ccomment_fields", :f => comment %>
+            </td>   
+          </tr> 
+        <% end %>
+      <% end %>
+      <tr>
+        <td colspan="2" align ="right">
+          <label>
+            <%= f.submit "Update", :class =>"awesome"%>
+          </label>
+        </td> 
+      </tr>
+    </table>
+  <%end%> 
+</div>

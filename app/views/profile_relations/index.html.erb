@@ -1,0 +1,29 @@
+<h1>Listing profile_relations</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Is family</th>
+    <th>Family name</th>
+    <th>Family relation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_relations.each do |profile_relation| %>
+  <tr>
+    <td><%= profile_relation.profile_id %></td>
+    <td><%= profile_relation.is_family %></td>
+    <td><%= profile_relation.family_name %></td>
+    <td><%= profile_relation.family_relation %></td>
+    <td><%= link_to 'Show', profile_relation %></td>
+    <td><%= link_to 'Edit', edit_profile_relation_path(profile_relation) %></td>
+    <td><%= link_to 'Destroy', profile_relation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile relation', new_profile_relation_path %>

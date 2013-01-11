@@ -1,0 +1,35 @@
+<h1>Listing profile_games</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Logo</th>
+    <th>Logo path</th>
+    <th>Desc</th>
+    <th>Is default</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_games.each do |profile_game| %>
+  <tr>
+    <td><%= profile_game.profile_id %></td>
+    <td><%= profile_game.title %></td>
+    <td><%= profile_game.artist %></td>
+    <td><%= profile_game.logo %></td>
+    <td><%= profile_game.logo_path %></td>
+    <td><%= profile_game.desc %></td>
+    <td><%= profile_game.is_default %></td>
+    <td><%= link_to 'Show', profile_game %></td>
+    <td><%= link_to 'Edit', edit_profile_game_path(profile_game) %></td>
+    <td><%= link_to 'Destroy', profile_game, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile game', new_profile_game_path %>

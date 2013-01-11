@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @cpoll.content_id %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @cpoll.question %>
+</p>
+
+<p>
+  <b>Allow options:</b>
+  <%= @cpoll.allow_options %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @cpoll.desc %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @cpoll.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_cpoll_path(@cpoll) %> |
+<%= link_to 'Back', cpolls_path %>

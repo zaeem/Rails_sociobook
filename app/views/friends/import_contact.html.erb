@@ -1,0 +1,149 @@
+<div class="block">
+  <div align = "right">
+    <%= link_to "Manage Friend List" , list_friend_friends_path %>
+    &nbsp;
+    &nbsp;
+  </div>
+
+  <table width="50%">
+  Friend Requests:
+  <% for friend in @pending_friends %>
+    <tr>
+      <td width ="25%">
+        <%= form_tag("add_request_friend") do %>
+          <%= hidden_field_tag(:id, friend[:id]) %>
+          <%= link_to(image_tag( friend.profile.user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+          <br/><%= friend[:first_name]+" "+friend[:last_name]%>
+          <br/><%= submit_tag 'Add Friend', :class => "awesome" %>
+        <%end%>
+      </td>
+      <td valign="bottom">
+        <span style="text-align:left"/>
+        <%= form_tag("remove_friend") do %>
+          <%= hidden_field_tag(:id, friend[:id]) %>
+          <%= submit_tag 'Not Now', :class => "awesome"%>
+        <%end%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<table>
+  <tr>
+    <td>
+<%#= render :partial => 'shared/steps' %>
+<div class="stepContent">
+  <h4>Are your friends already on Facebook?</h4>
+  <p>Many of your friends may already be here. Searching your email account is the fastest way to find your friends on Facebook.</p>
+  <table width="80%">
+    <%= form_tag("import_yahoo") do %>
+      <tr>
+        <td width="10%"><span style="float: right"/><%= image_tag("yahoo_icon.png", :size => "25x25", :alt => "Yahoo")%></td>
+        <td width="10%"><strong> Yahoo!</strong></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Email:</td>
+        <td><input name="yahoo_id" type="text" size="35" maxlength="50"/></td>
+      </tr>
+      <tr style="border-bottom:1px solid #DDD;">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Password:</td>
+        <td><input name="yahoo_password" type="password" size="35" maxlength="50" /></td>
+        <td><%= submit_tag 'Find & Save' %></td>
+      </tr>
+    <% end -%>
+
+    <%= form_tag("import_hotmail") do -%>
+      <tr>
+        <td><span style="float: right"/><%= image_tag("hotmail_icon.png", :size => "25x25", :alt => "Hotmail")%></td>
+        <td><strong> Hotmail</strong></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Email:</td>
+        <td><input name="hotmail_id" type="text" size="35" maxlength="50"/></td>
+      </tr>
+      <tr style="border-bottom:1px solid #DDD;">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Password:</td>
+        <td><input name="hotmail_password" type="password" size="35" maxlength="50" /></td>
+        <td><%= submit_tag 'Find & Save' %></td>
+      </tr>
+    <% end -%>
+
+    <%= form_tag("import_gmail") do -%>
+      <tr>
+        <td><span style="float: right"/><%= image_tag("gmail_icon.png", :size => "25x25", :alt => "Gmail")%></td>
+        <td><strong> Gmail</strong></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Email:</td>
+        <td><input name="gmail_id" type="text" size="35" maxlength="50"/></td>
+      </tr>
+      <tr style="border-bottom:1px solid #DDD;">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Password:</td>
+        <td><input name="gmail_password" type="password" size="35" maxlength="50" /></td>
+        <td><%= submit_tag 'Find & Save' %></td>
+      </tr>
+    <% end %>
+
+    <% form_for :import, :url => import_file_friends_url, :html => { :multipart => true } do |f| %>
+      <tr style="border-bottom:1px solid #DDD;">
+        <td>&nbsp;</td>
+        <td colspan="2"><strong>Others</strong></td>
+        <td><%= f.file_field :file %> <br/><%= submit_tag 'Upload' %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to "next", pending_request_friend_friends_path, :class => "cornerButtonRight" %>
+</div>
+  </td>
+  </tr>
+</table>
+
+<table width="60%">
+  You may know them
+  <% i = 1 %>
+  <% for friend in @sug_friend_list %>
+    <% if i%4 == 0 %>
+    <tr>
+  <%end%>
+  <%
+    user = friend[:user_obj]
+    user_id = user.id
+  %>
+  <%= form_tag("find_request_friend") do %>
+       <%= hidden_field_tag(:id, user_id) %>
+
+      <td>
+        <%= link_to(image_tag(user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => user.profile.id), :style =>"text-decoration: none;") %>
+          <br/>
+          <%= user[:first_name]+" "+user[:last_name]%>
+          <% if (friend[:ctype] == "mutual") %>
+           <%= "[mf]" %>
+          <% elsif (friend[:ctype] == "contact") %>
+           <%= "[con]" %>
+          <% elsif (friend[:ctype] == "other") %>
+           <%= "[ot]" %>
+          <%end%>
+           <br/>
+          <%= submit_tag 'Send Request' %>
+       </td>
+      <%end%>
+    <% if i%4 == 0 %>
+      </tr>
+    <% end %>
+  <%i +=1 %>
+
+  <% end %>
+
+</table>
+ </div>

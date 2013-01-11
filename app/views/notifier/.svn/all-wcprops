@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/dssdteam8/!svn/ver/51/sociobook/app/views/notifier
+END
+password_reset_instructions.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/dssdteam8/!svn/ver/3/sociobook/app/views/notifier/password_reset_instructions.html.erb
+END
+add_friend_request_mail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/dssdteam8/!svn/ver/51/sociobook/app/views/notifier/add_friend_request_mail.html.erb
+END
+reject_friend_request_mail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/dssdteam8/!svn/ver/51/sociobook/app/views/notifier/reject_friend_request_mail.html.erb
+END
+friendship_request_mail.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/51/sociobook/app/views/notifier/friendship_request_mail.erb
+END

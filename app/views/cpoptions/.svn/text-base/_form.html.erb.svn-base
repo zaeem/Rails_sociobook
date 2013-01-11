@@ -1,0 +1,33 @@
+<%= form_for(@cpoption) do |f| %>
+  <% if @cpoption.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cpoption.errors.count, "error") %> prohibited this cpoption from being saved:</h2>
+
+      <ul>
+      <% @cpoption.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cpoll_id %><br />
+    <%= f.text_field :cpoll_id %>
+  </div>
+  <div class="field">
+    <%= f.label :option %><br />
+    <%= f.text_field :option %>
+  </div>
+  <div class="field">
+    <%= f.label :optiontext %><br />
+    <%= f.text_field :optiontext %>
+  </div>
+  <div class="field">
+    <%= f.label :misc %><br />
+    <%= f.text_field :misc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

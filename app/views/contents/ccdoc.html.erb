@@ -1,0 +1,36 @@
+<h1> Groups  </h1>
+<div class="block">
+
+      <% @content= Content.new %>
+      <%= form_for(@content) do |f| %>
+      <%= hidden_field_tag "return_address", request.query_string %>
+      <%= hidden_field_tag "tags", "yes" %>
+      <%= f.hidden_field :profile_id, { :value => current_user.profile.id } %>
+      <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+      <%= f.hidden_field :type_, { :value => "cdoc" } %>
+        <%= f.hidden_field :group_id, { :value =>  params[:vd] } %>
+      <table>
+        <tr>
+          <td>
+            <%= f.fields_for :cstatus do |builder| %>
+              <%= render "cstatus_fields", :f => builder %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= f.label :Title %>
+        <%= f.text_field :desc , {:class=>"text-input",:size=>"50", :maxlength=>"8000"} %></td>
+        </tr>
+        <tr>
+          <td><%= f.tinymce :misc , {:class=>"text-input",:size=>"35", :maxlength=>"420"} %></td>
+         
+        </tr>
+        <tr>
+          <td><%= f.submit "Create Doc" %></td>
+        </tr>
+      </table>
+    <% end %>
+
+  
+  
+</div>

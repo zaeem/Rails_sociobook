@@ -1,0 +1,5 @@
+<h1>New friend_profile_group</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', friend_profile_groups_path %>

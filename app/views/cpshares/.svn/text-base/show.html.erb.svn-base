@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cpoll:</b>
+  <%= @cpshare.cpoll_id %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%= @cpshare.profile_id %>
+</p>
+
+<p>
+  <b>Option:</b>
+  <%= @cpshare.option %>
+</p>
+
+<p>
+  <b>Isanswered:</b>
+  <%= @cpshare.isanswered %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @cpshare.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_cpshare_path(@cpshare) %> |
+<%= link_to 'Back', cpshares_path %>

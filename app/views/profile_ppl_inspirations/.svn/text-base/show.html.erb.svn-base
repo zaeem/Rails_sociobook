@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_ppl_inspiration.profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @profile_ppl_inspiration.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @profile_ppl_inspiration.title %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%= @profile_ppl_inspiration.reason %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @profile_ppl_inspiration.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @profile_ppl_inspiration.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_ppl_inspiration.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @profile_ppl_inspiration.is_default %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_ppl_inspiration_path(@profile_ppl_inspiration) %> |
+<%= link_to 'Back', profile_ppl_inspirations_path %>

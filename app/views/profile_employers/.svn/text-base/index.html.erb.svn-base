@@ -1,0 +1,49 @@
+<h1>Listing profile_employers</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Title</th>
+    <th>Position</th>
+    <th>City</th>
+    <th>Project</th>
+    <th>Fromdate</th>
+    <th>Todate</th>
+    <th>Website</th>
+    <th>Logo</th>
+    <th>Logo path</th>
+    <th>With</th>
+    <th>Iscurrent</th>
+    <th>Desc</th>
+    <th>Duration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_employers.each do |profile_employer| %>
+  <tr>
+    <td><%= profile_employer.profile_id %></td>
+    <td><%= profile_employer.title %></td>
+    <td><%= profile_employer.position %></td>
+    <td><%= profile_employer.city %></td>
+    <td><%= profile_employer.project %></td>
+    <td><%= profile_employer.fromdate %></td>
+    <td><%= profile_employer.todate %></td>
+    <td><%= profile_employer.website %></td>
+    <td><%= profile_employer.logo %></td>
+    <td><%= profile_employer.logo_path %></td>
+    <td><%= profile_employer.with %></td>
+    <td><%= profile_employer.iscurrent %></td>
+    <td><%= profile_employer.desc %></td>
+    <td><%= profile_employer.duration %></td>
+    <td><%= link_to 'Show', profile_employer %></td>
+    <td><%= link_to 'Edit', edit_profile_employer_path(profile_employer) %></td>
+    <td><%= link_to 'Destroy', profile_employer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile employer', new_profile_employer_path %>

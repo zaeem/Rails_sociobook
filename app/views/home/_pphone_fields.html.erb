@@ -1,0 +1,20 @@
+<div class="add_dataset">
+  <table width="60%">  
+    <tr>
+    <tr style="border-bottom:1px solid #DDD;">
+      <td><span style="text-align:center"/><%= f.label :Phone_Mobile %></td>
+      <td><%= f.text_field :phoneno %></td>
+    </tr>
+
+    <tr style="border-bottom:1px solid #DDD;">
+      <td><%= f.select :type_ , [['Mobile',"Mobile"],['Landline',"landline"]]%></td> 
+      <td><%= f.select :countrycode , [['Pakistan (+92)',92],['Canada (+2)',2],['India (+91)',91],
+          ['Russica (+6)',6],['US (+1)',1]]%></td>
+    </tr>
+    <tr>
+      <td colspan="3"><span style="float: right"/>
+        <%= link_to_remove_fields "Remove", f %>
+      </td>
+    </tr>
+  </table>
+</div>

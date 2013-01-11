@@ -1,0 +1,33 @@
+<%= form_for(@cpoll) do |f| %>
+  <% if @cpoll.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cpoll.errors.count, "error") %> prohibited this cpoll from being saved:</h2>
+
+      <ul>
+      <% @cpoll.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content_id %><br />
+    <%= f.text_field :content_id %>
+  </div>
+  <div class="field">
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :misc %><br />
+    <%= f.text_field :misc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

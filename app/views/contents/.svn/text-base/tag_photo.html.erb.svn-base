@@ -1,0 +1,53 @@
+<%= image_tag @photo.photo.url(:large), :id=>"image"%>
+<%= link_to "Back", valbum_contents_path(:vcid => params[:vcid], :vpid =>params[:vpid] ) %>
+<script>
+     $("#image").tag({
+       autoShowDrag:false,
+       clickToTag:true,
+       resizable:1,
+       draggable:1,
+       save: function(width,height,top_pos,left,label){
+           new Ajax.Request('/contents/add_tag', {
+             method: 'post',
+             parameters: { photo:<%= @photo.id%>, width: width, height: height, label: label, top:top_pos, left:left},
+             onComplete: function(result){
+               window.location.reload();
+             }
+           });
+       },
+       remove: function(id){
+          <%@content = get_content(@photo.id)%>
+          <%@comment = get_comment(@comment_id)%>    
+          <% if (@content!=nil && @content.poster_id==current_user.profile.id)%>
+             new Ajax.Request('/contents/remove_tag', {
+               method: 'post',
+               parameters: { id:id},
+               onSuccess: function(result){
+                  alert("tag remove successfully");
+               }
+             });
+          <% elsif (@comment!=nil && @comment.postedagainst==current_user.profile.id)%>   
+             new Ajax.Request('/contents/remove_tag', {
+               method: 'post',
+               parameters: { id:id, comment:<%= @comment_id%>},
+               onSuccess: function(result){
+                  alert("tag remove successfully");
+               }
+             });         
+          <%end%> 
+        },
+        defaultTags: [
+        <%for tag in @photo.ctags%>
+            {'id':<%= tag.id%>,'label':'<%= tag.label %>','width':<%= tag.width %>,
+              'height':<%= tag.height %>,'top':<%= tag.top %>,'left':<%= tag.left %>},
+        <%end%>
+       ],
+       autoComplete: [
+         <%for friend in find_all_friends%>
+              '<%= friend[:first_name]%>',
+         <% end %>
+       ]
+       
+    });
+</script>
+

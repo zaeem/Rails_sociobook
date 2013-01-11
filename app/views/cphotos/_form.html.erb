@@ -1,0 +1,49 @@
+<%= form_for(@cphoto) do |f| %>
+  <% if @cphoto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cphoto.errors.count, "error") %> prohibited this cphoto from being saved:</h2>
+
+      <ul>
+      <% @cphoto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content_id %><br />
+    <%= f.text_field :content_id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_file_name %><br />
+    <%= f.text_field :photo_file_name %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_content_type %><br />
+    <%= f.text_field :photo_content_type %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_file_size %><br />
+    <%= f.text_field :photo_file_size %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_updated_at %><br />
+    <%= f.datetime_select :photo_updated_at %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :misc %><br />
+    <%= f.text_field :misc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

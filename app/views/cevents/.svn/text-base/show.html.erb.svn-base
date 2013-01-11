@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @cevent.content_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @cevent.title %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @cevent.link %>
+</p>
+
+<p>
+  <b>Fromdate:</b>
+  <%= @cevent.fromdate %>
+</p>
+
+<p>
+  <b>Todate:</b>
+  <%= @cevent.todate %>
+</p>
+
+<p>
+  <b>Plan:</b>
+  <%= @cevent.plan %>
+</p>
+
+<p>
+  <b>Where:</b>
+  <%= @cevent.where %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @cevent.street %>
+</p>
+
+<p>
+  <b>Citytown:</b>
+  <%= @cevent.citytown %>
+</p>
+
+<p>
+  <b>Moreinfo:</b>
+  <%= @cevent.moreinfo %>
+</p>
+
+<p>
+  <b>Flag invitemembersofhosts:</b>
+  <%= @cevent.flag_invitemembersofhosts %>
+</p>
+
+<p>
+  <b>Flag view:</b>
+  <%= @cevent.flag_view %>
+</p>
+
+<p>
+  <b>Flag showgroup:</b>
+  <%= @cevent.flag_showgroup %>
+</p>
+
+<p>
+  <b>Ephoto file name:</b>
+  <%= @cevent.ephoto_file_name %>
+</p>
+
+<p>
+  <b>Ephoto content type:</b>
+  <%= @cevent.ephoto_content_type %>
+</p>
+
+<p>
+  <b>Ephoto file size:</b>
+  <%= @cevent.ephoto_file_size %>
+</p>
+
+<p>
+  <b>Ephoto updated at:</b>
+  <%= @cevent.ephoto_updated_at %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @cevent.desc %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @cevent.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_cevent_path(@cevent) %> |
+<%= link_to 'Back', cevents_path %>

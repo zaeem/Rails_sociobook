@@ -1,0 +1,11 @@
+<p class="welcome">
+  <%- if user_signed_in? -%>
+    Welcome, <%= h current_user.email %>!
+    (<%= link_to "Sign out", signout_path %>)
+  <%- else -%>
+    <%= link_to "Sign in", sign_in_path %> or
+    <%= link_to "Sign up", sign_up_path %>
+  <%- end -%>
+  <br/><br/>
+    <%= render :partial => 'shared/notification' %>
+</p>    

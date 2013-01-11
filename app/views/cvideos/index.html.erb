@@ -1,0 +1,47 @@
+<h1>Listing cvideos</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Title</th>
+    <th>Inthisvideo</th>
+    <th>Video file name</th>
+    <th>Video content type</th>
+    <th>Video file path</th>
+    <th>Video file size</th>
+    <th>Video tfile name</th>
+    <th>Video tcontent type</th>
+    <th>Video tfile path</th>
+    <th>Video tfile size</th>
+    <th>Desc</th>
+    <th>Misc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cvideos.each do |cvideo| %>
+  <tr>
+    <td><%= cvideo.content_id %></td>
+    <td><%= cvideo.title %></td>
+    <td><%= cvideo.inthisvideo %></td>
+    <td><%= cvideo.video_file_name %></td>
+    <td><%= cvideo.video_content_type %></td>
+    <td><%= cvideo.video_file_path %></td>
+    <td><%= cvideo.video_file_size %></td>
+    <td><%= cvideo.video_tfile_name %></td>
+    <td><%= cvideo.video_tcontent_type %></td>
+    <td><%= cvideo.video_tfile_path %></td>
+    <td><%= cvideo.video_tfile_size %></td>
+    <td><%= cvideo.desc %></td>
+    <td><%= cvideo.misc %></td>
+    <td><%= link_to 'Show', cvideo %></td>
+    <td><%= link_to 'Edit', edit_cvideo_path(cvideo) %></td>
+    <td><%= link_to 'Destroy', cvideo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cvideo', new_cvideo_path %>

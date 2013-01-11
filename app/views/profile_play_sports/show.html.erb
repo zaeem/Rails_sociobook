@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_play_sport.profile_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @profile_play_sport.title %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @profile_play_sport.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @profile_play_sport.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_play_sport.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @profile_play_sport.is_default %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_play_sport_path(@profile_play_sport) %> |
+<%= link_to 'Back', profile_play_sports_path %>

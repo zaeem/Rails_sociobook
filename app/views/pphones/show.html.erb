@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @pphone.profile_id %>
+</p>
+
+<p>
+  <b>Phoneno:</b>
+  <%= @pphone.phoneno %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @pphone.type_ %>
+</p>
+
+<p>
+  <b>Countrycode:</b>
+  <%= @pphone.countrycode %>
+</p>
+
+
+<%= link_to 'Edit', edit_pphone_path(@pphone) %> |
+<%= link_to 'Back', pphones_path %>

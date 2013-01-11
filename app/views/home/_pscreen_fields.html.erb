@@ -1,0 +1,19 @@
+<div class="add_dataset">
+  <table width="100%">  
+    <tr>
+      <td>
+        <span style="text-align:center"/><%= f.label :IM_Screen_Name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.select :type , [['Windows Live Messenger','Windows Live Messenger'],['Yahoo! Messenger','Yahoo! Messenger'],
+          ['Google Talk','Google Talk'],['Skype','Skype'], ['Orkut','Orkut'],['Twitter','Twitter']]%></td>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3"><span style="float: right"/>
+        <%= link_to_remove_fields "Remove", f %>
+      </td>
+    </tr>
+  </table>
+</div>

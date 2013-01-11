@@ -1,0 +1,14 @@
+<div id="liking" name ="liking" style="display: none">
+  <table>
+    <tr>      
+      <% for user in like_user(content.id) %>
+        <td>
+          <span class="tooltip" title="<%=user[:first_name]%> <%=user[:last_name]%>">
+             <%= image_tag user.avatar.url(:thumb), :size => "25x25"%>
+          </span> 
+        </td>
+        <td>&nbsp;</td>
+      <%end%>            
+    </tr>    
+  </table>
+</div>

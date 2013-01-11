@@ -1,0 +1,6 @@
+<h1>Editing clink</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @clink %> |
+<%= link_to 'Back', clinks_path %>

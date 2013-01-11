@@ -1,0 +1,41 @@
+<h1>Listing contents</h1>
+
+<table>
+  <tr>
+    <th>Album</th>
+    <th>Profile</th>
+    <th>Flag</th>
+    <th>Name</th>
+    <th>Flag</th>
+    <th>Album</th>
+    <th>Group</th>
+    <th>Type </th>
+    <th>Desc</th>
+    <th>Misc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contents.each do |content| %>
+  <tr>
+    <td><%= content.album_id %></td>
+    <td><%= content.profile_id %></td>
+    <td><%= content.flag %></td>
+    <td><%= content.name %></td>
+    <td><%= content.flag %></td>
+    <td><%= content.album %></td>
+    <td><%= content.group %></td>
+    <td><%= content.type_ %></td>
+    <td><%= content.desc %></td>
+    <td><%= content.misc %></td>
+    <td><%= link_to 'Show', content %></td>
+    <td><%= link_to 'Edit', edit_content_path(content) %></td>
+    <td><%= link_to 'Destroy', content, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Content', new_content_path %>

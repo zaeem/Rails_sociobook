@@ -1,0 +1,13 @@
+<div id="clink" class = "clink"> 
+  <table>
+    <tr style="border-bottom:1px solid #DDD;">
+ 
+      Title  <%= f.text_field :title , {:class=>"text-input",:size=>"10", :maxlength=>"100"} %>
+      <%#*Say Something ?  <%= f.text_field :desc , {:class=>"text-input",:size=>"20", :maxlength=>"400"} %>
+    </tr>    
+    <tr style="border-bottom:1px solid #DDD;">
+      Attach link  <%= f.text_field :link, {:class=>"text-input",:size=>"50", :maxlength=>"1000"} %>
+     </tr>
+   </table>
+  
+</div>

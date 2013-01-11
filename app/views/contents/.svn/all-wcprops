@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/dssdteam8/!svn/ver/293/sociobook/app/views/contents
+END
+_ewall_top_links.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/288/sociobook/app/views/contents/_ewall_top_links.html.erb
+END
+_clink_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/196/sociobook/app/views/contents/_clink_fields.html.erb
+END
+_ewall_read_photo.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/293/sociobook/app/views/contents/_ewall_read_photo.html.erb
+END
+cevent.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/288/sociobook/app/views/contents/cevent.html.erb
+END
+_cpoll_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/104/sociobook/app/views/contents/_cpoll_fields.html.erb
+END
+_ewall_read_link.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/293/sociobook/app/views/contents/_ewall_read_link.html.erb
+END
+listalbum.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/177/sociobook/app/views/contents/listalbum.html.erb
+END
+_clikeunlike_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/dssdteam8/!svn/ver/275/sociobook/app/views/contents/_clikeunlike_fields.html.erb
+END
+tag_photo.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/184/sociobook/app/views/contents/tag_photo.html.erb
+END
+_ewall_read_status.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/dssdteam8/!svn/ver/276/sociobook/app/views/contents/_ewall_read_status.html.erb
+END
+_ewall_write_link.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/269/sociobook/app/views/contents/_ewall_write_link.html.erb
+END
+vvideo.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/103/sociobook/app/views/contents/vvideo.html.erb
+END
+_ewall_write_photo.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/dssdteam8/!svn/ver/269/sociobook/app/views/contents/_ewall_write_photo.html.erb
+END
+_ewall_read_svideo.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/dssdteam8/!svn/ver/293/sociobook/app/views/contents/_ewall_read_svideo.html.erb
+END
+_cevent_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/279/sociobook/app/views/contents/_cevent_fields.html.erb
+END
+_ewall_write_status.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/dssdteam8/!svn/ver/269/sociobook/app/views/contents/_ewall_write_status.html.erb
+END
+_ewall_read_video.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/293/sociobook/app/views/contents/_ewall_read_video.html.erb
+END
+_ewall_read_question.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/dssdteam8/!svn/ver/293/sociobook/app/views/contents/_ewall_read_question.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/28/sociobook/app/views/contents/new.html.erb
+END
+_ewall_read_event.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/279/sociobook/app/views/contents/_ewall_read_event.html.erb
+END
+cadd.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/dssdteam8/!svn/ver/276/sociobook/app/views/contents/cadd.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/dssdteam8/!svn/ver/132/sociobook/app/views/contents/show.html.erb
+END
+_ccomment_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/293/sociobook/app/views/contents/_ccomment_fields.html.erb
+END
+show.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/dssdteam8/!svn/ver/129/sociobook/app/views/contents/show.erb
+END
+valbum.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/293/sociobook/app/views/contents/valbum.html.erb
+END
+ccdoc.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/270/sociobook/app/views/contents/ccdoc.html.erb
+END
+_cpoption_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/235/sociobook/app/views/contents/_cpoption_fields.html.erb
+END
+_cpoll_view_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/dssdteam8/!svn/ver/235/sociobook/app/views/contents/_cpoll_view_fields.html.erb
+END
+_ewall_dislike.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/235/sociobook/app/views/contents/_ewall_dislike.html.erb
+END
+_ewall_write_question.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/dssdteam8/!svn/ver/218/sociobook/app/views/contents/_ewall_write_question.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/123/sociobook/app/views/contents/index.html.erb
+END
+_ewall_share.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/dssdteam8/!svn/ver/258/sociobook/app/views/contents/_ewall_share.html.erb
+END
+ewall.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/292/sociobook/app/views/contents/ewall.html.erb
+END
+_calbum_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/269/sociobook/app/views/contents/_calbum_fields.html.erb
+END
+_ewall_write_video.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/dssdteam8/!svn/ver/269/sociobook/app/views/contents/_ewall_write_video.html.erb
+END
+_cvlink_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/269/sociobook/app/views/contents/_cvlink_fields.html.erb
+END
+_csvideo_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/269/sociobook/app/views/contents/_csvideo_fields.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/dssdteam8/!svn/ver/28/sociobook/app/views/contents/edit.html.erb
+END
+_cphoto_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/269/sociobook/app/views/contents/_cphoto_fields.html.erb
+END
+_ewall_like.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/dssdteam8/!svn/ver/235/sociobook/app/views/contents/_ewall_like.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/132/sociobook/app/views/contents/_form.html.erb
+END
+_cstatus_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/196/sociobook/app/views/contents/_cstatus_fields.html.erb
+END
+_cvideo_fields.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/196/sociobook/app/views/contents/_cvideo_fields.html.erb
+END

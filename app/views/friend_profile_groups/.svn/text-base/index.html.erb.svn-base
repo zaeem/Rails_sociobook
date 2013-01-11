@@ -1,0 +1,27 @@
+<h1>Listing friend_profile_groups</h1>
+
+<table>
+  <tr>
+    <th>Friend</th>
+    <th>Group</th>
+    <th>Desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @friend_profile_groups.each do |friend_profile_group| %>
+  <tr>
+    <td><%= friend_profile_group.friend_id %></td>
+    <td><%= friend_profile_group.profile_group_id %></td>
+    <td><%= friend_profile_group.desc %></td>
+    <td><%= link_to 'Show', friend_profile_group %></td>
+    <td><%= link_to 'Edit', edit_friend_profile_group_path(friend_profile_group) %></td>
+    <td><%= link_to 'Destroy', friend_profile_group, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Friend profile group', new_friend_profile_group_path %>

@@ -1,0 +1,210 @@
+<div class="sub_menus">
+  <%= link_to "Take Photo", "#",   :onclick=>"view_photo(#{0})", :style=> "margin-left: 20%;" %>
+  <%= link_to "Upload Photo", "#", :onclick=>"view_photo(#{1})", :style=> "margin-left: 15%;" %>
+  <%= link_to "Create Album", "#", :onclick=>"view_photo(#{2})", :style=> "margin-left: 15%;" %>
+</div>  
+<%#*--------------------------------------   webcam  -------------------------------%>
+<div class="view-photo pcontainer onload" name="toggle_pcontainer">
+  <%= form_for(current_user.profile.default_album_content, :html => {:multipart => true }) do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <%#= f.hidden_field :profile_id, { :value => @vprofile } %>
+    <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f.hidden_field :group_id, { :value => vd } %>
+    <%= f.hidden_field :type_, { :value => "photo" } %>
+    <table cellspacing="5" cellpadding="5" border="0" width="80%">
+      <tbody>
+        <tr>
+          <td width="40" valign="top">
+            <div id="webcam"></div> 
+          </td>
+          <td align ="right">
+            <table cellspacing="5" cellpadding="5" border="0" width="99%">
+              <tr>
+                <td>
+                   <%= text_field_tag 'title', 'Say something about photo', :class=>"text-input", :onclick=>"this.value='';"%>
+                </td>
+                <td>
+                  <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+                </td>
+              </tr>
+              <tr>
+                <td align ="right">
+                  <label>
+                    <input type="button" value="Take picture" onclick="webcam.snap();" class="awesome"/>
+                  </label>
+                </td>
+                <td align ="right">
+                  <label>
+                    <%= f.submit "Share", :class =>"awesome"%>
+                  </label>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>   
+  <% end %>
+  <script type="text/javascript">
+    function upload_complete(msg) {
+      if (msg == 'ok') {
+        $('new_photo').show();
+        $('photo_description').focus();
+      } else {
+        alert('An error occured');
+        webcam.reset();
+      }
+    }
+    webcam.set_swf_url('/webcam.swf');
+    webcam.set_api_url('<%= take_picture_home_path %>');
+    webcam.set_quality(90);
+    webcam.set_shutter_sound(true, '/shutter.mp3');
+    webcam.set_hook('onComplete', 'upload_complete');
+    document.getElementById('webcam').innerHTML = webcam.get_html(260, 250);
+  </script>
+</div>
+
+<%#*--------------------------------------   photo  -------------------------------%>
+<div class="view-photo pcontainer" name="toggle_pcontainer">
+  <%= form_for(current_user.profile.default_album_content, :html => {:multipart => true }) do |f| %>
+    <%= hidden_field_tag "return_address", request.query_string %>
+    <%#= f.hidden_field :profile_id, { :value => @vprofile } %>
+    <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+    <%= f.hidden_field :type_, { :value => "photo" } %>
+    <%= hidden_field_tag 'content_id', v_profile.default_album_content.id %>  
+    <table cellspacing="5" cellpadding="5" border="0" width="76%">
+      <tbody>
+        <tr>
+          <td width="40" valign="top">
+            <%= f.label 'Upload picture from your disk' %>         
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.fields_for :cphotos, current_user.profile.default_album_content.cphotos.build do |builder| %>
+              <%= builder.file_field :photo %>        
+            <% end %>
+          </td>
+          <td align ="right">
+            <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+          </td>
+          <td align ="right">
+            <label>
+              <%= f.submit "Upload", :class =>"awesome"%>
+            </label>
+          </td>
+        </tr>  
+      </tbody>
+    </table>
+  <%end%> 
+</div>
+
+<%#*--------------------------------------   Album  -------------------------------%>
+<div class="view-photo pcontainer" name="toggle_pcontainer">
+  <div class="sub_submenus">
+    <%= link_to "Advance Uploader", "#", :onclick=>"view_album(#{0})", :style=> "margin-left: 20%;" %>
+    <%= link_to "Basic Uploader", "#", :onclick=>"view_album(#{1})", :style=> "margin-left: 20%;" %>
+  </div>  
+
+  <div class="acontainer onload" name="toggle_acontainer">
+    <%= form_for(content, :html => {:multipart => true}) do |f| %>
+      <%= hidden_field_tag "return_address", request.query_string %>
+      <%= f.hidden_field :profile_id, { :value => v_profile.id } %>
+      <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+      <%= f.hidden_field :type_, { :value => "photo" } %>
+      <table cellspacing="5" cellpadding="5" border="0" width="80%">
+        <tbody>
+          <tr>
+            <td width="40" valign="top">
+              <%= f.label 'Select multiple photos on your computer.' %>         
+            </td>
+          </tr>
+          <tr>
+            <%= f.fields_for :cphotos do |builder| %>
+              <%= render "calbum_fields", :f => builder %>
+              <tr>
+                <td>
+                  <span><%= link_to_add_partial_fields "add photo", f, :cphotos, "calbum"%></span>
+                </td>
+              </tr>
+            <% end %>
+          </tr>
+          <tr>
+            <td valign="top">
+              <%= f.text_field :name, :class=>"text-input",:size=>"40", :maxlength=>"420",:value => "Album name", :onclick=>"this.value='';"%>           
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <%= f.text_field :album, :class=>"text-input",:size=>"40", :maxlength=>"420",:value => "Location/City", :onclick=>"this.value='';"%>           
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <%= f.text_field :misc, :class=>"text-input",:size=>"40", :maxlength=>"420",:value => "Say something about this album", :onclick=>"this.value='';"%>           
+            </td>
+            <td align ="right">
+              <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+            </td>
+            <td align ="right">
+              <label>
+                <%= f.submit "Upload", :class =>"awesome"%>
+              </label>
+            </td>
+          </tr>
+       </tbody>
+      </table>
+    <%end%> 
+  </div>
+  <%#*-------------------------   ALBUM  Basic ------------------------------%>
+  <div class="acontainer" name="toggle_acontainer">
+    <%= form_for(content, :html => {:multipart => true}) do |f| %>
+      <%= hidden_field_tag "return_address", request.query_string %>
+      <%= f.hidden_field :profile_id, { :value => v_profile.id } %>
+      <%= f.hidden_field :poster_id, { :value => current_user.profile.id } %>
+      <%= f.hidden_field :type_, { :value => "photo" } %>
+<table cellspacing="5" cellpadding="5" border="0" width="80%">
+        <tbody>
+          <tr>
+            <td width="40" valign="top">
+              <%= f.label 'Select multiple photos on your computer.' %>         
+            </td>
+          </tr>
+          <tr>
+            <%= f.fields_for :cphotos do |builder| %>
+              <%= render "cphoto_fields", :f => builder %>
+              <tr>
+                <td>
+                  <span><%= link_to_add_fields "add photo", f, :cphotos %></span>
+                </td>
+              </tr>
+            <% end %>
+          </tr>
+          <tr>
+            <td valign="top">
+              <%= f.text_field :name, :class=>"text-input",:size=>"40", :maxlength=>"420",:value => "Album name", :onclick=>"this.value='';"%>           
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <%= f.text_field :album, :class=>"text-input",:size=>"40", :maxlength=>"420",:value => "Location/City", :onclick=>"this.value='';"%>           
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <%= f.text_field :misc, :class=>"text-input",:size=>"40", :maxlength=>"420",:value => "Say something about this album", :onclick=>"this.value='';"%>           
+            </td>
+            <td align ="right">
+              <%= f.select :flag , [['Every One',3],['Friends Only',2],['Friends of Friends',2],['Only me',1]]%>
+            </td>
+            <td align ="right">
+              <label>
+                <%= f.submit "Upload", :class =>"awesome"%>
+              </label>
+            </td>
+          </tr>
+       </tbody>
+      </table>
+    <%end%> 
+  </div>
+</div>

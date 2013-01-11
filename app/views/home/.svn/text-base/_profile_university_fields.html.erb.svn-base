@@ -1,0 +1,51 @@
+<div class="add_dataset">
+  <table width="60%">  
+    <tr>
+       <td width ="10%"><%= image_tag("university_logo.png", :size => "50x50")%></td>
+      <%#*<td width ="10%"><img src="/images/university_logo.png" width="100%" height="30%" alt="University"></td>%>
+    </tr>
+    <tr>
+      <td>&nbsp;</td> 
+      <td width ="10%"> <%= f.label :university %></td>
+      <td> <%= f.autocomplete_field :title, autocomplete_profile_university_title_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :website %></td>
+      <td><%= f.autocomplete_field :website, autocomplete_profile_university_website_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :concentration %></td>
+      <td><%= f.autocomplete_field :concentration, autocomplete_profile_university_concentration_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :class %></td>
+      <td><%= f.autocomplete_field :classname, autocomplete_profile_university_classname_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :attended_for%></td>
+      <td><%= f.autocomplete_field :attendedfor, autocomplete_profile_university_attendedfor_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :with %></td>
+      <td><%= f.autocomplete_field :with, autocomplete_profile_university_with_home_path %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :description %></td>
+      <td><%= f.text_area :desc, :size => "28x3" %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float: right"/><%= f.check_box :iscurrent %></td>
+      <td> <%= f.label :current_study %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><span style="float:right;"/><%= f.label :duration %></td>
+      <td> From<%= f.date_select :fromdate, :start_year => (Date.today.year - 100), :end_year => Date.today.year %> <br/>To   <%= f.date_select :todate, :start_year => (Date.today.year - 100), :end_year => Date.today.year %>  </td>
+    </tr>
+    <tr>
+      <td colspan="3"><span style="float: right"/>
+        <%#*<button type="button" class="delete_div_btn">Remove</button>%>
+        <%= link_to_remove_fields "Remove", f %>
+      </td>
+    </tr>
+  </table>
+</div>  

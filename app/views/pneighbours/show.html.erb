@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @pneighbour.profile_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @pneighbour.title %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @pneighbour.type_ %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @pneighbour.desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_pneighbour_path(@pneighbour) %> |
+<%= link_to 'Back', pneighbours_path %>

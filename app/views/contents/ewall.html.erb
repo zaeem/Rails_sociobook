@@ -1,0 +1,111 @@
+<%= render :partial => "ewall_top_links", :locals => { :vprofile => @vprofile, :pv => @pv, :vd => @vd } %>
+
+<div class="block">
+  <% if @sk == 'status' %>
+    <%= render :partial => "ewall_write_status", :locals => { :content => @content, :v_profile => @v_profile, :profile => @profile  , :vd => @vd} %>
+  <% elsif @sk == 'photo' %>
+    <%= render :partial => "ewall_write_photo", :locals => { :content => @content, :v_profile => @v_profile, :profile => @profile, :pv => @pv, :vd => @vd } %>
+  <% elsif @sk == 'link' %>
+    <%= render :partial => "ewall_write_link", :locals => { :content => @content, :v_profile => @v_profile, :profile => @profile , :vd => @vd} %>
+  <% elsif @sk == 'video' %>
+    <%= render :partial => "ewall_write_video", :locals => { :content => @content, :v_profile => @v_profile, :profile => @profile , :vd => @vd} %>
+  <% elsif @sk == 'question' %>
+    <%= render :partial => "ewall_write_question", :locals => { :content => @content, :v_profile => @v_profile, :profile => @profile , :vd => @vd} %>
+  <%# else %>
+    <%#*<div> not basic </div>%>
+  <% end %>
+</div>
+
+
+<% for content in all_contents(@pv, @vprofile) %>
+      <% if (  (@pv=='w' && content.profile_id == @vprofile && current_user.profile.id == @vprofile ) ||
+            ((@pv=='w' && current_user.profile.id != @vprofile &&  content.profile_id == @vprofile) && (content.flag == 3 || (content.flag == 2 && is_friend(current_user.profile.id, @vprofile))))  ||
+            (@pv=='f' && content.profile_id == current_user.profile.id )  ||
+            (@pv=='f' && (content.profile_id != current_user.profile.id && (content.flag == 3 || (content.flag == 2 && is_friend(@vprofile,content.profile.id )))) ) ||
+             (@pv == 'g' && content.group_id.to_s == @vd) ) %>
+ 
+
+<% if content.type_ != "default" %>
+    <div class="block"> 
+   
+      <%@sharecount +=1%>
+      <% if content.type_ == "status"  || content.type_ == "cdoc"  %>
+        <%= render :partial => "ewall_read_status", :locals => { :content => content, :sharecount => @sharecount } %>
+      <% elsif content.type_ == "link"  %>
+        <%= render :partial => "ewall_read_link", :locals => { :content => content, :sharecount => @sharecount } %>
+      <% elsif content.type_ == "photo" && content.cphotos.first != nil %>
+        <%= render :partial => "ewall_read_photo", :locals => { :content => content, :sharecount => @sharecount } %>
+      <% elsif content.type_ == "video" %>
+        <%= render :partial => "ewall_read_video", :locals => { :content => content, :sharecount => @sharecount } %>
+      <% elsif content.type_ == "svideo" %>
+        <%= render :partial => "ewall_read_svideo", :locals => { :content => content, :sharecount => @sharecount } %>
+      <% elsif content.type_ == "question" %>
+        <%= render :partial => "ewall_read_question", :locals => { :content => content, :sharecount => @sharecount } %>
+       <%  elsif content.type_ == "cevent"  %>
+        <%= render :partial => "ewall_read_event", :locals => { :content => content, :sharecount => @sharecount } %>
+      <%# else %>
+        <%#  content.type_ %>
+      <% end %>
+   
+     <%= render :partial => "ewall_like", :locals => { :content => content, :sharecount => @sharecount} %>
+     <%= render :partial => "ewall_dislike", :locals => { :content => content, :sharecount => @sharecount} %>
+     <%= render :partial => "ewall_share", :locals => { :content => content, :sharecount => @sharecount} %>
+    </div>  
+<% end %>
+
+  <% end %>
+
+<% end %>
+
+<script type="text/javascript">
+  // begin scripting after the page is fully loaded
+  $(function() {
+    
+    // install flowplayer and initialize mouse interactivity
+    $("div.player").flowplayer("/system/player-plugin/flowplayer-3.2.7.swf" ).hover(function() {
+      //, { clip:{autoPlay: false, autoBuffering: false}}
+          
+        
+      // find div.info element inside the player container and show it
+      $("div.info", this).fadeTo("slow", 0.7);
+        
+    }, function() {
+        
+      // when mouse is removed - hide the info
+      $("div.info", this).fadeTo("slow", 0);
+    });
+    
+    // initially all info elements are hidden
+    $("div.info").css("opacity", 0);
+    
+  });
+    
+
+  $(document).ready(function() {
+    var i = 0;
+    $("a#next-image").live("click",function(e){
+      $("div#image-div-"+i).hide();
+      i++;
+      if(i>0){
+        $("#prev-image").show();
+      }
+      if(i>=parseInt($("#total_count").val)){
+        $("#next-image").hide();
+      }
+      $("#image-div-"+i).show();
+      return false;
+    });
+    $("a#prev-image").live("click",function(e){
+      $("#image-div-"+i).hide();
+      i--;
+      if(i<=0){
+        $("#prev-image").hide();
+      }
+      if(i<parseInt($("#total_count").val)){
+        $("#next-image").show();
+      }
+      $("#image-div-"+i).show();
+      return false;
+    });
+  })
+</script>

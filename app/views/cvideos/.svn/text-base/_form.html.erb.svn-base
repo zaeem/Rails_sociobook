@@ -1,0 +1,69 @@
+<%= form_for(@cvideo) do |f| %>
+  <% if @cvideo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cvideo.errors.count, "error") %> prohibited this cvideo from being saved:</h2>
+
+      <ul>
+      <% @cvideo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content_id %><br />
+    <%= f.text_field :content_id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :inthisvideo %><br />
+    <%= f.text_field :inthisvideo %>
+  </div>
+  <div class="field">
+    <%= f.label :video_file_name %><br />
+    <%= f.text_field :video_file_name %>
+  </div>
+  <div class="field">
+    <%= f.label :video_content_type %><br />
+    <%= f.text_field :video_content_type %>
+  </div>
+  <div class="field">
+    <%= f.label :video_file_path %><br />
+    <%= f.text_field :video_file_path %>
+  </div>
+  <div class="field">
+    <%= f.label :video_file_size %><br />
+    <%= f.text_field :video_file_size %>
+  </div>
+  <div class="field">
+    <%= f.label :video_tfile_name %><br />
+    <%= f.text_field :video_tfile_name %>
+  </div>
+  <div class="field">
+    <%= f.label :video_tcontent_type %><br />
+    <%= f.text_field :video_tcontent_type %>
+  </div>
+  <div class="field">
+    <%= f.label :video_tfile_path %><br />
+    <%= f.text_field :video_tfile_path %>
+  </div>
+  <div class="field">
+    <%= f.label :video_tfile_size %><br />
+    <%= f.text_field :video_tfile_size %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :misc %><br />
+    <%= f.text_field :misc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

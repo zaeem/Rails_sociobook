@@ -1,0 +1,39 @@
+<h1>Listing profile_activities</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Type </th>
+    <th>Sport</th>
+    <th>Logo</th>
+    <th>Logo path</th>
+    <th>Desc</th>
+    <th>Is default</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_activities.each do |profile_activity| %>
+  <tr>
+    <td><%= profile_activity.profile_id %></td>
+    <td><%= profile_activity.name %></td>
+    <td><%= profile_activity.title %></td>
+    <td><%= profile_activity.type_ %></td>
+    <td><%= profile_activity.sport %></td>
+    <td><%= profile_activity.logo %></td>
+    <td><%= profile_activity.logo_path %></td>
+    <td><%= profile_activity.desc %></td>
+    <td><%= profile_activity.is_default %></td>
+    <td><%= link_to 'Show', profile_activity %></td>
+    <td><%= link_to 'Edit', edit_profile_activity_path(profile_activity) %></td>
+    <td><%= link_to 'Destroy', profile_activity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile activity', new_profile_activity_path %>

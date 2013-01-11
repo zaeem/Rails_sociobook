@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @cadd.content_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @cadd.title %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @cadd.link %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @cadd.body %>
+</p>
+
+<p>
+  <b>Ephoto file name:</b>
+  <%= @cadd.ephoto_file_name %>
+</p>
+
+<p>
+  <b>Ephoto content type:</b>
+  <%= @cadd.ephoto_content_type %>
+</p>
+
+<p>
+  <b>Ephoto file size:</b>
+  <%= @cadd.ephoto_file_size %>
+</p>
+
+<p>
+  <b>Ephoto updated at:</b>
+  <%= @cadd.ephoto_updated_at %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @cadd.desc %>
+</p>
+
+<p>
+  <b>Misc:</b>
+  <%= @cadd.misc %>
+</p>
+
+
+<%= link_to 'Edit', edit_cadd_path(@cadd) %> |
+<%= link_to 'Back', cadds_path %>

@@ -1,0 +1,27 @@
+<h1> Groups  </h1>
+<div class="block">
+<table width="100%">
+  <% i = 0 %>
+  <% for group in findgroups(params[:id]) %>
+  <% if i%4 == 0 %>
+   <tr>
+  <%end%>
+         
+  <%= hidden_field_tag(:id, group[:id]) %>
+     <% group_id = group[:id] %>
+      <td>
+        <%= link_to(image_tag( 'default_group.png', :size => "64x64"), ewall_contents_path(:id => current_user.profile.id ,:sk => 'status' , :pv => 'g', :vd => group_id)) %>
+           <br/>
+           <%=group[:name] %>
+           <br/>
+        </td>
+        <%i +=1 %>
+    <% if i%4 == 0 %>
+      </tr>
+    <% end %>
+    
+<%end%>
+
+</table>
+
+</div>

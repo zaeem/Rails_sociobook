@@ -1,0 +1,29 @@
+<h1>Listing pneighbours</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Title</th>
+    <th>Type </th>
+    <th>Desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pneighbours.each do |pneighbour| %>
+  <tr>
+    <td><%= pneighbour.profile_id %></td>
+    <td><%= pneighbour.title %></td>
+    <td><%= pneighbour.type_ %></td>
+    <td><%= pneighbour.desc %></td>
+    <td><%= link_to 'Show', pneighbour %></td>
+    <td><%= link_to 'Edit', edit_pneighbour_path(pneighbour) %></td>
+    <td><%= link_to 'Destroy', pneighbour, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pneighbour', new_pneighbour_path %>

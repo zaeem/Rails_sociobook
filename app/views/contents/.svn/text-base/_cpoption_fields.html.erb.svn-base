@@ -1,0 +1,19 @@
+<div class="add_optionset">
+  <table>  
+    <tr>
+        <td width="53">
+         <%= f.label :option %>
+        </td>
+        <td>
+          <%= f.text_field :optiontext , {:class=>"text-input"} %>
+        </td>
+      <td width="63" align="right">
+        <table>
+          <tr>
+            <td valign="top"><%= link_to_remove_fields "x", f %></td>
+          </tr>
+        </table>
+      </td>      
+    </tr>
+  </table>
+</div>

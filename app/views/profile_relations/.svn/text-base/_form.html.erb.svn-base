@@ -1,0 +1,33 @@
+<%= form_for(@profile_relation) do |f| %>
+  <% if @profile_relation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile_relation.errors.count, "error") %> prohibited this profile_relation from being saved:</h2>
+
+      <ul>
+      <% @profile_relation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :profile_id %><br />
+    <%= f.text_field :profile_id %>
+  </div>
+  <div class="field">
+    <%= f.label :is_family %><br />
+    <%= f.text_field :is_family %>
+  </div>
+  <div class="field">
+    <%= f.label :family_name %><br />
+    <%= f.text_field :family_name %>
+  </div>
+  <div class="field">
+    <%= f.label :family_relation %><br />
+    <%= f.text_field :family_relation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

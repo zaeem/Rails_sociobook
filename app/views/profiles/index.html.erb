@@ -1,0 +1,101 @@
+<h1>Listing profiles</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Yahoo</th>
+    <th>Yahoo pass</th>
+    <th>Hotmail</th>
+    <th>Hotmail pass</th>
+    <th>Gmail</th>
+    <th>Gmail pass</th>
+    <th>Skype</th>
+    <th>Skype pass</th>
+    <th>Contact currentcity</th>
+    <th>Contact email</th>
+    <th>Contact screenname</th>
+    <th>Contact messenger</th>
+    <th>Contact phone</th>
+    <th>Contact mobile</th>
+    <th>Contact countrycode</th>
+    <th>Contact zipcode</th>
+    <th>Contact address</th>
+    <th>Contact town</th>
+    <th>Contact neighbour</th>
+    <th>Contact website</th>
+    <th>Tv</th>
+    <th>Favour quotes</th>
+    <th>Political views</th>
+    <th>Political views desc</th>
+    <th>Total friends</th>
+    <th>Featured friends</th>
+    <th>Religion</th>
+    <th>Religion name</th>
+    <th>Religion logo</th>
+    <th>Religion logo path</th>
+    <th>Religion desc</th>
+    <th>Show birthdate</th>
+    <th>Show gender</th>
+    <th>Gender</th>
+    <th>Relation status</th>
+    <th>Interested in</th>
+    <th>Languages</th>
+    <th>Aboutme</th>
+    <th>Birthdate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profiles.each do |profile| %>
+  <tr>
+    <td><%= profile.user_id %></td>
+    <td><%= profile.yahoo_id %></td>
+    <td><%= profile.yahoo_pass %></td>
+    <td><%= profile.hotmail_id %></td>
+    <td><%= profile.hotmail_pass %></td>
+    <td><%= profile.gmail_id %></td>
+    <td><%= profile.gmail_pass %></td>
+    <td><%= profile.skype_id %></td>
+    <td><%= profile.skype_pass %></td>
+    <td><%= profile.contact_currentcity %></td>
+    <td><%= profile.contact_email %></td>
+    <td><%= profile.contact_screenname %></td>
+    <td><%= profile.contact_messenger %></td>
+    <td><%= profile.contact_phone %></td>
+    <td><%= profile.contact_mobile %></td>
+    <td><%= profile.contact_countrycode %></td>
+    <td><%= profile.contact_zipcode %></td>
+    <td><%= profile.contact_address %></td>
+    <td><%= profile.contact_town %></td>
+    <td><%= profile.contact_neighbour %></td>
+    <td><%= profile.contact_website %></td>
+    <td><%= profile.tv %></td>
+    <td><%= profile.favour_quotes %></td>
+    <td><%= profile.political_views %></td>
+    <td><%= profile.political_views_desc %></td>
+    <td><%= profile.total_friends %></td>
+    <td><%= profile.featured_friends %></td>
+    <td><%= profile.religion %></td>
+    <td><%= profile.religion_name %></td>
+    <td><%= profile.religion_logo %></td>
+    <td><%= profile.religion_logo_path %></td>
+    <td><%= profile.religion_desc %></td>
+    <td><%= profile.show_birthdate %></td>
+    <td><%= profile.show_gender %></td>
+    <td><%= profile.gender %></td>
+    <td><%= profile.relation_status %></td>
+    <td><%= profile.interested_in %></td>
+    <td><%= profile.languages %></td>
+    <td><%= profile.aboutme %></td>
+    <td><%= profile.birthdate %></td>
+    <td><%= link_to 'Show', profile %></td>
+    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+    <td><%= link_to 'Destroy', profile, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile', new_profile_path %>

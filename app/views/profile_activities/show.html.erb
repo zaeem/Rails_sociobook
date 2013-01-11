@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_activity.profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @profile_activity.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @profile_activity.title %>
+</p>
+
+<p>
+  <b>Type :</b>
+  <%= @profile_activity.type_ %>
+</p>
+
+<p>
+  <b>Sport:</b>
+  <%= @profile_activity.sport %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @profile_activity.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @profile_activity.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_activity.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @profile_activity.is_default %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_activity_path(@profile_activity) %> |
+<%= link_to 'Back', profile_activities_path %>

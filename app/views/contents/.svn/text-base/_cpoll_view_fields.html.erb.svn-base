@@ -1,0 +1,56 @@
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <%= f.text_field :question, :readonly => true%>
+    </td>
+  </tr>
+  <%  @totalVotes = get_total_votes_against_poll(f.object.id)%>
+  <%= f.fields_for :cpshares do |share|%> 
+    <%if share.object.profile_id == current_user.profile.id%>
+      <%= f.fields_for :cpoptions do |option|%>
+        <% @friends = find_friends_against_option(option.object.id) %>
+        <tr>
+          <td align="left">
+            <% if f.object.allow_options == false && share.object.option != nil %>
+                <%= share.radio_button :option, option.object.id, :disabled => true %>
+              <%else%>
+                <%= share.radio_button :option, option.object.id%>
+              <%end%> 
+            <% if @totalVotes == 0 %> 
+              <span class="tooltip" title= "Total Votes = <%= @friends.length %>,  Percentage = 0.00%">
+            <%else%>     
+               <span class="tooltip" title= "Total Votes = <%= @friends.length %>,  Percentage = <%= number_to_percentage((@friends.length.to_f / @totalVotes) *100, :precision => 2)%>">
+            <%end%>  
+            <%= option.text_field :optiontext, :readonly => true %>
+         </td>
+          <% for friend in @friends %>
+            <td>
+              <span class="tooltip" title="<%=friend[:first_name]%> <%=friend[:last_name]%>">
+                 <%= image_tag friend.avatar.url(:thumb), :size => "25x25"%>
+              </span> 
+            </td>
+          <%end%>      
+        </tr>    
+      <% end %>
+    <% end %>
+  <% end %>
+  <tr>
+    <td align="left">
+      <%= link_to_comment_fields "add option", f, :cpoptions %>
+    - <%= link_to "ask Question", "#", :id => "clickquestion"%>
+    </td>
+  </tr>
+</table>
+<div id="question" style="display: none">
+  <table width="60%">
+    <% for friend in find_all_friends %>
+      <tr>
+        <td><span style="float:right;"/><%= check_box_tag "friend_ids[]", friend[:id] %></td>
+        <td>
+          <%= link_to(image_tag( friend.profile.user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+          <span style="margin-left: 3%;"/><%= friend[:first_name]+" "+friend[:last_name]%>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

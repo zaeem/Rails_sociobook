@@ -1,0 +1,45 @@
+<div class="block">
+<br/>
+ <div align = "right">
+    <%= link_to "Create List" ,  add_group_profile_groups_path %>
+    &nbsp;
+    &nbsp;
+  </div>
+<table width="60%">
+  <b>Friends:</b>
+
+  <% for friend in @all_friends %>
+   <% i = 1 %>
+    <% if i%4 == 0 %>
+      <tr>
+    <%end%>
+
+      <%= form_tag("remove_request_friend") do %>
+        <%= hidden_field_tag(:id, friend[:id]) %>
+        <td>
+       <%if friend.avatar_file_name.blank? %>
+         <%= link_to(image_tag( 'default_thumbnail.png', :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+        <%  else %>
+        <%= link_to(image_tag( friend.profile.user.avatar.url(:thumb), :size => "100x100"),  vprofile_home_url( :id => friend.profile.user.profile.id), :style =>"text-decoration: none;") %>
+        <%end%>
+           <br/>
+          <%= friend[:first_name]+" "+friend[:last_name]%>
+          <br/>
+          <%= submit_tag 'Remove Friend' %>
+
+        </td>
+      <%end%>
+
+     <% if i%4 == 0 %>
+      </tr>
+    <% end %>
+  <%i +=1 %>
+  <% end %>
+</table>
+</div>
+
+
+
+
+
+

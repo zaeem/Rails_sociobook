@@ -1,0 +1,29 @@
+<h1>Listing profile_university_classes</h1>
+
+<table>
+  <tr>
+    <th>Profile university</th>
+    <th>Class</th>
+    <th>With</th>
+    <th>Desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_university_classes.each do |profile_university_class| %>
+  <tr>
+    <td><%= profile_university_class.profile_university_id %></td>
+    <td><%= profile_university_class.class %></td>
+    <td><%= profile_university_class.with %></td>
+    <td><%= profile_university_class.desc %></td>
+    <td><%= link_to 'Show', profile_university_class %></td>
+    <td><%= link_to 'Edit', edit_profile_university_class_path(profile_university_class) %></td>
+    <td><%= link_to 'Destroy', profile_university_class, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile university class', new_profile_university_class_path %>

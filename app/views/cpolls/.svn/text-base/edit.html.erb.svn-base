@@ -1,0 +1,6 @@
+<h1>Editing cpoll</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @cpoll %> |
+<%= link_to 'Back', cpolls_path %>

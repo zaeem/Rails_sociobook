@@ -1,0 +1,293 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/dssdteam8/!svn/ver/293/sociobook/app/controllers
+END
+profile_employers_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_employers_controller.rb
+END
+profile_universities_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_universities_controller.rb
+END
+cstatuses_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/97/sociobook/app/controllers/cstatuses_controller.rb
+END
+profile_activities_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_activities_controller.rb
+END
+profile_musics_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_musics_controller.rb
+END
+profile_player_sports_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_player_sports_controller.rb
+END
+pemails_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/dssdteam8/!svn/ver/70/sociobook/app/controllers/pemails_controller.rb
+END
+users_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/dssdteam8/!svn/ver/292/sociobook/app/controllers/users_controller.rb
+END
+profile_university_classes_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_university_classes_controller.rb
+END
+profile_team_sports_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_team_sports_controller.rb
+END
+application_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/application_controller.rb
+END
+cpoptions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/30/sociobook/app/controllers/cpoptions_controller.rb
+END
+cpolls_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/dssdteam8/!svn/ver/30/sociobook/app/controllers/cpolls_controller.rb
+END
+user_sessions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/235/sociobook/app/controllers/user_sessions_controller.rb
+END
+profile_ppl_inspirations_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_ppl_inspirations_controller.rb
+END
+contacts_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/contacts_controller.rb
+END
+profile_books_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_books_controller.rb
+END
+profile_play_sports_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_play_sports_controller.rb
+END
+groups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/dssdteam8/!svn/ver/293/sociobook/app/controllers/groups_controller.rb
+END
+friends_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/283/sociobook/app/controllers/friends_controller.rb
+END
+cadds_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/dssdteam8/!svn/ver/264/sociobook/app/controllers/cadds_controller.rb
+END
+pscreens_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/70/sociobook/app/controllers/pscreens_controller.rb
+END
+ccomments_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/29/sociobook/app/controllers/ccomments_controller.rb
+END
+profile_movies_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_movies_controller.rb
+END
+members_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/215/sociobook/app/controllers/members_controller.rb
+END
+contents_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/293/sociobook/app/controllers/contents_controller.rb
+END
+chats_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/dssdteam8/!svn/ver/289/sociobook/app/controllers/chats_controller.rb
+END
+home_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/dssdteam8/!svn/ver/218/sociobook/app/controllers/home_controller.rb
+END
+cpshares_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/30/sociobook/app/controllers/cpshares_controller.rb
+END
+profile_relations_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_relations_controller.rb
+END
+cphotos_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/193/sociobook/app/controllers/cphotos_controller.rb
+END
+albums_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/dssdteam8/!svn/ver/119/sociobook/app/controllers/albums_controller.rb
+END
+pcomments_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/dssdteam8/!svn/ver/264/sociobook/app/controllers/pcomments_controller.rb
+END
+csharedwiths_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/dssdteam8/!svn/ver/139/sociobook/app/controllers/csharedwiths_controller.rb
+END
+pneighbours_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/dssdteam8/!svn/ver/70/sociobook/app/controllers/pneighbours_controller.rb
+END
+profile_employer_projects_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_employer_projects_controller.rb
+END
+password_resets_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/password_resets_controller.rb
+END
+pwebsites_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/70/sociobook/app/controllers/pwebsites_controller.rb
+END
+profiles_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/205/sociobook/app/controllers/profiles_controller.rb
+END
+profile_groups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/dssdteam8/!svn/ver/75/sociobook/app/controllers/profile_groups_controller.rb
+END
+profile_games_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_games_controller.rb
+END
+friend_profile_groups_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/dssdteam8/!svn/ver/13/sociobook/app/controllers/friend_profile_groups_controller.rb
+END
+profile_interests_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/3/sociobook/app/controllers/profile_interests_controller.rb
+END
+pphones_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/dssdteam8/!svn/ver/70/sociobook/app/controllers/pphones_controller.rb
+END
+clinks_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/dssdteam8/!svn/ver/30/sociobook/app/controllers/clinks_controller.rb
+END
+cvideos_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/dssdteam8/!svn/ver/97/sociobook/app/controllers/cvideos_controller.rb
+END
+ctags_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/dssdteam8/!svn/ver/175/sociobook/app/controllers/ctags_controller.rb
+END
+cevents_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/dssdteam8/!svn/ver/264/sociobook/app/controllers/cevents_controller.rb
+END

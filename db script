@@ -1,0 +1,162 @@
+
+
+Profile
+
+
+rails generate scaffold Profile  user_id:integer yahoo_id:string yahoo_pass:string hotmail_id:string hotmail_pass:string gmail_id:string gmail_pass:string skype_id:string skype_pass:string           contact_currentcity:string contact_email:string      contact_screenname:string  contact_messenger:string contact_phone:string contact_mobile:string   contact_countrycode:string contact_zipcode:string contact_address:string contact_town:string contact_neighbour:string   contact_website:string tv:string favour_quotes:string      political_views:string      political_views_desc:string         total_friends:integer:string      featured_friends:integer:string religion:string religion_name:string religion_logo:string  religion_logo_path:string religion_desc:string      show_birthdate:boolean    show_gender:boolean   gender:string      relation_status:string interested_in:string       languages:string      aboutme:string      birthdate:date --skip-model
+
+Profile_University
+rails generate scaffold Profile_University profile_id:integer  title:string concentration:string  todate:date fromdate:date classname:string website:string attendedfor:string logo:string logo_path:string with:string iscurrent:boolean desc:string duration:date
+
+
+Profile_University_Class
+rails generate scaffold Profile_University_Class profile_university_id:integer class:string  with:string  desc:string 
+
+
+Profile_Employer
+
+rails generate scaffold Profile_Employer  profile_id:integer title:string position:string city:string project:string fromdate:date todate:date website:string logo:string logo_path:string with:string iscurrent:boolean desc:string duration:date
+
+Profile_Employer_Project
+rails generate scaffold Profile_Employer_Project profile_employer_id:integer project:string  with:string  duration:date desc:string 
+ 
+Profile_Relation
+rails generate scaffold Profile_Relation  profile_id:integer  is_family:string family_name:string family_relation:string 
+
+
+
+Profile_Music
+rails generate scaffold Profile_Music  profile_id:integer  title:string album:string artist:string logo:string logo_path:string desc:string is_default:boolean 
+
+
+Profile_Book
+
+rails generate scaffold Profile_Book profile_id:integer  title:string auther:string logo:string logo_path:string desc:string is_default:boolean 
+
+Profile_Movie
+
+rails generate scaffold Profile_Movie profile_id:integer  title:string novel:string artist:string logo:string logo_path:string desc:string is_default:boolean 
+
+Profile_Game
+rails generate scaffold Profile_Game profile_id:integer  title:string  artist:string logo:string logo_path:string desc:string is_default:boolean 
+
+                
+Profile_Play_Sport
+rails generate scaffold Profile_Play_Sport profile_id:integer  title:string logo:string logo_path:string desc:string is_default:boolean 
+
+Profile_Team_Sport
+rails generate scaffold Profile_Team_Sport profile_id:integer  title:string game:string logo:string logo_path:string desc:string is_default:boolean 
+
+Profile_Player_Sport
+rails generate scaffold Profile_Player_Sport profile_id:integer  name:string title:string sport:string  logo:string logo_path:string desc:string is_default:boolean 
+
+
+Profile_Activity
+rails generate scaffold Profile_Activity profile_id:integer  name:string title:string type_:string sport:string  logo:string logo_path:string desc:string is_default:boolean --skip-controller --skip-model
+
+Profile_Interest
+rails generate scaffold Profile_Interest profile_id:integer  name:string title:string type_:string logo:string logo_path:string desc:string is_default:boolean --skip-controller --skip-model
+
+
+Profile_Ppl_Inspiration
+rails generate scaffold Profile_Ppl_Inspiration profile_id:integer  name:string title:string reason:string logo:string logo_path:string desc:string is_default:boolean 
+
+
+rails generate scaffold pscreen profile_id:integer  name:string type_:string --skip-model
+rails generate scaffold pphone profile_id:integer  phoneno:string type_:string countrycode:string --skip-model
+rails generate scaffold pemail profile_id:integer  email:string type_:string --skip-model
+rails generate scaffold pneighbour profile_id:integer  title:string type_:string desc:string --skip-model
+rails generate scaffold pwebsites profile_id:integer  website:string url:string --skip-model
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+      
+Profile_group
+rails generate scaffold Profile_Group profile_id:integer  name:string logo:string logo_path:string desc:string is_default:boolean
+
+friend_profile_group
+rails generate scaffold friend_profile_group friend_id:integer group_id:integer desc:string  misc:string
+ 
+--------------------------------------------------------------------------------------------------------------------------------
+Content (1 _ M )
+rails generate scaffold Content album_id:integer profile_id:integer poster_id:integer flag:integer cposted_sharedwithflag:integer group_id:integer name:string flag:integer album:string group:string type_:string desc:string  misc:string --skip-model
+
+Ccomment (1-M) with comments 
+rails generate scaffold Ccomment content_id:integer type_:string flag:integer profile_id:integer is_spam:integer is_abuse:integer noof_dislike:integer noof_like:integer
+postedagainst:integer       text_:string desc:string  misc:string -skip-controller --skip-model
+     
+Pcomment (1-M) with pcomments 
+rails generate scaffold Pcomment cphoto_id:integer type_:string flag:integer profile_id:integer is_spam:integer is_abuse:integer noof_dislike:integer noof_like:integer
+postedagainst:integer       text_:string desc:string  misc:string -skip-controller --skip-model
+
+
+Cstatus (1-1) with content 
+rails generate scaffold Cstatus content_id:integer title:string text_:string desc:string  misc:string
+
+Cphoto (1-1) with content 
+rails generate scaffold Cphoto content_id:integer  title:string photo_file_name:string photo_content_type:string photo_file_size:integer  photo_updated_at:datetime desc:string  misc:string
+
+Cvideo (1-1) with content 
+rails generate scaffold Cvideo content_id:integer  title:string inthisvideo:string video_file_name:string video_content_type:string video_file_path:string video_file_size:integer video_tfile_name:string video_tcontent_type:string video_tfile_path:string video_tfile_size:integer desc:string  misc:string --skip-model
+
+Cevent (1-1) with content 
+rails generate scaffold Cevent content_id:integer  title:string inthisvideo:string video_file_name:string video_content_type:string video_file_path:string video_file_size:integer video_tfile_name:string video_tcontent_type:string video_tfile_path:string video_tfile_size:integer desc:string  misc:string --skip-model
+
+
+Cadd (1-1) with content 
+rails generate scaffold Cvideo content_id:integer  title:string inthisvideo:string video_file_name:string video_content_type:string video_file_path:string video_file_size:integer video_tfile_name:string video_tcontent_type:string video_tfile_path:string video_tfile_size:integer desc:string  misc:string --skip-model
+
+
+
+Clink (1-1) with content 
+rails generate scaffold Clink content_id:integer  title:string link:string desc:string  misc:string
+
+Cpoll (1-1) with content 
+rails generate scaffold Cpoll content_id:integer  question:string allow_options:boolean  desc:string  misc:string --skip-model
+--------------------------------------------------------------------------------------------------------------------------------
+
+Cpoptions (1-m) with Cpoll
+rails generate scaffold Cpoption cpoll_id:integer  option:integer optiontext:string  misc:string
+
+Cpshare (1-m) with Cpoll
+rails generate scaffold Cpshare cpoll_id:integer profile_id:integer option:integer isanswered:boolean  misc:string
+
+-----------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Album  (1- M ) with  Profile  - Album
+rails generate scaffold Album profile_id:integer flag:integer name:string logo:string logo_path:string desc:string is_default:boolean
+
+--contents_photoalbums
+--rails generate scaffold Content_photoalbum content_id:integer photoalbum_id:integer desc:string  misc:string
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+rails generate scaffold Csharedwith content_id:integer  flag:integer  cswith_id:integer  type_:string desc:string  misc:string
+
+
+rails generate scaffold ctag cphoto_id:integer label:string width:integer height:integer top:integer left:integer
+
+
+
+==============================================================================================================================================
+GROUPS 
+rails generate scaffold Group profile_id:integer name:string flag_privacy:integer flag_notifications:integer flag_chat:integer flag_showgroup:integer flag_email:integer flag_sms:integer gphoto_file_name:string gphoto_content_type:string gphoto_file_size:integer gphoto_updated_at:datetime desc:string is_default:boolean misc:string
+
+rails generate scaffold Member group_id:integer profile_id:integer
+
+===============================================================================================================================================
+
+
+
+Cevent (1-1) with content 
+rails generate scaffold Cevent content_id:integer  title:string link:string fromdate:date todate:date plan:string where:string street:string citytown:string moreinfo:string flag_invitemembersofhosts:integer flag_view:integer flag_showgroup:integer ephoto_file_name:string ephoto_content_type:string ephoto_file_size:integer ephoto_updated_at:datetime desc:string  misc:string
+
+
+Cadd (1-1) with content 
+rails generate scaffold Cadd content_id:integer title:string link:string body:string ephoto_file_name:string ephoto_content_type:string ephoto_file_size:integer ephoto_updated_at:datetime desc:string  misc:string
+
+
+
+===============================================================================================================================================
+

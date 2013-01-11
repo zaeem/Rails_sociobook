@@ -1,0 +1,61 @@
+
+
+<div class="edit_content" >
+
+  <div class="sText" id="textSlider">	
+    <div class="slides_container">   
+
+      <div class="slide">
+        <div class="slide-image"><img src="/stylesheets/images/slider_2_image_1.png" alt="" width="960" height="546" border="0" /></div>
+        <div class="slide-text-right">
+          <div class="slide-title"><a href="#">Enjoy your <strong>Social Circle </strong> the way you <strong> ever </strong> intended through <strong> Wall, Newsfeed, Groups and Lists </strong></a></div>
+          <div class="slide-descr">
+            <p>Get the latest notifications on your mobile and through email. Put your comments and like/dislike others comments. Search your friends and groups and keep your self in contact with them.</p>
+
+            <%= image_tag("/images/create-group.png" , :id => "cgroup")%>               
+
+
+          </div>  
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+<%#= link_to "Create Group", "#", :id => "cgroup"%>
+    <div id="creategroup" style="display: none">
+      <%= form_for(@group) do |f| %>
+
+        <%=f.hidden_field :profile_id, { :value => current_user.profile.id } %>  
+        <table>
+          <tr>
+          <%= f.label :name %><br />
+          <%= f.text_field :name %>
+          </tr>
+          <tr>
+            <td><%= f.select :flag_privacy , [['Open',3],['Closed',2],['Secret',3]]%></td>
+          </tr>
+          <tr> 
+          <div id="cust" style="float: left; visibility: hidden ; margin-right: 10px;">
+            <% @all_friends = find_all_friends %>
+            <%=select_tag 'friend_ids[]', options_for_select(
+              @all_friends.map {|f| [f.first_name+" "+f.last_name, f.id]}), :multiple => true%>
+          </div>
+          <input type="checkbox" name="c1" onclick=showMe('cust') value="Customize ?" /> Customize ?
+          </tr>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+          <table>
+          <% end %>
+
+          </div>
+          </div>
+          </div>
+
+
+
+
+

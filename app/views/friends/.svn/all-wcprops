@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/dssdteam8/!svn/ver/280/sociobook/app/views/friends
+END
+show_friend.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/277/sociobook/app/views/friends/show_friend.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/278/sociobook/app/views/friends/new.html.erb
+END
+remove_request_friend.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/4/sociobook/app/views/friends/remove_request_friend.erb
+END
+old_import_contact.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/dssdteam8/!svn/ver/277/sociobook/app/views/friends/old_import_contact.html.erb
+END
+add_request_friend.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/4/sociobook/app/views/friends/add_request_friend.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/dssdteam8/!svn/ver/3/sociobook/app/views/friends/edit.html.erb
+END
+list_friend.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/277/sociobook/app/views/friends/list_friend.erb
+END
+import_contact.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/277/sociobook/app/views/friends/import_contact.html.erb
+END
+fetch_friends_suggestion.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/dssdteam8/!svn/ver/280/sociobook/app/views/friends/fetch_friends_suggestion.erb
+END
+find_friend.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/dssdteam8/!svn/ver/277/sociobook/app/views/friends/find_friend.erb
+END
+pending_request_friend.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/dssdteam8/!svn/ver/277/sociobook/app/views/friends/pending_request_friend.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/3/sociobook/app/views/friends/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/3/sociobook/app/views/friends/index.html.erb
+END
+import.htm.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/dssdteam8/!svn/ver/3/sociobook/app/views/friends/import.htm.erb
+END

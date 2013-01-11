@@ -1,0 +1,29 @@
+<%= form_for(@friend_profile_group) do |f| %>
+  <% if @friend_profile_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@friend_profile_group.errors.count, "error") %> prohibited this friend_profile_group from being saved:</h2>
+
+      <ul>
+      <% @friend_profile_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :friend_id %><br />
+    <%= f.text_field :friend_id %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_group_id %><br />
+    <%= f.text_field :profile_group_id %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

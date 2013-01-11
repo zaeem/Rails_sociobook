@@ -1,0 +1,181 @@
+<% if @viewalbum  %>
+  <div id="sidebar_right">
+    <a class="pageLink" href=<%="http://#{request.server_name}:#{request.server_port}/contents/valbum_makeprofile?#{request.query_string}&id=#{1}"%>>Make profile photo</a><br/><br/>
+    <a class="pageLink" href=<%="http://#{request.server_name}:#{request.server_port}#{1}"%>>Download photo</a><br/><br/>
+    <%= link_to "Add description", "#", :class=>"pageLink", :id => "edesc_album"%><br/><br/>
+    <a class="pageLink" href=<%="http://#{request.server_name}:#{request.server_port}/contents/valbum_removephoto?#{request.query_string}&id=#{1}"%>>Delete photo</a><br/><br/>
+    <a class="pageLink" href=<%="http://#{request.server_name}:#{request.server_port}/contents/tag_photo?#{request.query_string}&id=#{1}"%>>Tag photo</a><br/><br/>
+  </div>
+<% elsif @group_menus || @main_menus %>
+  <% if @main_menus  %>
+    <%    @group= Group.find_by_id(params[:vd]) %>
+  <%end%>
+
+
+  <div id="sidebar_right">
+    You may know them
+    <br />
+      <% for friend in get_friends_suggestion() %>
+
+        <%
+        user = friend[:user_obj]
+        user_id = user.id
+      %>
+        <tr>
+
+          <td>
+            <%= link_to(image_tag(user.avatar.url(:thumb), :size => "50x50"),  vprofile_home_url( :id => user.profile.id), :style =>"text-decoration: none;") %>
+
+            <%= user[:first_name]+" "+user[:last_name]%>
+            <br/>
+          </td>
+        </tr>
+    <%end%>
+  
+
+    <% unless @group.blank? %>
+      Members ( <%=@group.members.count  %> )    
+      <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+
+      <% for member in @group.members%>
+
+        <table> 
+          <td>
+          <tr>
+            <%= link_to(image_tag( member.profile.user.avatar.url(:thumb), :size => "25x25"),  ewall_contents_path(:id => current_user.profile.id ,:sk => 'photo' , :pv => 'w', :vd => 0)) %>
+            <%= member.profile.user.first_name + " " +  member.profile.user.last_name %>
+          </tr>
+          </td>
+        </table> 
+      <% end %>    
+    <% end %>    
+
+    <br/> <br/> 
+    <%= link_to "Add Friends to Group", "#", :id => "fgroup"%>
+    <div id="addfgroup" style="display: none">
+      <% @group = Group.new %>
+      <%= form_for(@group) do |f| %>
+
+        <table>
+          <tr> 
+          <div id="cust" style="float: left; visibility: visible ; margin-right: 10px;">
+            <% @all_friends = find_all_friends %>
+            <%=select_tag 'friend_ids[]', options_for_select(
+              @all_friends.map {|f| [f.first_name+" "+f.last_name, f.id]}), :multiple => true%>
+          </div>
+          <input type="checkbox" name="c1" onclick=showMe('cust') value="Customize ?" /> Customize ?
+          </tr>
+          <div class="actions">
+            <%= f.submit "Add Member"%>
+          </div>
+        </table>
+      <% end %>
+
+    </div>
+
+
+    <br/> <br/>
+    <%if (params[:vd].present? && params[:vd]!="0") %>
+    <a href="javascript:void(0)" onclick="javascript:chatWith('Group-<%= Group.find(params[:vd]).name %>')">Chat with this group</a><br /> <br />
+    <% end %>
+    <%= link_to "Create Doc", ccdoc_contents_path(:id => params[:id], :sk => 'status', :pv => params[:pv],:vd => params[:vd])%><br/><br/>
+     <%= link_to "Send SMS", ccdoc_contents_path(:gid => params[:vd])%><br/><br/>
+    <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+     <%= link_to "Edit group", vgroup_groups_path(:gid => params[:vd], :pv => 'w')%> <br/><br/>
+     <%= link_to "View Photos", ewall_contents_path(:id => current_user.profile.id ,:sk => 'photo' , :pv => 'w', :vd => params[:vd])%> <br/><br/>
+
+
+
+
+    
+    <div>
+      <%= link_to "Leave Group", "#", :id => "leavegroup"%><br/><br/>
+      <div id="leave_group" style="display: none" width="100" >
+        <table>
+          <%= form_for(@group) do |f| %>
+            <tr>
+
+              Are you sure you want to give up your administrator privileges and leave this group?
+              The administrator position will be offered to other people who are currently in the
+              group. This will also prevent members from re-adding you.
+
+              If you ever want to rejoin, visit the group and click Ask to Join Group.  
+            </tr>
+            <div class="actions">
+    <%#   leavegroups(group.id,current_user.profile.id) %>
+
+              <%= f.submit "Leave Group"%>
+            </div>
+
+          <% end %>
+        </table>
+      </div>
+
+    </div>
+
+  <%#*-----------------------------------------------------------------------------------------------------------------------------%>  
+    <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+
+
+
+    <%= link_to "Create Event", cevent_contents_path(:id => params[:id], :sk => 'event', :pv => params[:pv],:vd => params[:vd])%><br/><br/>
+    <%= link_to "Create Ads", cadd_contents_path(:id => params[:id], :sk => 'cadd', :pv => params[:pv],:vd => params[:vd])%><br/><br/>
+    
+     <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+
+     <% for content in all_contents_adds() %>
+      <table>
+      <tr>
+        <%  unless(content.cadd.blank? ) %>
+        <%= image_tag( content.cadd.ephoto.url(:thumb), :size => "50x50") %>
+        <%= content.cadd.title %>
+        <%end%>
+       </tr>
+      </table>
+      <%end%>
+     
+     
+     
+     <%#*--------------------------------------------------------------------------------------------%>
+     
+     <br/> <br/> <br/> <br/> <br/><li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+
+  </div> 
+
+
+<% elsif @wall_menus %>
+
+  <div id="sidebar_right">
+    You may know them
+    <br />
+      <% for friend in get_friends_suggestion() %>
+
+        <%
+        user = friend[:user_obj]
+        user_id = user.id
+      %>
+        <tr>
+
+          <td>
+            <%= link_to(image_tag(user.avatar.url(:thumb), :size => "50x50"),  vprofile_home_url( :id => user.profile.id), :style =>"text-decoration: none;") %>
+
+            <%= user[:first_name]+" "+user[:last_name]%>
+            <br/>
+          </td>
+        </tr>
+    <%end%>
+
+    <% unless @group.blank? %>
+
+      Members ( <%=@group.members.count  %> )    
+      <li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+
+   
+    <% end %>
+    <br/> <br/> <br/> <br/> <br/><li style="border-bottom:1px solid #DDD; margin-bottom: 20px"> </li>
+
+  </div> 
+
+
+<% end %>
+

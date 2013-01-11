@@ -1,0 +1,6 @@
+<h1>Editing profile_employer_project</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @profile_employer_project %> |
+<%= link_to 'Back', profile_employer_projects_path %>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/dssdteam8/!svn/ver/44/sociobook/app/views/profile_interests
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/dssdteam8/!svn/ver/3/sociobook/app/views/profile_interests/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/44/sociobook/app/views/profile_interests/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/dssdteam8/!svn/ver/3/sociobook/app/views/profile_interests/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/dssdteam8/!svn/ver/44/sociobook/app/views/profile_interests/show.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/dssdteam8/!svn/ver/44/sociobook/app/views/profile_interests/_form.html.erb
+END

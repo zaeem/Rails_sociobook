@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Profile:</b>
+  <%= @profile_music.profile_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @profile_music.title %>
+</p>
+
+<p>
+  <b>Album:</b>
+  <%= @profile_music.album %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%= @profile_music.artist %>
+</p>
+
+<p>
+  <b>Logo:</b>
+  <%= @profile_music.logo %>
+</p>
+
+<p>
+  <b>Logo path:</b>
+  <%= @profile_music.logo_path %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @profile_music.desc %>
+</p>
+
+<p>
+  <b>Is default:</b>
+  <%= @profile_music.is_default %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_music_path(@profile_music) %> |
+<%= link_to 'Back', profile_musics_path %>

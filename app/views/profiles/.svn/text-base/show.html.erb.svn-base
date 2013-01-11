@@ -1,0 +1,205 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @profile.user_id %>
+</p>
+
+<p>
+  <b>Yahoo:</b>
+  <%= @profile.yahoo_id %>
+</p>
+
+<p>
+  <b>Yahoo pass:</b>
+  <%= @profile.yahoo_pass %>
+</p>
+
+<p>
+  <b>Hotmail:</b>
+  <%= @profile.hotmail_id %>
+</p>
+
+<p>
+  <b>Hotmail pass:</b>
+  <%= @profile.hotmail_pass %>
+</p>
+
+<p>
+  <b>Gmail:</b>
+  <%= @profile.gmail_id %>
+</p>
+
+<p>
+  <b>Gmail pass:</b>
+  <%= @profile.gmail_pass %>
+</p>
+
+<p>
+  <b>Skype:</b>
+  <%= @profile.skype_id %>
+</p>
+
+<p>
+  <b>Skype pass:</b>
+  <%= @profile.skype_pass %>
+</p>
+
+<p>
+  <b>Contact currentcity:</b>
+  <%= @profile.contact_currentcity %>
+</p>
+
+<p>
+  <b>Contact email:</b>
+  <%= @profile.contact_email %>
+</p>
+
+<p>
+  <b>Contact screenname:</b>
+  <%= @profile.contact_screenname %>
+</p>
+
+<p>
+  <b>Contact messenger:</b>
+  <%= @profile.contact_messenger %>
+</p>
+
+<p>
+  <b>Contact phone:</b>
+  <%= @profile.contact_phone %>
+</p>
+
+<p>
+  <b>Contact mobile:</b>
+  <%= @profile.contact_mobile %>
+</p>
+
+<p>
+  <b>Contact countrycode:</b>
+  <%= @profile.contact_countrycode %>
+</p>
+
+<p>
+  <b>Contact zipcode:</b>
+  <%= @profile.contact_zipcode %>
+</p>
+
+<p>
+  <b>Contact address:</b>
+  <%= @profile.contact_address %>
+</p>
+
+<p>
+  <b>Contact town:</b>
+  <%= @profile.contact_town %>
+</p>
+
+<p>
+  <b>Contact neighbour:</b>
+  <%= @profile.contact_neighbour %>
+</p>
+
+<p>
+  <b>Contact website:</b>
+  <%= @profile.contact_website %>
+</p>
+
+<p>
+  <b>Tv:</b>
+  <%= @profile.tv %>
+</p>
+
+<p>
+  <b>Favour quotes:</b>
+  <%= @profile.favour_quotes %>
+</p>
+
+<p>
+  <b>Political views:</b>
+  <%= @profile.political_views %>
+</p>
+
+<p>
+  <b>Political views desc:</b>
+  <%= @profile.political_views_desc %>
+</p>
+
+<p>
+  <b>Total friends:</b>
+  <%= @profile.total_friends %>
+</p>
+
+<p>
+  <b>Featured friends:</b>
+  <%= @profile.featured_friends %>
+</p>
+
+<p>
+  <b>Religion:</b>
+  <%= @profile.religion %>
+</p>
+
+<p>
+  <b>Religion name:</b>
+  <%= @profile.religion_name %>
+</p>
+
+<p>
+  <b>Religion logo:</b>
+  <%= @profile.religion_logo %>
+</p>
+
+<p>
+  <b>Religion logo path:</b>
+  <%= @profile.religion_logo_path %>
+</p>
+
+<p>
+  <b>Religion desc:</b>
+  <%= @profile.religion_desc %>
+</p>
+
+<p>
+  <b>Show birthdate:</b>
+  <%= @profile.show_birthdate %>
+</p>
+
+<p>
+  <b>Show gender:</b>
+  <%= @profile.show_gender %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @profile.gender %>
+</p>
+
+<p>
+  <b>Relation status:</b>
+  <%= @profile.relation_status %>
+</p>
+
+<p>
+  <b>Interested in:</b>
+  <%= @profile.interested_in %>
+</p>
+
+<p>
+  <b>Languages:</b>
+  <%= @profile.languages %>
+</p>
+
+<p>
+  <b>Aboutme:</b>
+  <%= @profile.aboutme %>
+</p>
+
+<p>
+  <b>Birthdate:</b>
+  <%= @profile.birthdate %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

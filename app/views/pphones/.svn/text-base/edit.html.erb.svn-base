@@ -1,0 +1,6 @@
+<h1>Editing pphone</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @pphone %> |
+<%= link_to 'Back', pphones_path %>

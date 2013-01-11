@@ -1,0 +1,23 @@
+/etc/gdm/Xsession: Beginning session setup...
+Setting IM through im-switch for locale=en_US.
+Start IM through /etc/X11/xinit/xinput.d/all_ALL linked to /etc/X11/xinit/xinput.d/default.
+Unable to find a synaptics device.
+Initializing nautilus-gdu extension
+
+(nautilus:1369): GConf-CRITICAL **: gconf_value_free: assertion `value != NULL' failed
+Nautilus-Share-Message: Called "net usershare info" but it failed: Failed to execute child process "net" (No such file or directory)
+gnome-session[1227]: EggSMClient-WARNING: Desktop file '/usr/share/applications/sqlitebrowser.desktop' has malformed Icon key 'sqlitebrowser.png'(should not include extension)
+
+(nautilus:1369): GConf-CRITICAL **: gconf_value_free: assertion `value != NULL' failed
+Window manager warning: CurrentTime used to choose focus window; focus window may not be correct.
+Window manager warning: Got a request to focus the no_focus_window with a timestamp of 0.  This shouldn't happen!
+sys:1: GtkWarning: IA__gtk_container_foreach: assertion `GTK_IS_CONTAINER (container)' failed
+gnome-settings-daemon: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.0.
+The application 'nautilus' lost its connection to the display :0.0;
+most likely the X server was shut down or you killed/destroyed
+the application.
+checkerservice.pyc: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.0.
+[1755:1755:4934682083:ERROR:browser_main_gtk.cc(54)] X IO Error detected
+The application 'gnome-panel' lost its connection to the display :0.0;
+most likely the X server was shut down or you killed/destroyed
+the application.

@@ -1,0 +1,37 @@
+<h1>Listing profile_movies</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Title</th>
+    <th>Novel</th>
+    <th>Artist</th>
+    <th>Logo</th>
+    <th>Logo path</th>
+    <th>Desc</th>
+    <th>Is default</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_movies.each do |profile_movie| %>
+  <tr>
+    <td><%= profile_movie.profile_id %></td>
+    <td><%= profile_movie.title %></td>
+    <td><%= profile_movie.novel %></td>
+    <td><%= profile_movie.artist %></td>
+    <td><%= profile_movie.logo %></td>
+    <td><%= profile_movie.logo_path %></td>
+    <td><%= profile_movie.desc %></td>
+    <td><%= profile_movie.is_default %></td>
+    <td><%= link_to 'Show', profile_movie %></td>
+    <td><%= link_to 'Edit', edit_profile_movie_path(profile_movie) %></td>
+    <td><%= link_to 'Destroy', profile_movie, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile movie', new_profile_movie_path %>

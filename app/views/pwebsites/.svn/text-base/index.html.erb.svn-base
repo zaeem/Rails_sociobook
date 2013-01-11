@@ -1,0 +1,27 @@
+<h1>Listing pwebsites</h1>
+
+<table>
+  <tr>
+    <th>Profile</th>
+    <th>Website</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pwebsites.each do |pwebsite| %>
+  <tr>
+    <td><%= pwebsite.profile_id %></td>
+    <td><%= pwebsite.website %></td>
+    <td><%= pwebsite.url %></td>
+    <td><%= link_to 'Show', pwebsite %></td>
+    <td><%= link_to 'Edit', edit_pwebsite_path(pwebsite) %></td>
+    <td><%= link_to 'Destroy', pwebsite, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pwebsite', new_pwebsite_path %>

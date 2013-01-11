@@ -1,0 +1,37 @@
+<h1>Listing pcomments</h1>
+
+<table>
+  <tr>
+    <th>Cphoto</th>
+    <th>Type </th>
+    <th>Flag</th>
+    <th>Profile</th>
+    <th>Is spam</th>
+    <th>Is abuse</th>
+    <th>Noof dislike</th>
+    <th>Noof like</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pcomments.each do |pcomment| %>
+  <tr>
+    <td><%= pcomment.cphoto_id %></td>
+    <td><%= pcomment.type_ %></td>
+    <td><%= pcomment.flag %></td>
+    <td><%= pcomment.profile_id %></td>
+    <td><%= pcomment.is_spam %></td>
+    <td><%= pcomment.is_abuse %></td>
+    <td><%= pcomment.noof_dislike %></td>
+    <td><%= pcomment.noof_like %></td>
+    <td><%= link_to 'Show', pcomment %></td>
+    <td><%= link_to 'Edit', edit_pcomment_path(pcomment) %></td>
+    <td><%= link_to 'Destroy', pcomment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pcomment', new_pcomment_path %>

@@ -1,0 +1,50 @@
+<%= render :partial => 'shared/steps' %>
+<div class="stepContent">
+  <h4>Fill out your Profile Info</h4>
+  <p>This information will help you find your friends on Facebook.</p>
+  <form id="userProfile" method="post" action=""> 
+    <%#= form_for(@profile) do |f| %>
+     <fieldset>
+        <legend>Education </legend>
+        <table width="80%">
+          <tr>
+            <td width="30%"><strong>High School:</strong></td>
+            <td><input name="school" type="text" id="school" size="30" maxlength="60"></input></td>
+          </tr>
+          <tr>
+            <td><strong>College/University:</strong></td>
+            <td><input name="university" type="text" id="university" size="30" maxlength="60"></input></td>
+          </tr>
+          <tr>
+            <td><strong>Employer:</strong></td>
+            <td><input name="employer" type="text" id="employer" size="30" maxlength="60"></input></td>
+          </tr>
+        </table>
+     </fieldset>  
+     <fieldset>
+        <legend>Security</legend>
+        <table width="80%">
+          <tr>
+            <td width="30%"><strong>Mobile Number:</strong></td>
+            <td><input name="mobile" type="text" id="mobile" size="30" maxlength="15"></input></td>
+          </tr>
+          <tr>
+            <td><strong>Secret Question:</strong></td>
+            <td><select name="secret Question" size="1" id="secret Question">
+                <option value="0" selected>-- Secret Question --</option>
+                <option value="1">What is your favourite movie?</option>
+                <option value="2">What is your favourite game?</option>
+                <option value="3">What is your favourite pet?</option>
+              </select></td>
+          </tr>
+           <tr>
+             <td>&nbsp;</td>
+            <td><input name="secret_answer" type="text" id="secret_answer" size="30" maxlength="15"></input></td>
+          </tr>
+        </table>
+     </fieldset>   
+     <%#= link_to "back", new_friend_url, :class => "cornerButtonLeft" %>
+     <%= link_to "skip", upload_pic_home_path, :class => "cornerButtonRight" %>
+  </form>
+</div>
+
